@@ -9,11 +9,11 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+It generates a set of squares that move around the front and the background of the screen, they are yellow, white and black, they have different sizes and movement speed too. 
 
 ## How to test
 
-Explain how to use your project
+It pretty much just goes by itself, I mean the animations of course. But you can use the buttons on the top of the screen to change the colors of the squares. 
 
 ## External hardware
 
