@@ -1,0 +1,65 @@
+# Tiny Tapeout project information
+project:
+  title:        "SR-GA1"      # Project title
+  author:       "Stanley Booth"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "A small FPGA/CPLD device"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     4000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "2x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_sr_ga1_srb2149"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "project.v"
+    - "hdl/clb/clb_blackbox.sv"
+    - "hdl/clock/clock_sel.sv"
+    - "hdl/clock/clock_bank.sv"
+    - "hdl/grid/clb_grid.sv"
+    - "hdl/io/io_controller.sv"
+    - "hdl/mux/mux.sv"
+    - "hdl/regs/shift_reg_no_reset.sv"
+    - "hdl/top/sr-ga1.sv"
+    - "logos/logos.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "FPGA programming interface data in"
+  ui[1]: "Fabric input 0"
+  ui[2]: "Fabric input 1"
+  ui[3]: "Fabric input 2"
+  ui[4]: "Fabric input 3"
+  ui[5]: "Fabric input 4"
+  ui[6]: "Fabric input 5"
+  ui[7]: "Fabric input 6"
+
+  # Outputs
+  uo[0]: "FPGA programming interface data out (for testing shift path)"
+  uo[1]: "Fabric output 0"
+  uo[2]: "Fabric output 1"
+  uo[3]: "Fabric output 2"
+  uo[4]: "Fabric output 3"
+  uo[5]: "Fabric output 4"
+  uo[6]: "Fabric output 5"
+  uo[7]: "Fabric output 6"
+
+  # Bidirectional pins
+  uio[0]: "Fabric input 7"
+  uio[1]: "Fabric input 8"
+  uio[2]: "Fabric input 9"
+  uio[3]: "Fabric output 7"
+  uio[4]: "Fabric output 8"
+  uio[5]: "Fabric output 9"
+  uio[6]: "Fabric DDIO 0"
+  uio[7]: "Fabric DDIO 1"
+
+# Do not change!
+yaml_version: 6
