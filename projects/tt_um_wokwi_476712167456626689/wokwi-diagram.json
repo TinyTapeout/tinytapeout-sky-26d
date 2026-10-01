@@ -1,0 +1,1730 @@
+{
+  "version": 1,
+  "author": "Contador 4 bits con decodificador 7 segmentos",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-clock-generator",
+      "id": "clock1",
+      "top": -355.2,
+      "left": -115.2,
+      "attrs": {
+        "frequency": "1"
+      }
+    },
+    {
+      "type": "wokwi-slide-switch",
+      "id": "sw2",
+      "top": -370,
+      "left": -35.3,
+      "attrs": {
+        "value": "1"
+      }
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn1",
+      "top": -349,
+      "left": 19.2,
+      "attrs": {
+        "color": "grey",
+        "label": "Paso",
+        "bounce": "0",
+        "key": "s"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr3",
+      "top": -373.64,
+      "left": 105.6,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r1",
+      "top": -400,
+      "left": 30,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd2",
+      "top": -420,
+      "left": 120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btn2",
+      "top": -301,
+      "left": -134.4,
+      "attrs": {
+        "color": "grey",
+        "label": "REINICIAR",
+        "bounce": "0",
+        "key": "r"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": -259.2,
+      "left": -163.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "r2",
+      "top": -293.65,
+      "left": -211.2,
+      "attrs": {
+        "value": "1000"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr5",
+      "top": -325.64,
+      "left": -230.4,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dip-switch-8",
+      "id": "sw1",
+      "top": -176.5,
+      "left": -94.5,
+      "attrs": {},
+      "rotate": 90
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr1",
+      "top": -229.64,
+      "left": -115.2,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-input",
+      "id": "ttin",
+      "top": -228.13,
+      "left": 4.8,
+      "attrs": {
+        "verilogRole": "input"
+      }
+    },
+    {
+      "type": "board-tt-block-output",
+      "id": "ttout",
+      "top": -208.93,
+      "left": 1260,
+      "attrs": {
+        "verilogRole": "output"
+      }
+    },
+    {
+      "type": "wokwi-7segment",
+      "id": "sevseg1",
+      "top": -183.24,
+      "left": 1450,
+      "attrs": {
+        "common": "cathode"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "pwr2",
+      "top": -76.8,
+      "left": 1465,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t1",
+      "top": -432,
+      "left": -230.4,
+      "attrs": {
+        "text": "1. Simula con el botón verde ▶"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t2",
+      "top": -288,
+      "left": 38.4,
+      "attrs": {
+        "text": "2. Interruptor: reloj (1 Hz) o botón Paso (tecla S)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t3",
+      "top": -340,
+      "left": -230,
+      "attrs": {
+        "text": "REINICIAR (tecla R) = contador a 0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t4",
+      "top": -268.8,
+      "left": 1260,
+      "attrs": {
+        "text": "3. Observa el display"
+      }
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "rst_inv",
+      "top": -60,
+      "left": 200,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-dr",
+      "id": "ff0",
+      "top": -150,
+      "left": 410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-dr",
+      "id": "ff1",
+      "top": -40,
+      "left": 410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-dr",
+      "id": "ff2",
+      "top": 70,
+      "left": 410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-dr",
+      "id": "ff3",
+      "top": 180,
+      "left": 410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t5",
+      "top": -190,
+      "left": 410,
+      "attrs": {
+        "text": "REGISTRO (Q3..Q0)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t6",
+      "top": -190,
+      "left": 260,
+      "attrs": {
+        "text": "SUMADOR +1"
+      }
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "add_n0",
+      "top": -150,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "add_x1",
+      "top": -40,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "add_a1",
+      "top": 10,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "add_x2",
+      "top": 70,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "add_a2",
+      "top": 120,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "add_x3",
+      "top": 180,
+      "left": 290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t7",
+      "top": -190,
+      "left": 520,
+      "attrs": {
+        "text": "DECODIFICADOR 4→16"
+      }
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "ph0",
+      "top": -150,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "ph1",
+      "top": -105,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "ph2",
+      "top": -60,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "ph3",
+      "top": -15,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "pl0",
+      "top": 30,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "pl1",
+      "top": 75,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "pl2",
+      "top": 120,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "pl3",
+      "top": 165,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m0",
+      "top": -150,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m1",
+      "top": -112,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m2",
+      "top": -74,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m3",
+      "top": -36,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m4",
+      "top": 2,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m5",
+      "top": 40,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m6",
+      "top": 78,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m7",
+      "top": 116,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m8",
+      "top": 154,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m9",
+      "top": 192,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m10",
+      "top": 230,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m11",
+      "top": 268,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m12",
+      "top": 306,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m13",
+      "top": 344,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m14",
+      "top": 382,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "m15",
+      "top": 420,
+      "left": 650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "t8",
+      "top": -190,
+      "left": 820,
+      "attrs": {
+        "text": "LÓGICA POR SEGMENTO (NOR de los ceros)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsa",
+      "top": -160,
+      "left": 800,
+      "attrs": {
+        "text": "a: ceros=[1, 4, 11, 13]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sa0",
+      "top": -150,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sa1",
+      "top": -150,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sa2",
+      "top": -150,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsb",
+      "top": -100,
+      "left": 800,
+      "attrs": {
+        "text": "b: ceros=[5, 6, 11, 12, 14, 15]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sb0",
+      "top": -90,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sb1",
+      "top": -90,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sb2",
+      "top": -90,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sb3",
+      "top": -90,
+      "left": 1075,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sb4",
+      "top": -90,
+      "left": 1130,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsc",
+      "top": -40,
+      "left": 800,
+      "attrs": {
+        "text": "c: ceros=[2, 12, 14, 15]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sc0",
+      "top": -30,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sc1",
+      "top": -30,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sc2",
+      "top": -30,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsd",
+      "top": 20,
+      "left": 800,
+      "attrs": {
+        "text": "d: ceros=[1, 4, 7, 10, 15]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sd0",
+      "top": 30,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sd1",
+      "top": 30,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sd2",
+      "top": 30,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sd3",
+      "top": 30,
+      "left": 1075,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tse",
+      "top": 80,
+      "left": 800,
+      "attrs": {
+        "text": "e: ceros=[1, 3, 4, 5, 7, 9]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "se0",
+      "top": 90,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "se1",
+      "top": 90,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "se2",
+      "top": 90,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "se3",
+      "top": 90,
+      "left": 1075,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "se4",
+      "top": 90,
+      "left": 1130,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsf",
+      "top": 140,
+      "left": 800,
+      "attrs": {
+        "text": "f: ceros=[1, 2, 3, 7, 13]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sf0",
+      "top": 150,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sf1",
+      "top": 150,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sf2",
+      "top": 150,
+      "left": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sf3",
+      "top": 150,
+      "left": 1075,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "tsg",
+      "top": 200,
+      "left": 800,
+      "attrs": {
+        "text": "g: ceros=[0, 1, 7, 12]"
+      }
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sg0",
+      "top": 210,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "sg1",
+      "top": 210,
+      "left": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-nor-2",
+      "id": "sg2",
+      "top": 210,
+      "left": 1020,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "sw2:1",
+      "clock1:CLK",
+      "blue",
+      []
+    ],
+    [
+      "btn1:1.l",
+      "sw2:3",
+      "blue",
+      []
+    ],
+    [
+      "pwr3:VCC",
+      "btn1:2.r",
+      "red",
+      []
+    ],
+    [
+      "btn1:1.l",
+      "r1:1",
+      "blue",
+      []
+    ],
+    [
+      "r1:2",
+      "gnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "btn2:2.l",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "btn2:1.l",
+      "r2:2",
+      "green",
+      []
+    ],
+    [
+      "pwr5:VCC",
+      "r2:1",
+      "red",
+      []
+    ],
+    [
+      "ttin:EXTRST_N",
+      "btn2:1.r",
+      "orange",
+      []
+    ],
+    [
+      "sw2:2",
+      "ttin:EXTCLK",
+      "blue",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:1a",
+      "red",
+      []
+    ],
+    [
+      "sw1:1b",
+      "ttin:EXTIN0",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:2a",
+      "red",
+      []
+    ],
+    [
+      "sw1:2b",
+      "ttin:EXTIN1",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:3a",
+      "red",
+      []
+    ],
+    [
+      "sw1:3b",
+      "ttin:EXTIN2",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:4a",
+      "red",
+      []
+    ],
+    [
+      "sw1:4b",
+      "ttin:EXTIN3",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:5a",
+      "red",
+      []
+    ],
+    [
+      "sw1:5b",
+      "ttin:EXTIN4",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:6a",
+      "red",
+      []
+    ],
+    [
+      "sw1:6b",
+      "ttin:EXTIN5",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:7a",
+      "red",
+      []
+    ],
+    [
+      "sw1:7b",
+      "ttin:EXTIN6",
+      "green",
+      []
+    ],
+    [
+      "pwr1:VCC",
+      "sw1:8a",
+      "red",
+      []
+    ],
+    [
+      "sw1:8b",
+      "ttin:EXTIN7",
+      "green",
+      []
+    ],
+    [
+      "pwr2:GND",
+      "sevseg1:COM.1",
+      "black",
+      []
+    ],
+    [
+      "ttout:EXTOUT0",
+      "sevseg1:A",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT1",
+      "sevseg1:B",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT2",
+      "sevseg1:C",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT3",
+      "sevseg1:D",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT4",
+      "sevseg1:E",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT5",
+      "sevseg1:F",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT6",
+      "sevseg1:G",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT7",
+      "sevseg1:DP",
+      "green",
+      []
+    ],
+    [
+      "ttin:RST_N",
+      "rst_inv:IN",
+      "orange",
+      []
+    ],
+    [
+      "ttin:CLK",
+      "ff0:CLK",
+      "blue",
+      []
+    ],
+    [
+      "rst_inv:OUT",
+      "ff0:R",
+      "orange",
+      []
+    ],
+    [
+      "ttin:CLK",
+      "ff1:CLK",
+      "blue",
+      []
+    ],
+    [
+      "rst_inv:OUT",
+      "ff1:R",
+      "orange",
+      []
+    ],
+    [
+      "ttin:CLK",
+      "ff2:CLK",
+      "blue",
+      []
+    ],
+    [
+      "rst_inv:OUT",
+      "ff2:R",
+      "orange",
+      []
+    ],
+    [
+      "ttin:CLK",
+      "ff3:CLK",
+      "blue",
+      []
+    ],
+    [
+      "rst_inv:OUT",
+      "ff3:R",
+      "orange",
+      []
+    ],
+    [
+      "ff0:Q",
+      "add_n0:IN",
+      "purple",
+      []
+    ],
+    [
+      "add_n0:OUT",
+      "ff0:D",
+      "purple",
+      []
+    ],
+    [
+      "ff1:Q",
+      "add_x1:A",
+      "purple",
+      []
+    ],
+    [
+      "ff0:Q",
+      "add_x1:B",
+      "purple",
+      []
+    ],
+    [
+      "add_x1:OUT",
+      "ff1:D",
+      "purple",
+      []
+    ],
+    [
+      "ff1:Q",
+      "add_a1:A",
+      "purple",
+      []
+    ],
+    [
+      "ff0:Q",
+      "add_a1:B",
+      "purple",
+      []
+    ],
+    [
+      "ff2:Q",
+      "add_x2:A",
+      "purple",
+      []
+    ],
+    [
+      "add_a1:OUT",
+      "add_x2:B",
+      "purple",
+      []
+    ],
+    [
+      "add_x2:OUT",
+      "ff2:D",
+      "purple",
+      []
+    ],
+    [
+      "ff2:Q",
+      "add_a2:A",
+      "purple",
+      []
+    ],
+    [
+      "add_a1:OUT",
+      "add_a2:B",
+      "purple",
+      []
+    ],
+    [
+      "ff3:Q",
+      "add_x3:A",
+      "purple",
+      []
+    ],
+    [
+      "add_a2:OUT",
+      "add_x3:B",
+      "purple",
+      []
+    ],
+    [
+      "add_x3:OUT",
+      "ff3:D",
+      "purple",
+      []
+    ],
+    [
+      "ff3:NOTQ",
+      "ph0:A",
+      "green",
+      []
+    ],
+    [
+      "ff2:NOTQ",
+      "ph0:B",
+      "green",
+      []
+    ],
+    [
+      "ff3:NOTQ",
+      "ph1:A",
+      "green",
+      []
+    ],
+    [
+      "ff2:Q",
+      "ph1:B",
+      "green",
+      []
+    ],
+    [
+      "ff3:Q",
+      "ph2:A",
+      "green",
+      []
+    ],
+    [
+      "ff2:NOTQ",
+      "ph2:B",
+      "green",
+      []
+    ],
+    [
+      "ff3:Q",
+      "ph3:A",
+      "green",
+      []
+    ],
+    [
+      "ff2:Q",
+      "ph3:B",
+      "green",
+      []
+    ],
+    [
+      "ff1:NOTQ",
+      "pl0:A",
+      "green",
+      []
+    ],
+    [
+      "ff0:NOTQ",
+      "pl0:B",
+      "green",
+      []
+    ],
+    [
+      "ff1:NOTQ",
+      "pl1:A",
+      "green",
+      []
+    ],
+    [
+      "ff0:Q",
+      "pl1:B",
+      "green",
+      []
+    ],
+    [
+      "ff1:Q",
+      "pl2:A",
+      "green",
+      []
+    ],
+    [
+      "ff0:NOTQ",
+      "pl2:B",
+      "green",
+      []
+    ],
+    [
+      "ff1:Q",
+      "pl3:A",
+      "green",
+      []
+    ],
+    [
+      "ff0:Q",
+      "pl3:B",
+      "green",
+      []
+    ],
+    [
+      "ph0:OUT",
+      "m0:A",
+      "gray",
+      []
+    ],
+    [
+      "pl0:OUT",
+      "m0:B",
+      "gray",
+      []
+    ],
+    [
+      "ph0:OUT",
+      "m1:A",
+      "gray",
+      []
+    ],
+    [
+      "pl1:OUT",
+      "m1:B",
+      "gray",
+      []
+    ],
+    [
+      "ph0:OUT",
+      "m2:A",
+      "gray",
+      []
+    ],
+    [
+      "pl2:OUT",
+      "m2:B",
+      "gray",
+      []
+    ],
+    [
+      "ph0:OUT",
+      "m3:A",
+      "gray",
+      []
+    ],
+    [
+      "pl3:OUT",
+      "m3:B",
+      "gray",
+      []
+    ],
+    [
+      "ph1:OUT",
+      "m4:A",
+      "gray",
+      []
+    ],
+    [
+      "pl0:OUT",
+      "m4:B",
+      "gray",
+      []
+    ],
+    [
+      "ph1:OUT",
+      "m5:A",
+      "gray",
+      []
+    ],
+    [
+      "pl1:OUT",
+      "m5:B",
+      "gray",
+      []
+    ],
+    [
+      "ph1:OUT",
+      "m6:A",
+      "gray",
+      []
+    ],
+    [
+      "pl2:OUT",
+      "m6:B",
+      "gray",
+      []
+    ],
+    [
+      "ph1:OUT",
+      "m7:A",
+      "gray",
+      []
+    ],
+    [
+      "pl3:OUT",
+      "m7:B",
+      "gray",
+      []
+    ],
+    [
+      "ph2:OUT",
+      "m8:A",
+      "gray",
+      []
+    ],
+    [
+      "pl0:OUT",
+      "m8:B",
+      "gray",
+      []
+    ],
+    [
+      "ph2:OUT",
+      "m9:A",
+      "gray",
+      []
+    ],
+    [
+      "pl1:OUT",
+      "m9:B",
+      "gray",
+      []
+    ],
+    [
+      "ph2:OUT",
+      "m10:A",
+      "gray",
+      []
+    ],
+    [
+      "pl2:OUT",
+      "m10:B",
+      "gray",
+      []
+    ],
+    [
+      "ph2:OUT",
+      "m11:A",
+      "gray",
+      []
+    ],
+    [
+      "pl3:OUT",
+      "m11:B",
+      "gray",
+      []
+    ],
+    [
+      "ph3:OUT",
+      "m12:A",
+      "gray",
+      []
+    ],
+    [
+      "pl0:OUT",
+      "m12:B",
+      "gray",
+      []
+    ],
+    [
+      "ph3:OUT",
+      "m13:A",
+      "gray",
+      []
+    ],
+    [
+      "pl1:OUT",
+      "m13:B",
+      "gray",
+      []
+    ],
+    [
+      "ph3:OUT",
+      "m14:A",
+      "gray",
+      []
+    ],
+    [
+      "pl2:OUT",
+      "m14:B",
+      "gray",
+      []
+    ],
+    [
+      "ph3:OUT",
+      "m15:A",
+      "gray",
+      []
+    ],
+    [
+      "pl3:OUT",
+      "m15:B",
+      "gray",
+      []
+    ],
+    [
+      "m1:OUT",
+      "sa0:A",
+      "red",
+      []
+    ],
+    [
+      "m4:OUT",
+      "sa0:B",
+      "red",
+      []
+    ],
+    [
+      "sa0:OUT",
+      "sa1:A",
+      "red",
+      []
+    ],
+    [
+      "m11:OUT",
+      "sa1:B",
+      "red",
+      []
+    ],
+    [
+      "sa1:OUT",
+      "sa2:A",
+      "red",
+      []
+    ],
+    [
+      "m13:OUT",
+      "sa2:B",
+      "red",
+      []
+    ],
+    [
+      "sa2:OUT",
+      "ttout:OUT0",
+      "red",
+      []
+    ],
+    [
+      "m5:OUT",
+      "sb0:A",
+      "orange",
+      []
+    ],
+    [
+      "m6:OUT",
+      "sb0:B",
+      "orange",
+      []
+    ],
+    [
+      "sb0:OUT",
+      "sb1:A",
+      "orange",
+      []
+    ],
+    [
+      "m11:OUT",
+      "sb1:B",
+      "orange",
+      []
+    ],
+    [
+      "sb1:OUT",
+      "sb2:A",
+      "orange",
+      []
+    ],
+    [
+      "m12:OUT",
+      "sb2:B",
+      "orange",
+      []
+    ],
+    [
+      "sb2:OUT",
+      "sb3:A",
+      "orange",
+      []
+    ],
+    [
+      "m14:OUT",
+      "sb3:B",
+      "orange",
+      []
+    ],
+    [
+      "sb3:OUT",
+      "sb4:A",
+      "orange",
+      []
+    ],
+    [
+      "m15:OUT",
+      "sb4:B",
+      "orange",
+      []
+    ],
+    [
+      "sb4:OUT",
+      "ttout:OUT1",
+      "orange",
+      []
+    ],
+    [
+      "m2:OUT",
+      "sc0:A",
+      "gold",
+      []
+    ],
+    [
+      "m12:OUT",
+      "sc0:B",
+      "gold",
+      []
+    ],
+    [
+      "sc0:OUT",
+      "sc1:A",
+      "gold",
+      []
+    ],
+    [
+      "m14:OUT",
+      "sc1:B",
+      "gold",
+      []
+    ],
+    [
+      "sc1:OUT",
+      "sc2:A",
+      "gold",
+      []
+    ],
+    [
+      "m15:OUT",
+      "sc2:B",
+      "gold",
+      []
+    ],
+    [
+      "sc2:OUT",
+      "ttout:OUT2",
+      "gold",
+      []
+    ],
+    [
+      "m1:OUT",
+      "sd0:A",
+      "green",
+      []
+    ],
+    [
+      "m4:OUT",
+      "sd0:B",
+      "green",
+      []
+    ],
+    [
+      "sd0:OUT",
+      "sd1:A",
+      "green",
+      []
+    ],
+    [
+      "m7:OUT",
+      "sd1:B",
+      "green",
+      []
+    ],
+    [
+      "sd1:OUT",
+      "sd2:A",
+      "green",
+      []
+    ],
+    [
+      "m10:OUT",
+      "sd2:B",
+      "green",
+      []
+    ],
+    [
+      "sd2:OUT",
+      "sd3:A",
+      "green",
+      []
+    ],
+    [
+      "m15:OUT",
+      "sd3:B",
+      "green",
+      []
+    ],
+    [
+      "sd3:OUT",
+      "ttout:OUT3",
+      "green",
+      []
+    ],
+    [
+      "m1:OUT",
+      "se0:A",
+      "cyan",
+      []
+    ],
+    [
+      "m3:OUT",
+      "se0:B",
+      "cyan",
+      []
+    ],
+    [
+      "se0:OUT",
+      "se1:A",
+      "cyan",
+      []
+    ],
+    [
+      "m4:OUT",
+      "se1:B",
+      "cyan",
+      []
+    ],
+    [
+      "se1:OUT",
+      "se2:A",
+      "cyan",
+      []
+    ],
+    [
+      "m5:OUT",
+      "se2:B",
+      "cyan",
+      []
+    ],
+    [
+      "se2:OUT",
+      "se3:A",
+      "cyan",
+      []
+    ],
+    [
+      "m7:OUT",
+      "se3:B",
+      "cyan",
+      []
+    ],
+    [
+      "se3:OUT",
+      "se4:A",
+      "cyan",
+      []
+    ],
+    [
+      "m9:OUT",
+      "se4:B",
+      "cyan",
+      []
+    ],
+    [
+      "se4:OUT",
+      "ttout:OUT4",
+      "cyan",
+      []
+    ],
+    [
+      "m1:OUT",
+      "sf0:A",
+      "blue",
+      []
+    ],
+    [
+      "m2:OUT",
+      "sf0:B",
+      "blue",
+      []
+    ],
+    [
+      "sf0:OUT",
+      "sf1:A",
+      "blue",
+      []
+    ],
+    [
+      "m3:OUT",
+      "sf1:B",
+      "blue",
+      []
+    ],
+    [
+      "sf1:OUT",
+      "sf2:A",
+      "blue",
+      []
+    ],
+    [
+      "m7:OUT",
+      "sf2:B",
+      "blue",
+      []
+    ],
+    [
+      "sf2:OUT",
+      "sf3:A",
+      "blue",
+      []
+    ],
+    [
+      "m13:OUT",
+      "sf3:B",
+      "blue",
+      []
+    ],
+    [
+      "sf3:OUT",
+      "ttout:OUT5",
+      "blue",
+      []
+    ],
+    [
+      "m0:OUT",
+      "sg0:A",
+      "magenta",
+      []
+    ],
+    [
+      "m1:OUT",
+      "sg0:B",
+      "magenta",
+      []
+    ],
+    [
+      "sg0:OUT",
+      "sg1:A",
+      "magenta",
+      []
+    ],
+    [
+      "m7:OUT",
+      "sg1:B",
+      "magenta",
+      []
+    ],
+    [
+      "sg1:OUT",
+      "sg2:A",
+      "magenta",
+      []
+    ],
+    [
+      "m12:OUT",
+      "sg2:B",
+      "magenta",
+      []
+    ],
+    [
+      "sg2:OUT",
+      "ttout:OUT6",
+      "magenta",
+      []
+    ],
+    [
+      "ttout:OUT7",
+      "ttin:IN7",
+      "green",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
