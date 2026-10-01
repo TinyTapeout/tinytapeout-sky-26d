@@ -1,0 +1,2248 @@
+{
+  "version": 1,
+  "author": "Luis Carlos Meron Jaen",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "wokwi-text",
+      "id": "title",
+      "left": 40,
+      "top": -250,
+      "attrs": {
+        "text": "TINY TAPEOUT: 8-BIT U + V  ->  SUM[7:0]  |  CARRY LED = SIMULATION ONLY"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "guide",
+      "left": -565,
+      "top": -205,
+      "attrs": {
+        "text": "U switch bank -> dedicated ui[0..7].  V switch bank -> uio[0..7] (INPUT mode). SUM -> uo[0..7]."
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "guide2",
+      "left": -565,
+      "top": -167,
+      "attrs": {
+        "text": "Each full adder: p=U XOR V; SUM=p XOR carry_in; carry_out=(U AND V) OR (p AND carry_in)."
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "note_carry",
+      "left": 1115,
+      "top": 2420,
+      "attrs": {
+        "text": "CARRY8: WOKWI ONLY. No chip pin allocated; final carry logic may be optimized out in GDS."
+      }
+    },
+    {
+      "type": "wokwi-dip-switch-8",
+      "id": "dipU",
+      "left": -520,
+      "top": -62,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-dip-switch-8",
+      "id": "dipV",
+      "left": -315,
+      "top": -62,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelU",
+      "left": -530,
+      "top": -120,
+      "attrs": {
+        "text": "DIP U: ui[7:0]"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelV",
+      "left": -326,
+      "top": -120,
+      "attrs": {
+        "text": "DIP V: uio[7:0] (input)"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vccU",
+      "left": -570,
+      "top": -144,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "vccV",
+      "left": -362,
+      "top": -144,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-input",
+      "id": "ttin",
+      "left": -195,
+      "top": 120,
+      "attrs": {
+        "verilogRole": "input"
+      }
+    },
+    {
+      "type": "board-tt-block-output",
+      "id": "ttout",
+      "left": 1170,
+      "top": 720,
+      "attrs": {
+        "verilogRole": "output"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelTtIn",
+      "left": -208,
+      "top": 78,
+      "attrs": {
+        "text": "ASIC input boundary (U)"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelTtOut",
+      "left": 1158,
+      "top": 677,
+      "attrs": {
+        "text": "ASIC output boundary (SUM)"
+      }
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio0",
+      "left": 90,
+      "top": 250,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "0"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO0",
+      "left": 62,
+      "top": 208,
+      "attrs": {
+        "text": "uio[0] -> V0; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA0",
+      "left": 495,
+      "top": 230,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA0",
+      "left": 495,
+      "top": 328,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB0",
+      "left": 745,
+      "top": 235,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB0",
+      "left": 745,
+      "top": 345,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or0",
+      "left": 970,
+      "top": 394,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA0",
+      "left": 300,
+      "top": 155,
+      "attrs": {
+        "text": "FA0: U0 + V0 + C0 -> SUM0, C1"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU0",
+      "left": -160,
+      "top": 325,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV0",
+      "left": -70,
+      "top": 325,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd0",
+      "left": -20,
+      "top": 385,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR0",
+      "left": 1490,
+      "top": 760,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED0",
+      "left": 1600,
+      "top": 750,
+      "attrs": {
+        "color": "green",
+        "label": "SUM0"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd0",
+      "left": 1635,
+      "top": 810,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio1",
+      "left": 90,
+      "top": 540,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "1"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO1",
+      "left": 62,
+      "top": 498,
+      "attrs": {
+        "text": "uio[1] -> V1; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA1",
+      "left": 495,
+      "top": 520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA1",
+      "left": 495,
+      "top": 618,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB1",
+      "left": 745,
+      "top": 525,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB1",
+      "left": 745,
+      "top": 635,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or1",
+      "left": 970,
+      "top": 684,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA1",
+      "left": 300,
+      "top": 445,
+      "attrs": {
+        "text": "FA1: U1 + V1 + C1 -> SUM1, C2"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU1",
+      "left": -160,
+      "top": 615,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV1",
+      "left": -70,
+      "top": 615,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "left": -20,
+      "top": 675,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR1",
+      "left": 1490,
+      "top": 865,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED1",
+      "left": 1600,
+      "top": 855,
+      "attrs": {
+        "color": "green",
+        "label": "SUM1"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd1",
+      "left": 1635,
+      "top": 915,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio2",
+      "left": 90,
+      "top": 830,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "2"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO2",
+      "left": 62,
+      "top": 788,
+      "attrs": {
+        "text": "uio[2] -> V2; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA2",
+      "left": 495,
+      "top": 810,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA2",
+      "left": 495,
+      "top": 908,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB2",
+      "left": 745,
+      "top": 815,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB2",
+      "left": 745,
+      "top": 925,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or2",
+      "left": 970,
+      "top": 974,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA2",
+      "left": 300,
+      "top": 735,
+      "attrs": {
+        "text": "FA2: U2 + V2 + C2 -> SUM2, C3"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU2",
+      "left": -160,
+      "top": 905,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV2",
+      "left": -70,
+      "top": 905,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd2",
+      "left": -20,
+      "top": 965,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR2",
+      "left": 1490,
+      "top": 970,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED2",
+      "left": 1600,
+      "top": 960,
+      "attrs": {
+        "color": "green",
+        "label": "SUM2"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd2",
+      "left": 1635,
+      "top": 1020,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio3",
+      "left": 90,
+      "top": 1120,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "3"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO3",
+      "left": 62,
+      "top": 1078,
+      "attrs": {
+        "text": "uio[3] -> V3; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA3",
+      "left": 495,
+      "top": 1100,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA3",
+      "left": 495,
+      "top": 1198,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB3",
+      "left": 745,
+      "top": 1105,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB3",
+      "left": 745,
+      "top": 1215,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or3",
+      "left": 970,
+      "top": 1264,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA3",
+      "left": 300,
+      "top": 1025,
+      "attrs": {
+        "text": "FA3: U3 + V3 + C3 -> SUM3, C4"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU3",
+      "left": -160,
+      "top": 1195,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV3",
+      "left": -70,
+      "top": 1195,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd3",
+      "left": -20,
+      "top": 1255,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR3",
+      "left": 1490,
+      "top": 1075,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED3",
+      "left": 1600,
+      "top": 1065,
+      "attrs": {
+        "color": "green",
+        "label": "SUM3"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd3",
+      "left": 1635,
+      "top": 1125,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio4",
+      "left": 90,
+      "top": 1410,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "4"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO4",
+      "left": 62,
+      "top": 1368,
+      "attrs": {
+        "text": "uio[4] -> V4; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA4",
+      "left": 495,
+      "top": 1390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA4",
+      "left": 495,
+      "top": 1488,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB4",
+      "left": 745,
+      "top": 1395,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB4",
+      "left": 745,
+      "top": 1505,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or4",
+      "left": 970,
+      "top": 1554,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA4",
+      "left": 300,
+      "top": 1315,
+      "attrs": {
+        "text": "FA4: U4 + V4 + C4 -> SUM4, C5"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU4",
+      "left": -160,
+      "top": 1485,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV4",
+      "left": -70,
+      "top": 1485,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd4",
+      "left": -20,
+      "top": 1545,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR4",
+      "left": 1490,
+      "top": 1180,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED4",
+      "left": 1600,
+      "top": 1170,
+      "attrs": {
+        "color": "green",
+        "label": "SUM4"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd4",
+      "left": 1635,
+      "top": 1230,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio5",
+      "left": 90,
+      "top": 1700,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "5"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO5",
+      "left": 62,
+      "top": 1658,
+      "attrs": {
+        "text": "uio[5] -> V5; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA5",
+      "left": 495,
+      "top": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA5",
+      "left": 495,
+      "top": 1778,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB5",
+      "left": 745,
+      "top": 1685,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB5",
+      "left": 745,
+      "top": 1795,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or5",
+      "left": 970,
+      "top": 1844,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA5",
+      "left": 300,
+      "top": 1605,
+      "attrs": {
+        "text": "FA5: U5 + V5 + C5 -> SUM5, C6"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU5",
+      "left": -160,
+      "top": 1775,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV5",
+      "left": -70,
+      "top": 1775,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd5",
+      "left": -20,
+      "top": 1835,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR5",
+      "left": 1490,
+      "top": 1285,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED5",
+      "left": 1600,
+      "top": 1275,
+      "attrs": {
+        "color": "green",
+        "label": "SUM5"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd5",
+      "left": 1635,
+      "top": 1335,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio6",
+      "left": 90,
+      "top": 1990,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "6"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO6",
+      "left": 62,
+      "top": 1948,
+      "attrs": {
+        "text": "uio[6] -> V6; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA6",
+      "left": 495,
+      "top": 1970,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA6",
+      "left": 495,
+      "top": 2068,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB6",
+      "left": 745,
+      "top": 1975,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB6",
+      "left": 745,
+      "top": 2085,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or6",
+      "left": 970,
+      "top": 2134,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA6",
+      "left": 300,
+      "top": 1895,
+      "attrs": {
+        "text": "FA6: U6 + V6 + C6 -> SUM6, C7"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU6",
+      "left": -160,
+      "top": 2065,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV6",
+      "left": -70,
+      "top": 2065,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd6",
+      "left": -20,
+      "top": 2125,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR6",
+      "left": 1490,
+      "top": 1390,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED6",
+      "left": 1600,
+      "top": 1380,
+      "attrs": {
+        "color": "green",
+        "label": "SUM6"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd6",
+      "left": 1635,
+      "top": 1440,
+      "attrs": {}
+    },
+    {
+      "type": "board-tt-block-bidirectional-io",
+      "id": "ttio7",
+      "left": 90,
+      "top": 2280,
+      "attrs": {
+        "verilogRole": "bidirectional",
+        "verilogBit": "7"
+      }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labIO7",
+      "left": 62,
+      "top": 2238,
+      "attrs": {
+        "text": "uio[7] -> V7; OE=0"
+      }
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorA7",
+      "left": 495,
+      "top": 2260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andA7",
+      "left": 495,
+      "top": 2358,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xorB7",
+      "left": 745,
+      "top": 2265,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "andB7",
+      "left": 745,
+      "top": 2375,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or7",
+      "left": 970,
+      "top": 2424,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-text",
+      "id": "labelFA7",
+      "left": 300,
+      "top": 2185,
+      "attrs": {
+        "text": "FA7: U7 + V7 + C7 -> SUM7, C8"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullU7",
+      "left": -160,
+      "top": 2355,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "pullV7",
+      "left": -70,
+      "top": 2355,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd7",
+      "left": -20,
+      "top": 2415,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "sumR7",
+      "left": 1490,
+      "top": 1495,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "sumLED7",
+      "left": 1600,
+      "top": 1485,
+      "attrs": {
+        "color": "green",
+        "label": "SUM7"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "ledGnd7",
+      "left": 1635,
+      "top": 1545,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "carryR",
+      "left": 1185,
+      "top": 2495,
+      "attrs": {
+        "value": "220"
+      }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "carryLED",
+      "left": 1280,
+      "top": 2485,
+      "attrs": {
+        "color": "orange",
+        "label": "SIM CARRY8"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "carryGnd",
+      "left": 1315,
+      "top": 2560,
+      "attrs": {}
+    }
+  ],
+  "connections": [
+    [
+      "vccU:VCC",
+      "ttin:EXTRST_N",
+      "red",
+      []
+    ],
+    [
+      "gnd0:GND",
+      "ttin:EXTCLK",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:1a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:1a",
+      "red",
+      []
+    ],
+    [
+      "dipU:1b",
+      "ttin:EXTIN0",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN0",
+      "pullU0:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:1b",
+      "ttio0:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio0:UIO",
+      "pullV0:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU0:2",
+      "gnd0:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV0:2",
+      "gnd0:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio0:OE",
+      "gnd0:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio0:OUT",
+      "gnd0:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN0",
+      "xorA0:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN0",
+      "andA0:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio0:IN",
+      "xorA0:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio0:IN",
+      "andA0:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA0:OUT",
+      "xorB0:A",
+      "red",
+      []
+    ],
+    [
+      "xorA0:OUT",
+      "andB0:A",
+      "red",
+      []
+    ],
+    [
+      "gnd0:GND",
+      "xorB0:B",
+      "cyan",
+      []
+    ],
+    [
+      "gnd0:GND",
+      "andB0:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA0:OUT",
+      "or0:A",
+      "green",
+      []
+    ],
+    [
+      "andB0:OUT",
+      "or0:B",
+      "green",
+      []
+    ],
+    [
+      "xorB0:OUT",
+      "ttout:OUT0",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT0",
+      "sumR0:1",
+      "green",
+      []
+    ],
+    [
+      "sumR0:2",
+      "sumLED0:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED0:C",
+      "ledGnd0:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:2a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:2a",
+      "red",
+      []
+    ],
+    [
+      "dipU:2b",
+      "ttin:EXTIN1",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN1",
+      "pullU1:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:2b",
+      "ttio1:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio1:UIO",
+      "pullV1:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU1:2",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV1:2",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio1:OE",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio1:OUT",
+      "gnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN1",
+      "xorA1:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN1",
+      "andA1:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio1:IN",
+      "xorA1:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio1:IN",
+      "andA1:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA1:OUT",
+      "xorB1:A",
+      "red",
+      []
+    ],
+    [
+      "xorA1:OUT",
+      "andB1:A",
+      "red",
+      []
+    ],
+    [
+      "or0:OUT",
+      "xorB1:B",
+      "cyan",
+      []
+    ],
+    [
+      "or0:OUT",
+      "andB1:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA1:OUT",
+      "or1:A",
+      "green",
+      []
+    ],
+    [
+      "andB1:OUT",
+      "or1:B",
+      "green",
+      []
+    ],
+    [
+      "xorB1:OUT",
+      "ttout:OUT1",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT1",
+      "sumR1:1",
+      "green",
+      []
+    ],
+    [
+      "sumR1:2",
+      "sumLED1:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED1:C",
+      "ledGnd1:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:3a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:3a",
+      "red",
+      []
+    ],
+    [
+      "dipU:3b",
+      "ttin:EXTIN2",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN2",
+      "pullU2:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:3b",
+      "ttio2:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio2:UIO",
+      "pullV2:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU2:2",
+      "gnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV2:2",
+      "gnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio2:OE",
+      "gnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio2:OUT",
+      "gnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN2",
+      "xorA2:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN2",
+      "andA2:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio2:IN",
+      "xorA2:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio2:IN",
+      "andA2:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA2:OUT",
+      "xorB2:A",
+      "red",
+      []
+    ],
+    [
+      "xorA2:OUT",
+      "andB2:A",
+      "red",
+      []
+    ],
+    [
+      "or1:OUT",
+      "xorB2:B",
+      "cyan",
+      []
+    ],
+    [
+      "or1:OUT",
+      "andB2:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA2:OUT",
+      "or2:A",
+      "green",
+      []
+    ],
+    [
+      "andB2:OUT",
+      "or2:B",
+      "green",
+      []
+    ],
+    [
+      "xorB2:OUT",
+      "ttout:OUT2",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT2",
+      "sumR2:1",
+      "green",
+      []
+    ],
+    [
+      "sumR2:2",
+      "sumLED2:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED2:C",
+      "ledGnd2:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:4a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:4a",
+      "red",
+      []
+    ],
+    [
+      "dipU:4b",
+      "ttin:EXTIN3",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN3",
+      "pullU3:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:4b",
+      "ttio3:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio3:UIO",
+      "pullV3:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU3:2",
+      "gnd3:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV3:2",
+      "gnd3:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio3:OE",
+      "gnd3:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio3:OUT",
+      "gnd3:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN3",
+      "xorA3:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN3",
+      "andA3:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio3:IN",
+      "xorA3:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio3:IN",
+      "andA3:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA3:OUT",
+      "xorB3:A",
+      "red",
+      []
+    ],
+    [
+      "xorA3:OUT",
+      "andB3:A",
+      "red",
+      []
+    ],
+    [
+      "or2:OUT",
+      "xorB3:B",
+      "cyan",
+      []
+    ],
+    [
+      "or2:OUT",
+      "andB3:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA3:OUT",
+      "or3:A",
+      "green",
+      []
+    ],
+    [
+      "andB3:OUT",
+      "or3:B",
+      "green",
+      []
+    ],
+    [
+      "xorB3:OUT",
+      "ttout:OUT3",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT3",
+      "sumR3:1",
+      "green",
+      []
+    ],
+    [
+      "sumR3:2",
+      "sumLED3:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED3:C",
+      "ledGnd3:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:5a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:5a",
+      "red",
+      []
+    ],
+    [
+      "dipU:5b",
+      "ttin:EXTIN4",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN4",
+      "pullU4:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:5b",
+      "ttio4:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio4:UIO",
+      "pullV4:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU4:2",
+      "gnd4:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV4:2",
+      "gnd4:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio4:OE",
+      "gnd4:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio4:OUT",
+      "gnd4:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN4",
+      "xorA4:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN4",
+      "andA4:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio4:IN",
+      "xorA4:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio4:IN",
+      "andA4:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA4:OUT",
+      "xorB4:A",
+      "red",
+      []
+    ],
+    [
+      "xorA4:OUT",
+      "andB4:A",
+      "red",
+      []
+    ],
+    [
+      "or3:OUT",
+      "xorB4:B",
+      "cyan",
+      []
+    ],
+    [
+      "or3:OUT",
+      "andB4:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA4:OUT",
+      "or4:A",
+      "green",
+      []
+    ],
+    [
+      "andB4:OUT",
+      "or4:B",
+      "green",
+      []
+    ],
+    [
+      "xorB4:OUT",
+      "ttout:OUT4",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT4",
+      "sumR4:1",
+      "green",
+      []
+    ],
+    [
+      "sumR4:2",
+      "sumLED4:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED4:C",
+      "ledGnd4:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:6a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:6a",
+      "red",
+      []
+    ],
+    [
+      "dipU:6b",
+      "ttin:EXTIN5",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN5",
+      "pullU5:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:6b",
+      "ttio5:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio5:UIO",
+      "pullV5:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU5:2",
+      "gnd5:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV5:2",
+      "gnd5:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio5:OE",
+      "gnd5:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio5:OUT",
+      "gnd5:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN5",
+      "xorA5:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN5",
+      "andA5:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio5:IN",
+      "xorA5:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio5:IN",
+      "andA5:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA5:OUT",
+      "xorB5:A",
+      "red",
+      []
+    ],
+    [
+      "xorA5:OUT",
+      "andB5:A",
+      "red",
+      []
+    ],
+    [
+      "or4:OUT",
+      "xorB5:B",
+      "cyan",
+      []
+    ],
+    [
+      "or4:OUT",
+      "andB5:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA5:OUT",
+      "or5:A",
+      "green",
+      []
+    ],
+    [
+      "andB5:OUT",
+      "or5:B",
+      "green",
+      []
+    ],
+    [
+      "xorB5:OUT",
+      "ttout:OUT5",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT5",
+      "sumR5:1",
+      "green",
+      []
+    ],
+    [
+      "sumR5:2",
+      "sumLED5:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED5:C",
+      "ledGnd5:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:7a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:7a",
+      "red",
+      []
+    ],
+    [
+      "dipU:7b",
+      "ttin:EXTIN6",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN6",
+      "pullU6:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:7b",
+      "ttio6:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio6:UIO",
+      "pullV6:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU6:2",
+      "gnd6:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV6:2",
+      "gnd6:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio6:OE",
+      "gnd6:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio6:OUT",
+      "gnd6:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN6",
+      "xorA6:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN6",
+      "andA6:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio6:IN",
+      "xorA6:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio6:IN",
+      "andA6:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA6:OUT",
+      "xorB6:A",
+      "red",
+      []
+    ],
+    [
+      "xorA6:OUT",
+      "andB6:A",
+      "red",
+      []
+    ],
+    [
+      "or5:OUT",
+      "xorB6:B",
+      "cyan",
+      []
+    ],
+    [
+      "or5:OUT",
+      "andB6:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA6:OUT",
+      "or6:A",
+      "green",
+      []
+    ],
+    [
+      "andB6:OUT",
+      "or6:B",
+      "green",
+      []
+    ],
+    [
+      "xorB6:OUT",
+      "ttout:OUT6",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT6",
+      "sumR6:1",
+      "green",
+      []
+    ],
+    [
+      "sumR6:2",
+      "sumLED6:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED6:C",
+      "ledGnd6:GND",
+      "black",
+      []
+    ],
+    [
+      "vccU:VCC",
+      "dipU:8a",
+      "red",
+      []
+    ],
+    [
+      "vccV:VCC",
+      "dipV:8a",
+      "red",
+      []
+    ],
+    [
+      "dipU:8b",
+      "ttin:EXTIN7",
+      "blue",
+      []
+    ],
+    [
+      "ttin:EXTIN7",
+      "pullU7:1",
+      "blue",
+      []
+    ],
+    [
+      "dipV:8b",
+      "ttio7:UIO",
+      "magenta",
+      []
+    ],
+    [
+      "ttio7:UIO",
+      "pullV7:1",
+      "magenta",
+      []
+    ],
+    [
+      "pullU7:2",
+      "gnd7:GND",
+      "black",
+      []
+    ],
+    [
+      "pullV7:2",
+      "gnd7:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio7:OE",
+      "gnd7:GND",
+      "black",
+      []
+    ],
+    [
+      "ttio7:OUT",
+      "gnd7:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin:IN7",
+      "xorA7:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin:IN7",
+      "andA7:A",
+      "blue",
+      []
+    ],
+    [
+      "ttio7:IN",
+      "xorA7:B",
+      "magenta",
+      []
+    ],
+    [
+      "ttio7:IN",
+      "andA7:B",
+      "magenta",
+      []
+    ],
+    [
+      "xorA7:OUT",
+      "xorB7:A",
+      "red",
+      []
+    ],
+    [
+      "xorA7:OUT",
+      "andB7:A",
+      "red",
+      []
+    ],
+    [
+      "or6:OUT",
+      "xorB7:B",
+      "cyan",
+      []
+    ],
+    [
+      "or6:OUT",
+      "andB7:B",
+      "cyan",
+      []
+    ],
+    [
+      "andA7:OUT",
+      "or7:A",
+      "green",
+      []
+    ],
+    [
+      "andB7:OUT",
+      "or7:B",
+      "green",
+      []
+    ],
+    [
+      "xorB7:OUT",
+      "ttout:OUT7",
+      "green",
+      []
+    ],
+    [
+      "ttout:EXTOUT7",
+      "sumR7:1",
+      "green",
+      []
+    ],
+    [
+      "sumR7:2",
+      "sumLED7:A",
+      "green",
+      []
+    ],
+    [
+      "sumLED7:C",
+      "ledGnd7:GND",
+      "black",
+      []
+    ],
+    [
+      "or7:OUT",
+      "carryR:1",
+      "orange",
+      []
+    ],
+    [
+      "carryR:2",
+      "carryLED:A",
+      "orange",
+      []
+    ],
+    [
+      "carryLED:C",
+      "carryGnd:GND",
+      "black",
+      []
+    ]
+  ],
+  "dependencies": {}
+}
