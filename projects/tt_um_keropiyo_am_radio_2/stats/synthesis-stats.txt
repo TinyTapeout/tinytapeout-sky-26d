@@ -1,0 +1,76 @@
+154. Printing statistics.
+
+=== tt_um_keropiyo_am_radio_2 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     2269        - wires
+     2304        - wire bits
+      332        - public wires
+      367        - public wire bits
+        8        - ports
+       43        - port bits
+     2285 2.53E+04 cells
+        4   50.048   sky130_fd_sc_hd__a2111o_2
+       28  280.269   sky130_fd_sc_hd__a211o_2
+        5    62.56   sky130_fd_sc_hd__a211oi_2
+       20  200.192   sky130_fd_sc_hd__a21bo_2
+        7   78.826   sky130_fd_sc_hd__a21boi_2
+      110  963.424   sky130_fd_sc_hd__a21o_2
+       85  744.464   sky130_fd_sc_hd__a21oi_2
+       10  112.608   sky130_fd_sc_hd__a221o_2
+       83  830.797   sky130_fd_sc_hd__a22o_2
+        2   25.024   sky130_fd_sc_hd__a22oi_2
+       19  213.955   sky130_fd_sc_hd__a2bb2o_2
+        3   33.782   sky130_fd_sc_hd__a311o_2
+       19   166.41   sky130_fd_sc_hd__a31o_2
+        3   37.536   sky130_fd_sc_hd__a31oi_2
+       35  394.128   sky130_fd_sc_hd__a32o_2
+        3   33.782   sky130_fd_sc_hd__a41o_2
+      160  1.2E+03   sky130_fd_sc_hd__and2_2
+       38  332.819   sky130_fd_sc_hd__and2b_2
+       43   322.81   sky130_fd_sc_hd__and3_2
+       15  150.144   sky130_fd_sc_hd__and3b_2
+        8   40.038   sky130_fd_sc_hd__buf_2
+        9   33.782   sky130_fd_sc_hd__conb_1
+      330 7.02E+03   sky130_fd_sc_hd__dfxtp_2
+       89   334.07   sky130_fd_sc_hd__inv_2
+        3   33.782   sky130_fd_sc_hd__mux2_1
+      176  1.1E+03   sky130_fd_sc_hd__nand2_2
+       34  297.786   sky130_fd_sc_hd__nand2b_2
+        9   90.086   sky130_fd_sc_hd__nand3_2
+        3   37.536   sky130_fd_sc_hd__nand4_2
+      186 1.16E+03   sky130_fd_sc_hd__nor2_2
+        5   50.048   sky130_fd_sc_hd__nor3_2
+        1   12.512   sky130_fd_sc_hd__nor3b_2
+        2   25.024   sky130_fd_sc_hd__nor4_2
+        1   12.512   sky130_fd_sc_hd__o2111a_2
+       35  350.336   sky130_fd_sc_hd__o211a_2
+       10   125.12   sky130_fd_sc_hd__o211ai_2
+       32  280.269   sky130_fd_sc_hd__o21a_2
+       63  551.779   sky130_fd_sc_hd__o21ai_2
+        3   30.029   sky130_fd_sc_hd__o21ba_2
+        1   11.261   sky130_fd_sc_hd__o21bai_2
+       10  112.608   sky130_fd_sc_hd__o221a_2
+        3   30.029   sky130_fd_sc_hd__o22a_2
+        2   22.522   sky130_fd_sc_hd__o2bb2a_2
+        6   90.086   sky130_fd_sc_hd__o2bb2ai_2
+        6   67.565   sky130_fd_sc_hd__o311a_2
+        2   32.531   sky130_fd_sc_hd__o311ai_2
+       20  200.192   sky130_fd_sc_hd__o31a_2
+        6   75.072   sky130_fd_sc_hd__o31ai_2
+       13  162.656   sky130_fd_sc_hd__o41a_2
+        1   16.266   sky130_fd_sc_hd__o41ai_2
+      153  957.168   sky130_fd_sc_hd__or2_2
+       16  120.115   sky130_fd_sc_hd__or3_2
+        4   35.034   sky130_fd_sc_hd__or3b_2
+       20  175.168   sky130_fd_sc_hd__or4_2
+        5   50.048   sky130_fd_sc_hd__or4b_2
+        1   12.512   sky130_fd_sc_hd__or4bb_2
+      215  3.5E+03   sky130_fd_sc_hd__xnor2_2
+      110 1.79E+03   sky130_fd_sc_hd__xor2_2
+
+   Chip area for module '\tt_um_keropiyo_am_radio_2': 25280.496000
+     of which used for sequential elements: 7019.232000 (27.77%)
+
