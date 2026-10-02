@@ -12,13 +12,6 @@
       "attrs": { "common": "cathode" }
     },
     {
-      "type": "wokwi-slide-switch",
-      "id": "sw2",
-      "top": -370,
-      "left": -35.3,
-      "attrs": { "value": "1" }
-    },
-    {
       "type": "wokwi-pushbutton",
       "id": "btn1",
       "top": -349,
@@ -131,8 +124,6 @@
     [ "ttout:EXTOUT6", "sevseg1:G", "green", [ "h78.61", "v-57.6" ] ],
     [ "ttout:EXTOUT7", "sevseg1:DP", "green", [ "v28.8", "h136.21" ] ],
     [ "pwr2:GND", "sevseg1:COM.1", "black", [ "v0" ] ],
-    [ "sw2:2", "ttin:EXTCLK", "blue", [ "v0" ] ],
-    [ "btn1:1.l", "sw2:3", "blue", [ "h0" ] ],
     [ "pwr3:VCC", "btn1:2.r", "red", [ "v0" ] ],
     [ "ttio0:OE", "ttin:IN0", "green", [ "h-38.4", "v-240" ] ],
     [ "ttio1:OE", "ttin:IN0", "green", [ "h-38.4", "v-307.2" ] ],
@@ -235,7 +226,8 @@
     [ "not12:OUT", "ttio1:OUT", "green", [ "v0" ] ],
     [ "not14:OUT", "ttio2:OUT", "green", [ "v0" ] ],
     [ "not16:OUT", "ttio3:OUT", "green", [ "v0" ] ],
-    [ "ttio1:IN", "not12:IN", "green", [ "h-192", "v19.2", "h19.2" ] ]
+    [ "ttio1:IN", "not12:IN", "green", [ "h-192", "v19.2", "h19.2" ] ],
+    [ "btn1:1.l", "ttin:EXTCLK", "green", [ "h-28.8", "v134.4", "h9.6" ] ]
   ],
   "dependencies": {}
 }
