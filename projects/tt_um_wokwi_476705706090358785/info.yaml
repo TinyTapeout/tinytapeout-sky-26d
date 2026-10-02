@@ -1,0 +1,48 @@
+# Tiny Tapeout project information (Wokwi project)
+project:
+  wokwi_id: "476705706090358785" # Set this to the ID of your Wokwi project (the number from the project's URL)
+  title: "Tiny Tapeout Advanced Template (bidir) Copy" # Project title
+  author: "brayan " # Your name
+  discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Struture About Flip FLop " # One line description of what your project does
+  language: "Wokwi" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 10 # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "START_FWD"
+  ui[1]: "START_REV"
+  ui[2]: "STOP"
+  ui[3]: "LIMIT_FWD"
+  ui[4]: "LIMIT_REV"
+  ui[5]: "EMERGENCY"
+  ui[6]: "OVERLOAD"
+  ui[7]: "ENABLE"
+
+  # Outputs
+  uo[0]: "MOTOR_FWD"
+  uo[1]: "MOTOR_REV"
+  uo[2]: "BRAKE"
+  uo[3]: "RUN"
+  uo[4]: "FAULT"
+  uo[5]: "READY"
+  uo[6]: "LIMIT_ACTIVE"
+  uo[7]: "ALARM"
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
