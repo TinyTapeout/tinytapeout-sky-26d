@@ -1,0 +1,77 @@
+150. Printing statistics.
+
+=== tt_um_fernandodli_jumpgame ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+     1218        - wires
+     1253        - wire bits
+       95        - public wires
+      130        - public wire bits
+        8        - ports
+       43        - port bits
+     1234  1.2E+04 cells
+        8  100.096   sky130_fd_sc_hd__a2111o_2
+       16  160.154   sky130_fd_sc_hd__a211o_2
+        5    62.56   sky130_fd_sc_hd__a211oi_2
+        7   70.067   sky130_fd_sc_hd__a21bo_2
+        6   67.565   sky130_fd_sc_hd__a21boi_2
+       37  324.061   sky130_fd_sc_hd__a21o_2
+       52  455.437   sky130_fd_sc_hd__a21oi_2
+        7   78.826   sky130_fd_sc_hd__a221o_2
+        2   30.029   sky130_fd_sc_hd__a221oi_2
+       18  180.173   sky130_fd_sc_hd__a22o_2
+        2   22.522   sky130_fd_sc_hd__a2bb2o_2
+        4   45.043   sky130_fd_sc_hd__a311o_2
+        1   15.014   sky130_fd_sc_hd__a311oi_2
+       26  227.718   sky130_fd_sc_hd__a31o_2
+        5    62.56   sky130_fd_sc_hd__a31oi_2
+        8   90.086   sky130_fd_sc_hd__a32o_2
+        3   33.782   sky130_fd_sc_hd__a41o_2
+       52  390.374   sky130_fd_sc_hd__and2_2
+       17  148.893   sky130_fd_sc_hd__and2b_2
+       35  262.752   sky130_fd_sc_hd__and3_2
+       13  130.125   sky130_fd_sc_hd__and3b_2
+        7   70.067   sky130_fd_sc_hd__and4_2
+        4   45.043   sky130_fd_sc_hd__and4b_2
+        1   12.512   sky130_fd_sc_hd__and4bb_2
+        2    10.01   sky130_fd_sc_hd__buf_2
+       16   60.058   sky130_fd_sc_hd__conb_1
+       87 1.85E+03   sky130_fd_sc_hd__dfxtp_2
+       42  157.651   sky130_fd_sc_hd__inv_2
+       21  236.477   sky130_fd_sc_hd__mux2_1
+      140   875.84   sky130_fd_sc_hd__nand2_2
+       13  113.859   sky130_fd_sc_hd__nand2b_2
+        4   40.038   sky130_fd_sc_hd__nand3_2
+        3   33.782   sky130_fd_sc_hd__nand3b_2
+        2   25.024   sky130_fd_sc_hd__nand4_2
+       99  619.344   sky130_fd_sc_hd__nor2_2
+        6   60.058   sky130_fd_sc_hd__nor3_2
+        5    62.56   sky130_fd_sc_hd__nor4_2
+        4   50.048   sky130_fd_sc_hd__o2111a_2
+       27  270.259   sky130_fd_sc_hd__o211a_2
+        6   75.072   sky130_fd_sc_hd__o211ai_2
+       44   385.37   sky130_fd_sc_hd__o21a_2
+       32  280.269   sky130_fd_sc_hd__o21ai_2
+       11  110.106   sky130_fd_sc_hd__o21ba_2
+        1   11.261   sky130_fd_sc_hd__o21bai_2
+        7   78.826   sky130_fd_sc_hd__o221a_2
+        6   60.058   sky130_fd_sc_hd__o22a_2
+        4   45.043   sky130_fd_sc_hd__o2bb2a_2
+        5   56.304   sky130_fd_sc_hd__o311a_2
+       13  130.125   sky130_fd_sc_hd__o31a_2
+        2   25.024   sky130_fd_sc_hd__o31ai_2
+        5   56.304   sky130_fd_sc_hd__o32a_2
+      109  681.904   sky130_fd_sc_hd__or2_2
+       27  202.694   sky130_fd_sc_hd__or3_2
+       14  122.618   sky130_fd_sc_hd__or3b_2
+       23  201.443   sky130_fd_sc_hd__or4_2
+        5   50.048   sky130_fd_sc_hd__or4b_2
+        1   12.512   sky130_fd_sc_hd__or4bb_2
+       74  1.2E+03   sky130_fd_sc_hd__xnor2_2
+       38  618.093   sky130_fd_sc_hd__xor2_2
+
+   Chip area for module '\tt_um_fernandodli_jumpgame': 11957.718400
+     of which used for sequential elements: 1850.524800 (15.48%)
+
