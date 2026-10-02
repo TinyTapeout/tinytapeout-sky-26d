@@ -9,12 +9,12 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Created from "Logo" template in VGA playgroud. Modified to include two moving parts in total. Use inputs 0 and 1 to change the background image and characters color, respectively.
 
 ## How to test
 
-Explain how to use your project
+Just turn it on and play with inputs 0 and 1. You should see how the backgroud reacts to input 0 and how the color of characters change every so often once input 1 is high.
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+None
