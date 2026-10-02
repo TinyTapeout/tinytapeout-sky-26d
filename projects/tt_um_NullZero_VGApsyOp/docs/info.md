@@ -9,11 +9,11 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-Explain how your project works
+Es una prueba muy basica de concepto de pasar de verilog a GDS
 
 ## How to test
 
-Explain how to use your project
+simplemente ejecuta para tener colores VGA
 
 ## External hardware
 
