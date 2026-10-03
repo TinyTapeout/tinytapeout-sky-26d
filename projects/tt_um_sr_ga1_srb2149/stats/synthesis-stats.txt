@@ -1,42 +1,50 @@
-110. Printing statistics.
+116. Printing statistics.
 
 === tt_um_sr_ga1_srb2149 ===
 
         +----------Local Count, excluding submodules.
         |        +-Local Area, excluding submodules.
         |        | 
-      423        - wires
-      458        - wire bits
-      389        - public wires
-      424        - public wire bits
+      781        - wires
+      816        - wire bits
+      564        - public wires
+      599        - public wire bits
         8        - ports
        43        - port bits
-      106  874.589 cells
+      416 4.98E+03 cells
         1        -   CHIP_ART_initials
         1        -   CHIP_ART_logo
         1        -   CHIP_ART_name
-       28        -   CLB
-        2   22.522   sky130_fd_sc_hd__a221o_2
-        4   35.034   sky130_fd_sc_hd__and2b_2
+       32        -   CLB
+        3   26.275   sky130_fd_sc_hd__a21o_2
+       12  105.101   sky130_fd_sc_hd__a21oi_2
+        9  101.347   sky130_fd_sc_hd__a221o_2
+        9   90.086   sky130_fd_sc_hd__a22o_2
+        1    8.758   sky130_fd_sc_hd__a31o_2
+       29  217.709   sky130_fd_sc_hd__and2_2
+       13  113.859   sky130_fd_sc_hd__and2b_2
         1    5.005   sky130_fd_sc_hd__buf_2
-       20   75.072   sky130_fd_sc_hd__conb_1
-       21  446.678   sky130_fd_sc_hd__dfxtp_2
-        4   15.014   sky130_fd_sc_hd__inv_2
-        2   22.522   sky130_fd_sc_hd__mux2_1
-        5  112.608   sky130_fd_sc_hd__mux4_2
-        4   35.034   sky130_fd_sc_hd__nand2b_2
-        1    10.01   sky130_fd_sc_hd__o211a_2
-        4   35.034   sky130_fd_sc_hd__o21a_2
-        2   20.019   sky130_fd_sc_hd__o21ba_2
+       17   63.811   sky130_fd_sc_hd__conb_1
+        1   26.275   sky130_fd_sc_hd__dfrtp_2
+       88 1.87E+03   sky130_fd_sc_hd__dfxtp_2
+       40  150.144   sky130_fd_sc_hd__inv_2
+       30  337.824   sky130_fd_sc_hd__mux2_1
+       59 1.33E+03   sky130_fd_sc_hd__mux4_2
+        5    31.28   sky130_fd_sc_hd__nand2_2
+       18  112.608   sky130_fd_sc_hd__nor2_2
+        3   30.029   sky130_fd_sc_hd__o211a_2
+       11   96.342   sky130_fd_sc_hd__o21a_2
+        7   61.309   sky130_fd_sc_hd__o21ai_2
+        4   40.038   sky130_fd_sc_hd__o21ba_2
         1   11.261   sky130_fd_sc_hd__o311a_2
-        1    10.01   sky130_fd_sc_hd__o31a_2
-        3   18.768   sky130_fd_sc_hd__or2_2
+        6   67.565   sky130_fd_sc_hd__o32a_2
+       14   87.584   sky130_fd_sc_hd__or2_2
 
    Area for cell type \CLB is unknown!
    Area for cell type \CHIP_ART_initials is unknown!
    Area for cell type \CHIP_ART_logo is unknown!
    Area for cell type \CHIP_ART_name is unknown!
 
-   Chip area for module '\tt_um_sr_ga1_srb2149': 874.588800
-     of which used for sequential elements: 446.678400 (51.07%)
+   Chip area for module '\tt_um_sr_ga1_srb2149': 4984.780800
+     of which used for sequential elements: 1898.070400 (38.08%)
 
