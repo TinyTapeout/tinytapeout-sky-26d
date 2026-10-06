@@ -1,0 +1,52 @@
+# Tiny Tapeout project information
+project:
+  title:        "6-Digit 7-Segment Clock with Alarm"
+  author:       "Han-Hui Chiu"
+  discord:      ""
+  description:  "A 24-hour digital clock driving six multiplexed 7-segment digits, with a settable alarm and buzzer output"
+  language:     "Verilog"
+  clock_hz:     32768        # 石英錶頻率：32768 = 2^15，一秒剛好是一個 15-bit 計數器數滿
+
+  # 設計佔用幾個 tile。實測合成結果約用掉 1 個 tile 的一半，1x1 綽綽有餘。
+  tiles: "1x1"
+
+  # top module 名稱必須以 tt_um_ 開頭且獨一無二，這裡用了 GitHub 帳號 chiuhanhui-bit
+  # （連字號換成底線，因為 Verilog 識別字不能有連字號）
+  top_module:  "tt_um_chiuhanhui_bit_clock"
+
+  source_files:
+    - "project.v"
+
+pinout:
+  # Inputs
+  ui[0]: "MODE - 切換模式"
+  ui[1]: "UP - 目前欄位 +1"
+  ui[2]: "ALARM_EN - 鬧鐘開關"
+  ui[3]: "STOP - 停止鬧鈴"
+  ui[4]: ""
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
+
+  # Outputs
+  uo[0]: "SEG_A"
+  uo[1]: "SEG_B"
+  uo[2]: "SEG_C"
+  uo[3]: "SEG_D"
+  uo[4]: "SEG_E"
+  uo[5]: "SEG_F"
+  uo[6]: "SEG_G"
+  uo[7]: "SEG_DP"
+
+  # Bidirectional pins (all used as outputs)
+  uio[0]: "DIGIT0 - 時十位"
+  uio[1]: "DIGIT1 - 時個位"
+  uio[2]: "DIGIT2 - 分十位"
+  uio[3]: "DIGIT3 - 分個位"
+  uio[4]: "DIGIT4 - 秒十位"
+  uio[5]: "DIGIT5 - 秒個位"
+  uio[6]: "ALARM_LED - 鬧鐘已啟用"
+  uio[7]: "BUZZER - 蜂鳴器輸出"
+
+# Do not change!
+yaml_version: 6
