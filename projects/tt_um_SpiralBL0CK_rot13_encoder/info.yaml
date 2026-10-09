@@ -1,0 +1,65 @@
+# Tiny Tapeout project information
+project:
+  title:        "ROT 13 ENCODER + DISPAY ON DISPAY 4 BIT MODE"      # Project title
+  author:       "Vatafu Cezar Dumitru Doru Vladut"      # Your name
+  discord:      "f00fc7c800"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Encodes a 4-letter word in ROT13. A button scrolls each letter a-z; commit with a second button or a ~10 s timeout. Plaintext and ROT13 shown on an LCD."
+  external_hw:  "A 20x4 character LCD."      # Describe any external hardware needed
+  how_to_test: "Connect a character LCD (HD44780, 4-bit mode) to the outputs per the pinout: uo[0]=RS, uo[1]=E, uo[2..5]=D4..D7. Wire momentary push-buttons to the inputs
+    ui[2]=EF0 (scroll), ui[3]=EF1 (commit), ui[4]=EF2 (clear), each active-high (pressed=1) with a pull-down to GND. Optionally connect LEDs to uo[6] (done) and uo[7]. Run from a SLOW clock (~1 kHz) - there is no internal clock divider.
+    Hit reset (rst_n). The LCD initializes and shows the current letter (starting
+    at 'A') on line 1 with its ROT13 image on line 2. Press EF0 to scroll the
+    letter a..z; either press EF1 to lock it in, or just wait ~10 s and it
+    auto-commits. Repeat for 4 letters to spell a word; line 1 shows the word and
+    line 2 shows its ROT13 (e.g. VLAD over IYNQ). LED0 lights when all 4 are in.
+    Press EF0 again (or EF2) to start over."
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     1000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_SpiralBL0CK_rot13_encoder"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "tt_um_SpiralBL0CK_rot13_encoder.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: ""
+  ui[1]: ""
+  ui[2]: "EF0: scroll current letter a-z"
+  ui[3]: "EF1: commit letter now (optional)"
+  ui[4]: "EF2: clear / restart (optional)"
+  ui[5]: ""
+  ui[6]: ""
+  ui[7]: ""
+
+  # Outputs
+  uo[0]: "RS: LCD register select"
+  uo[1]: "E: LCD enable"
+  uo[2]: "D4: LCD data"
+  uo[3]: "D5: LCD data"
+  uo[4]: "D6: LCD data"
+  uo[5]: "D7: LCD data"
+  uo[6]: "LED0: word complete (done)"
+  uo[7]: "LED1: position bit 0"
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
