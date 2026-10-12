@@ -2,9 +2,9 @@ VERSION 5.7 ;
   NOWIREEXTENSIONATPIN ON ;
   DIVIDERCHAR "/" ;
   BUSBITCHARS "[]" ;
-MACRO tt_um_evaristocaribeiro_pongasic
+MACRO tt_um_evaristocaribeiro_notredamefootballasic
   CLASS BLOCK ;
-  FOREIGN tt_um_evaristocaribeiro_pongasic ;
+  FOREIGN tt_um_evaristocaribeiro_notredamefootballasic ;
   ORIGIN 0.000 0.000 ;
   SIZE 161.000 BY 111.520 ;
   PIN VGND
@@ -389,7 +389,6 @@ MACRO tt_um_evaristocaribeiro_pongasic
   PIN uo_out[6]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.795000 ;
     ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
@@ -411,12 +410,13 @@ MACRO tt_um_evaristocaribeiro_pongasic
       LAYER li1 ;
         RECT 2.760 2.635 158.240 108.885 ;
       LAYER met1 ;
-        RECT 2.760 2.480 158.540 109.040 ;
+        RECT 2.760 1.060 160.010 111.480 ;
       LAYER met2 ;
-        RECT 5.620 2.535 157.220 110.685 ;
+        RECT 4.240 1.030 159.980 111.510 ;
       LAYER met3 ;
-        RECT 11.105 2.555 154.955 110.665 ;
+        RECT 5.125 2.555 157.715 111.345 ;
       LAYER met4 ;
+        RECT 16.855 110.120 30.270 110.665 ;
         RECT 31.370 110.120 33.030 110.665 ;
         RECT 34.130 110.120 35.790 110.665 ;
         RECT 36.890 110.120 38.550 110.665 ;
@@ -458,15 +458,19 @@ MACRO tt_um_evaristocaribeiro_pongasic
         RECT 136.250 110.120 137.910 110.665 ;
         RECT 139.010 110.120 140.670 110.665 ;
         RECT 141.770 110.120 143.430 110.665 ;
-        RECT 30.655 109.440 144.145 110.120 ;
-        RECT 30.655 55.255 56.750 109.440 ;
-        RECT 59.150 55.255 60.050 109.440 ;
-        RECT 62.450 55.255 95.620 109.440 ;
-        RECT 98.020 55.255 98.920 109.440 ;
-        RECT 101.320 55.255 134.490 109.440 ;
-        RECT 136.890 55.255 137.790 109.440 ;
-        RECT 140.190 55.255 144.145 109.440 ;
+        RECT 144.530 110.120 146.190 110.665 ;
+        RECT 147.290 110.120 150.585 110.665 ;
+        RECT 16.855 109.440 150.585 110.120 ;
+        RECT 16.855 4.255 17.880 109.440 ;
+        RECT 20.280 4.255 21.180 109.440 ;
+        RECT 23.580 4.255 56.750 109.440 ;
+        RECT 59.150 4.255 60.050 109.440 ;
+        RECT 62.450 4.255 95.620 109.440 ;
+        RECT 98.020 4.255 98.920 109.440 ;
+        RECT 101.320 4.255 134.490 109.440 ;
+        RECT 136.890 4.255 137.790 109.440 ;
+        RECT 140.190 4.255 150.585 109.440 ;
   END
-END tt_um_evaristocaribeiro_pongasic
+END tt_um_evaristocaribeiro_notredamefootballasic
 END LIBRARY
 
