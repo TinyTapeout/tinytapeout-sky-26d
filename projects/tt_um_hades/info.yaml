@@ -1,0 +1,58 @@
+# Tiny Tapeout project information
+project:
+  title:        "HADES: Hamming-Aware Decode, Execute, and Search"
+  author:       "Pranav M"
+  discord:      "prawns_1205"
+  description:  "Programmable masked Hamming-distance search engine over 16 stored 32-bit rows"
+  language:     "Verilog"
+  clock_hz:     40000000
+
+  tiles: "2x2"
+
+  top_module: "tt_um_hades"
+
+  # Generated SystemVerilog comes from the Veryl sources in src-veryl/ (`veryl build`).
+  source_files:
+    - "rf_top.v"
+    - "tt_um_hades.v"
+    - "hades_top.sv"
+    - "ctrl.sv"
+    - "compute.sv"
+    - "regs.sv"
+    - "result_regs.sv"
+    - "hades_dupff.sv"
+
+# Pin usage
+pinout:
+  # Inputs
+  ui[0]: "data_in[0] (RECV byte / loader byte)"
+  ui[1]: "data_in[1]"
+  ui[2]: "data_in[2]"
+  ui[3]: "data_in[3]"
+  ui[4]: "data_in[4]"
+  ui[5]: "data_in[5]"
+  ui[6]: "data_in[6]"
+  ui[7]: "data_in[7]"
+
+  # Outputs
+  uo[0]: "SEND data_out[0] (valid when READY)"
+  uo[1]: "SEND data_out[1]"
+  uo[2]: "SEND data_out[2]"
+  uo[3]: "SEND data_out[3]"
+  uo[4]: "SEND data_out[4]"
+  uo[5]: "SEND data_out[5]"
+  uo[6]: "SEND data_out[6]"
+  uo[7]: "SEND data_out[7]"
+
+  # Bidirectional pins
+  uio[0]: "READY (output)"
+  uio[1]: "BUSY (output)"
+  uio[2]: "HALT (output)"
+  uio[3]: "STROBE (input, RECV byte valid)"
+  uio[4]: "LD_STROBE (input, program-loader byte valid, rising edge)"
+  uio[5]: "EXECUTE (input, rising edge: start/restart at PC 0)"
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
