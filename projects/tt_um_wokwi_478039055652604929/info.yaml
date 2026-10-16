@@ -1,0 +1,48 @@
+# Tiny Tapeout project information (Wokwi project)
+project:
+  wokwi_id: "478039055652604929" # Set this to the ID of your Wokwi project (the number from the project's URL)
+  title: "4bit adder" # Project title
+  author: "Ingus Valters Briska" # Your name
+  discord: ".apusapus" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Asynchronously adds bits 1-4 to 5-8 and outputs as binary" # One line description of what your project does
+  language: "Wokwi" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 0 # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "IN1-0"
+  ui[1]: "IN1-1"
+  ui[2]: "IN1-2"
+  ui[3]: "IN1-3"
+  ui[4]: "IN2-0"
+  ui[5]: "IN2-1"
+  ui[6]: "IN2-2"
+  ui[7]: "IN2-3"
+
+  # Outputs
+  uo[0]: "OUT-0"
+  uo[1]: "OUT-1"
+  uo[2]: "OUT-2"
+  uo[3]: "OUT-3"
+  uo[4]: "OUT-4"
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
