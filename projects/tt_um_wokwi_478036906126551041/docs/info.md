@@ -8,12 +8,11 @@ You can also include images in this folder and reference them in the markdown. E
 -->
 
 ## How it works
-
-Explain how your project works
+Dpnds wat button you prss and activats a sction of t display
 
 ## How to test
 
-Explain how to use your project
+just prss switcs
 
 ## External hardware
 
