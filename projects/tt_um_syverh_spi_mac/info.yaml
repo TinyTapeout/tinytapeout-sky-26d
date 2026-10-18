@@ -48,9 +48,9 @@ pinout:
 
   # Bidirectional pins
   uio[0]: "SPI CS_n"
-  uio[1]: "SPI MOSI"
-  uio[2]: "SPI MISO"
-  uio[3]: "SPI SCK"
+  uio[1]: "SPI SCK"
+  uio[2]: "SPI MOSI"
+  uio[3]: "SPI MISO"
   uio[4]: ""
   uio[5]: ""
   uio[6]: ""

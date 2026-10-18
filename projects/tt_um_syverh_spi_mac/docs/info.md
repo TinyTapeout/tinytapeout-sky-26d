@@ -25,9 +25,9 @@ any pending product. The SPI commands and result format are unchanged.
 | Pin | Function |
 | --- | --- |
 | `uio[0]` | SPI CS_n input, active low |
-| `uio[1]` | SPI MOSI input |
-| `uio[2]` | SPI MISO output, driven only while selected, enabled and out of reset |
-| `uio[3]` | SPI SCK input |
+| `uio[1]` | SPI SCK input |
+| `uio[2]` | SPI MOSI input |
+| `uio[3]` | SPI MISO output, driven only while selected, enabled and out of reset |
 | `uo[0]` | DONE output, active high |
 | `clk` | Continuous system clock for the SPI logic and calculation |
 | `rst_n` | Active-low synchronous reset |
