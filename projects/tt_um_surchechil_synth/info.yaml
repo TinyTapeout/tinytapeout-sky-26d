@@ -1,0 +1,52 @@
+# Tiny Tapeout project information
+project:
+  title:        "8-Key Synthesizer"
+  author:       "surchechil"
+  discord:      ""
+  description:  "Basic track musical instrument: 8-key square wave synth with debouncing"
+  language:     "Verilog"
+  clock_hz:     10000000
+
+  # How many tiles your design occupies?
+  tiles: "1x1"
+
+  # Top module name
+  top_module:  "tt_um_surchechil_synth"
+
+  source_files:
+    - "project.v"
+
+# Pinout 
+pinout:
+  # Inputs
+  ui[0]: "key_c4"
+  ui[1]: "key_d4"
+  ui[2]: "key_e4"
+  ui[3]: "key_f4"
+  ui[4]: "key_g4"
+  ui[5]: "key_a4"
+  ui[6]: "key_b4"
+  ui[7]: "key_c5"
+
+  # Outputs
+  uo[0]: "audio_mirror"
+  uo[1]: "led_active"
+  uo[2]: ""
+  uo[3]: ""
+  uo[4]: ""
+  uo[5]: ""
+  uo[6]: "audio_l"
+  uo[7]: "audio_r"
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
