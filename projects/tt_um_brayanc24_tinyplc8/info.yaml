@@ -1,0 +1,56 @@
+# Tiny Tapeout project information
+project:
+  title:        "TinyPLC-8 Conveyor Controller"
+  author:       "Brayan Carrillo"
+  discord:      ""
+  description:  "Compact conveyor motor controller with PWM, safety interlocks, automatic reversal and fault handling"
+  language:     "Verilog"
+  clock_hz:     25000000
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_brayanc24_tinyplc8"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "project.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "START"
+  ui[1]: "STOP"
+  ui[2]: "EMERGENCY"
+  ui[3]: "PART_SENSOR"
+  ui[4]: "LIMIT_FWD"
+  ui[5]: "LIMIT_REV"
+  ui[6]: "AUTO_MODE"
+  ui[7]: "CLEAR_FAULT"
+
+  # Outputs
+  uo[0]: "MOTOR_PWM"
+  uo[1]: "DIRECTION"
+  uo[2]: "BRAKE"
+  uo[3]: "RUN"
+  uo[4]: "FAULT"
+  uo[5]: "READY"
+  uo[6]: "PART_ACTIVE"
+  uo[7]: "AUTO_ACTIVE"
+
+  # Bidirectional pins
+  uio[0]: "REVERSE_CMD"
+  uio[1]: "OVERLOAD"
+  uio[2]: "UNUSED"
+  uio[3]: "UNUSED"
+  uio[4]: "UNUSED"
+  uio[5]: "UNUSED"
+  uio[6]: "UNUSED"
+  uio[7]: "UNUSED"
+
+# Do not change!
+yaml_version: 6
