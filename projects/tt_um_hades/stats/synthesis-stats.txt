@@ -76,7 +76,8 @@
       425        - public wire bits
         8        - ports
        43        - port bits
-     1617 1.83E+04 cells
+     1618 1.83E+04 cells
+        1        -   hades_spidey_art
         1        -   rf_top
        24  300.288   sky130_fd_sc_hd__a2111o_2
        15  150.144   sky130_fd_sc_hd__a211o_2
@@ -141,6 +142,7 @@
         8        -   hades_dupff
 
    Area for cell type \rf_top is unknown!
+   Area for cell type \hades_spidey_art is unknown!
 
    Chip area for module '\tt_um_hades': 18328.828800
      of which used for sequential elements: 5458.985600 (29.78%)
@@ -150,7 +152,7 @@
         +----------Count including submodules.
         |        +-Area including submodules.
         |        | 
-     1885  2.1E+04 tt_um_hades
+     1886  2.1E+04 tt_um_hades
       252  2.4E+03 compute
         2   37.536 hades_dupff
 
@@ -166,7 +168,8 @@
         -        - memories
         -        - memory bits
         -        - processes
-     1885  2.1E+04 cells
+     1886  2.1E+04 cells
+        1        -   hades_spidey_art
         1        -   rf_top
        24  300.288   sky130_fd_sc_hd__a2111o_2
        16  160.154   sky130_fd_sc_hd__a211o_2
@@ -233,6 +236,7 @@
         8  300.288   hades_dupff
 
    Area for cell type \rf_top is unknown!
+   Area for cell type \hades_spidey_art is unknown!
 
    Chip area for top module '\tt_um_hades': 21028.918400
      of which used for sequential elements: 5669.187200 (26.96%)
