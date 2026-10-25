@@ -1,0 +1,29 @@
+123. Printing statistics.
+
+=== tt_um_deterministe_MariusL00 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+       26        - wires
+       61        - wire bits
+       13        - public wires
+       48        - public wire bits
+        8        - ports
+       43        - port bits
+       42  231.472 cells
+        1    10.01   sky130_fd_sc_hd__and4_2
+        5   25.024   sky130_fd_sc_hd__buf_2
+       16   60.058   sky130_fd_sc_hd__conb_1
+        7   26.275   sky130_fd_sc_hd__inv_2
+        2   12.512   sky130_fd_sc_hd__nand2_2
+        1    8.758   sky130_fd_sc_hd__nand2b_2
+        3   22.522   sky130_fd_sc_hd__or3_2
+        3   26.275   sky130_fd_sc_hd__or3b_2
+        2   17.517   sky130_fd_sc_hd__or4_2
+        1    10.01   sky130_fd_sc_hd__or4b_2
+        1   12.512   sky130_fd_sc_hd__or4bb_2
+
+   Chip area for module '\tt_um_deterministe_MariusL00': 231.472000
+     of which used for sequential elements: 0.000000 (0.00%)
+
