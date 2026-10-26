@@ -1,0 +1,46 @@
+100. Printing statistics.
+
+=== tt_um_jlcabral_tinyhash_8 ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      101        - wires
+      136        - wire bits
+        8        - public wires
+       43        - public wire bits
+        8        - ports
+       43        - port bits
+      117  1063.52 cells
+        1    10.01   sky130_fd_sc_hd__a211o_2
+        1    10.01   sky130_fd_sc_hd__a21bo_2
+        6    52.55   sky130_fd_sc_hd__a21o_2
+        8   70.067   sky130_fd_sc_hd__a21oi_2
+        1   11.261   sky130_fd_sc_hd__a311o_2
+        2   30.029   sky130_fd_sc_hd__a311oi_2
+        2   17.517   sky130_fd_sc_hd__a31o_2
+        3   22.522   sky130_fd_sc_hd__and2_2
+        7    52.55   sky130_fd_sc_hd__and3_2
+        1   12.512   sky130_fd_sc_hd__and4bb_2
+       16   60.058   sky130_fd_sc_hd__conb_1
+        5   18.768   sky130_fd_sc_hd__inv_2
+        3   33.782   sky130_fd_sc_hd__mux2_1
+       13   81.328   sky130_fd_sc_hd__nand2_2
+        4   40.038   sky130_fd_sc_hd__nand3_2
+        1   11.261   sky130_fd_sc_hd__nand3b_2
+        7   43.792   sky130_fd_sc_hd__nor2_2
+        1    10.01   sky130_fd_sc_hd__o211a_2
+        1   12.512   sky130_fd_sc_hd__o211ai_2
+        1    8.758   sky130_fd_sc_hd__o21a_2
+        1    8.758   sky130_fd_sc_hd__o21ai_2
+        1    10.01   sky130_fd_sc_hd__o31a_2
+        1   12.512   sky130_fd_sc_hd__o31ai_2
+        1   16.266   sky130_fd_sc_hd__o41ai_2
+        3   18.768   sky130_fd_sc_hd__or2_2
+        4   30.029   sky130_fd_sc_hd__or3_2
+       10  162.656   sky130_fd_sc_hd__xnor2_2
+       12  195.187   sky130_fd_sc_hd__xor2_2
+
+   Chip area for module '\tt_um_jlcabral_tinyhash_8': 1063.520000
+     of which used for sequential elements: 0.000000 (0.00%)
+
