@@ -869,7 +869,7 @@ simply a periodic timer with an overflow interrupt.  It uses 16 peripheral regis
  | 0x39-0x3A | CAP0      | CNT at the last selected edge of ui_in[4] (read only)                       |
  | 0x3B-0x3C | CAP1      | CNT at the last selected edge of ui_in[5] (read only)                       |
  | 0x3D      | CTRL      | [0] EN, [1] PWM0 out, [2] PWM1 out, [5:4] CAP0 edge, [7:6] CAP1 edge        |
- | 0x3E      | IE        | [0] OVF, [1] CMP0, [2] CMP1, [3] CAP0, [4] CAP1 interrupt enables           |
+ | 0x3E      | IE        | [0] OVF, [1] CMP0, [2] CMP1, [3] CAP0, [4] CAP1 interrupt enables; [5] / [6] channel 0 / 1 in PDM mode (below) |
  | 0x3F      | STATUS    | The same five events; writing a 1 clears a bit                              |
 
 The capture edge selects are 0 = off, 1 = rising, 2 = falling and 3 = both edges.  The PWM duty cycle is
@@ -947,6 +947,36 @@ interrupt source until LISA writes 1 to FRAME.  With REPEAT the same buffer is s
 before each frame, FRAME set after each), so changing the buffer changes the LEDs on the next frame.  The buffer
 should not change while a frame is being sent.  LISA keeps running meanwhile; a fetch group lasts two pixels
 (about 3000 clocks) and takes under 100 clocks of QSPI time at clk/2.
+
+## Cycle Counter, Watchdog and PDM Outputs
+
+**Cycle counter.**  A free-running 32-bit count of clocks (it wraps every 86 seconds at 50 MHz), for timing
+and profiling.  Reading CYC0 latches the upper three bytes, so reading CYC0, CYC1, CYC2, CYC3 in that order
+gives one consistent value; writing CYC0 clears the counter.
+
+**Watchdog.**  Once enabled, the program must write 0xA5 to WDT_KICK before the timeout, or the watchdog
+resets the LISA core and its peripherals and the program restarts from address 0.  The QSPI configuration
+and the Debug registers are not reset, so the chip keeps running from its flash.  After a watchdog reset
+WDT_STAT's WDRST bit is set (write a 1 to clear it) and the watchdog is disabled, so the program can tell a
+watchdog restart from a power-on and decide whether to enable it again.  The timeout is
+(TIMEOUT + 1) x 2^(16 + SCALE) clocks: 1.3 ms to 43 seconds at 50 MHz.
+
+**PDM outputs.**  Each of Timer 3's two channels can be a first-order sigma-delta (pulse density) output
+instead of an input capture: Timer 3's IE register bit 5 (channel 0) or 6 (channel 1) selects it.  The
+channel's output is a stream of 1s with a density of CMPn[7:0] / 256 on its PWM pin (enabled by CTRL's PWMn
+out bit; uo[1] / uo[2] in uo_out mux mode 2), and that channel captures nothing (CAPn holds the modulator's
+accumulator).  Through a simple RC low-pass filter (for audio, 1 kOhm and 10 nF) each becomes an 8-bit DAC.
+A channel left in capture mode is PWM and input capture as before.
+
+ | ADDR      | Register    | Description                                                               |
+ | --------- | ----------- | ------------------------------------------------------------------------- |
+ | 0x48-0x4B | CYC0-CYC3   | The cycle counter (a CYC0 read latches CYC1-3; a CYC0 write clears it)    |
+ | 0x4C      | WDT_CTRL    | [0] EN, [3:1] SCALE (a write restarts the count)                          |
+ | 0x4D      | WDT_KICK    | Write 0xA5: restart the count.  Read: the ticks counted so far             |
+ | 0x4E      | WDT_TIMEOUT | The timeout in ticks of 2^(16 + SCALE) clocks, less one (reset 255)        |
+ | 0x4F      | WDT_STAT    | [0] WDRST: the last reset was the watchdog's (write 1 to clear)            |
+ | 0x3E      | T3 IE       | [5] channel 0 PDM, [6] channel 1 PDM (bits 4:0: Timer 3's interrupts)      |
+ | 0x35/0x37 | T3 CMPn_L   | In PDM mode: the channel's level, CMPn[7:0] / 256                          |
 
 ## How to test
 
