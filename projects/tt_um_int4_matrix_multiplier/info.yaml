@@ -1,0 +1,42 @@
+# Tiny Tapeout project information
+project:
+  title: "Resource-Shared 4x4 INT4 Matrix Multiplier"
+  author: "Varun K B"
+  discord: ""
+  description: "A signed INT4 4x4 matrix multiplier that reuses four processing elements to compute C = A x B sequentially."
+  language: "Verilog"
+  clock_hz: 50000000
+  tiles: "1x1"
+  top_module: "tt_um_int4_matrix_multiplier"
+  source_files:
+    - "project.v"
+
+pinout:
+  ui[0]: "INT4 input bit 0"
+  ui[1]: "INT4 input bit 1"
+  ui[2]: "INT4 input bit 2"
+  ui[3]: "INT4 input bit 3"
+  ui[4]: "Unused"
+  ui[5]: "Unused"
+  ui[6]: "Unused"
+  ui[7]: "Unused"
+
+  uo[0]: "Result byte bit 0"
+  uo[1]: "Result byte bit 1"
+  uo[2]: "Result byte bit 2"
+  uo[3]: "Result byte bit 3"
+  uo[4]: "Result byte bit 4"
+  uo[5]: "Result byte bit 5"
+  uo[6]: "Result byte bit 6"
+  uo[7]: "Result byte bit 7"
+
+  uio[0]: "Command bit 0"
+  uio[1]: "Command bit 1"
+  uio[2]: "Busy status output"
+  uio[3]: "Current matrix element result-valid status"
+  uio[4]: "Unused"
+  uio[5]: "Unused"
+  uio[6]: "Unused"
+  uio[7]: "Unused"
+
+yaml_version: 6
