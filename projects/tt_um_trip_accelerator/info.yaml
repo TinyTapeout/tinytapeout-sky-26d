@@ -1,0 +1,59 @@
+# Tiny Tapeout project information
+project:
+  title:        "TRIP Sparse Dot-Product Accelerator (1x1)"
+  author:       "OMKAR S KANGOKAR, Darshan A S, Dr Rakhi [Atria Institute of Technology.]"
+  discord:      ""
+  description:  "Sparse dot product of two 4-lane, 4-bit vectors: mask intersection, prefix-sum packing, parallel multipliers and an adder tree."
+  language:     "Verilog"
+  clock_hz:     10000000
+
+  # A single tile is about 167x108 uM.
+  tiles: "1x1"
+
+  top_module:  "tt_um_trip_accelerator"
+
+  # Source files must be in ./src, one per line.
+  # Also update PROJECT_SOURCES in test/Makefile to match this list.
+  source_files:
+    - "tt_um_trip_accelerator.v"
+    - "trip_core.v"
+    - "mfiu.v"
+    - "prefix_sum.v"
+    - "shift_unit.v"
+    - "multiplier_array.v"
+    - "reduction_tree.v"
+
+# The pinout of your project. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "DATA_IN[0]"
+  ui[1]: "DATA_IN[1]"
+  ui[2]: "DATA_IN[2]"
+  ui[3]: "DATA_IN[3]"
+  ui[4]: "DATA_IN[4]"
+  ui[5]: "DATA_IN[5]"
+  ui[6]: "DATA_IN[6]"
+  ui[7]: "DATA_IN[7]"
+
+  # Outputs
+  uo[0]: "RESULT_BYTE[0]"
+  uo[1]: "RESULT_BYTE[1]"
+  uo[2]: "RESULT_BYTE[2]"
+  uo[3]: "RESULT_BYTE[3]"
+  uo[4]: "RESULT_BYTE[4]"
+  uo[5]: "RESULT_BYTE[5]"
+  uo[6]: "RESULT_BYTE[6]"
+  uo[7]: "RESULT_BYTE[7]"
+
+  # Bidirectional pins
+  uio[0]: "LOAD_STROBE (in)"
+  uio[1]: "START (in)"
+  uio[2]: "BYTE_SEL (in)"
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: "DONE (out)"
+
+# Do not change!
+yaml_version: 6
