@@ -1,0 +1,38 @@
+121. Printing statistics.
+
+=== tt_um_sahil_qspi_sram ===
+
+        +----------Local Count, excluding submodules.
+        |        +-Local Area, excluding submodules.
+        |        | 
+      414        - wires
+      449        - wire bits
+      141        - public wires
+      176        - public wire bits
+        8        - ports
+       43        - port bits
+      430 6.55E+03 cells
+        6   75.072   sky130_fd_sc_hd__a2111o_2
+        1    10.01   sky130_fd_sc_hd__a211o_2
+        9  101.347   sky130_fd_sc_hd__a221o_2
+       46  460.442   sky130_fd_sc_hd__a22o_2
+       12   90.086   sky130_fd_sc_hd__and2_2
+       13   97.594   sky130_fd_sc_hd__and3_2
+        4   40.038   sky130_fd_sc_hd__and3b_2
+        8   80.077   sky130_fd_sc_hd__and4_2
+        5    62.56   sky130_fd_sc_hd__and4bb_2
+       16   60.058   sky130_fd_sc_hd__conb_1
+      141  3.7E+03   sky130_fd_sc_hd__dfrtp_2
+        7   26.275   sky130_fd_sc_hd__inv_2
+      132 1.49E+03   sky130_fd_sc_hd__mux2_1
+        2   12.512   sky130_fd_sc_hd__nand2_2
+        3   18.768   sky130_fd_sc_hd__nor2_2
+        3   30.029   sky130_fd_sc_hd__nor3_2
+        1   12.512   sky130_fd_sc_hd__nor3b_2
+        2   15.014   sky130_fd_sc_hd__or3_2
+       18  157.651   sky130_fd_sc_hd__or4_2
+        1    10.01   sky130_fd_sc_hd__or4b_2
+
+   Chip area for module '\tt_um_sahil_qspi_sram': 6551.283200
+     of which used for sequential elements: 3704.803200 (56.55%)
+
