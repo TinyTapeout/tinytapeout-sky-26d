@@ -9,12 +9,14 @@ You can also include images in this folder and reference them in the markdown. E
 
 ## How it works
 
-It doesn't
+Feed it clock, hook a scope up to the 3 or 4 outputs
+use the 4 selects to pick how much delay between the output clocks
+the xor should show the different between the 2 sclcocks.
 
 ## How to test
 
-Put it on a shelf, make sure it doesn't fall over.
+see aboove
 
 ## External hardware
 
-List external hardware used in your project (e.g. PMOD, LED display, etc), if any
+clock and scope 
