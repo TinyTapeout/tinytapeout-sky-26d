@@ -1,8 +1,8 @@
 {
-  "app": "Tiny Tapeout main 01d5d281",
+  "app": "Tiny Tapeout main 37f5534a",
   "repo": "https://github.com/SyverH/tt-spi-mac",
-  "commit": "bffe810e1927b9316fa5528fa07ef149f3ce6f01",
-  "workflow_url": "https://github.com/SyverH/tt-spi-mac/actions/runs/39161511593",
+  "commit": "6d94bd20946250a667d5b90322f4b604f8591b32",
+  "workflow_url": "https://github.com/SyverH/tt-spi-mac/actions/runs/41908103196",
   "project_id": 6201,
   "sort_id": 1792352082705
 }

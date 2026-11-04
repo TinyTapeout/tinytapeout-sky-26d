@@ -1,11 +1,11 @@
 # Tiny Tapeout project information
 project:
-  title:        "SPI matrix accelerator"      # Project title
+  title:        "SPI int8 dot-product accelerator"      # Project title
   author:       "Syver Haraldsen"      # Your name
   discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Signed int8 2x2 matrix multiplication and accumulation over SPI"      # One line description of what your project does
+  description:  "One serial int8 MAC shared by three int32 dot products, with on-chip Q16 scaling over SPI"      # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
-  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+  clock_hz:     25000000       # Clock frequency in Hz (or 0 if not applicable)
 
   # How many tiles your design occupies? A single tile is about 167x108 uM.
   tiles: "1x2"          # Two tiles. Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
@@ -19,9 +19,8 @@ project:
   source_files:
     - "project.v"
     - "spi_slave.v"
-    - "command_controller.v"
-    - "matrix_engine.v"
-    - "mac.v"
+    - "dot3_controller.v"
+    - "dot3_engine.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
