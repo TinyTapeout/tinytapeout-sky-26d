@@ -1,139 +1,85 @@
 ## How it works
 
-A small signed int8 matrix accelerator controlled over SPI. The built design
-multiplies two 2x2 matrices using one reused MAC, with signed 32-bit results.
-It supports both `C = A * B` and `C = C + A * B`. Overflow wraps in two's
-complement; there is no saturation or floating-point logic.
+This 1×2 design computes **three arbitrarily long signed-int8 dot
+products** with one serial MAC. For each input, the host sends one activation
+and three weights. The MAC multiplies the activation by each weight in turn
+and updates three signed 32-bit accumulators. Three biases initialize those
+accumulators. After the host sends FINISH, one Q16 scaler converts each sum
+to signed int8 with configurable zero point and optional ReLU. The scale is
+shared by the three outputs. Accumulation wraps modulo 2³² on overflow.
 
-The modules are:
-
-- `spi_slave`: synchronizes the SPI inputs and transfers bytes.
-- `command_controller`: interprets one command per CS-low frame, tracks complete
-  input loads, and streams result bytes.
-- `matrix_engine`: stores A/B/C and selects operands for each dot product.
-- `mac`: one multiplier, product register, adder and accumulator, reused for every result.
-
-The MAC has two pipeline stages: it captures a signed 16-bit product, then
-adds that product to the 32-bit accumulator on the next clock edge. It can
-accept one new product per clock. The matrix engine waits for the last product
-to be accumulated before storing each result. Clear, load and reset discard
-any pending product. The SPI commands and result format are unchanged.
-- `project`: connects the modules and the Tiny Tapeout pins.
-
-### Pins and clocks
+The modules are `spi_slave` (mode-0 SPI and input synchronization),
+`dot3_controller` (commands and four-byte framing), `dot3_engine` (shared MAC,
+accumulators and Q16 scaling), and `project` (Tiny Tapeout pins). Configuration
+bytes reuse the engine's arithmetic work register while it is idle. The chip
+does not store a model or an input matrix.
 
 | Pin | Function |
 | --- | --- |
 | `uio[0]` | SPI CS_n input, active low |
 | `uio[1]` | SPI SCK input |
 | `uio[2]` | SPI MOSI input |
-| `uio[3]` | SPI MISO output, driven only while selected, enabled and out of reset |
+| `uio[3]` | SPI MISO output, enabled only while selected |
 | `uo[0]` | DONE output, active high |
-| `clk` | Continuous system clock for the SPI logic and calculation |
+| `clk` | Continuous system clock |
 | `rst_n` | Active-low synchronous reset |
 
-Other output drivers are disabled or tied low, and other inputs are unused.
-When `ena` is low, the design is held in reset and MISO is released.
+SPI is mode 0, MSB first. Keep each SCK half-period at least five system-clock
+periods. Hold CS low for five system clocks before the first rising SCK edge
+and after the last falling edge, and high for five clocks between frames.
+At the 25 MHz target clock, this conservative protocol limit is 2.5 MHz SPI.
 
-SPI uses mode 0 (SCK idle low), MSB first. Keep each SCK half-period at least
-five system-clock periods. Keep CS low for at least five system-clock periods
-before the first SCK rising edge and after the final falling edge; keep CS high
-for at least five periods between frames. This is the conservative protocol
-operating envelope used by the RTL tests, not a measured silicon speed limit.
-The 50 MHz ASIC clock constraint (20 ns period) meets setup and hold timing in
-the GDS workflow; the slow corner still has maximum-slew violations.
+Each CS-low frame begins with one command byte; MISO is zero during that byte.
+Multibyte integers are little-endian. Extra bytes after a completed command
+are ignored, except in a FEED3 frame.
 
-SPI SCK is sampled by the system clock, rather than clocking the MAC directly.
-The system clock must keep running while using SPI or computing a result.
-A calculation finishes even if SCK stops.
-
-### Commands
-
-Each CS-low frame starts with one command byte. All numbers below are hex.
-Data bytes that happen to equal a command are still data. Matrix elements are
-sent row by row; negative inputs use 8-bit two's complement.
-
-| Command | Following MOSI bytes | MISO response after command byte |
+| Hex command | Following MOSI bytes | Meaning / following MISO bytes |
 | --- | --- | --- |
 | `01` | One dummy byte | Device ID `77` |
-| `02` | One dummy byte | Status: bit 0 BUSY, bit 1 DONE; other bits zero |
-| `10` | Four matrix A elements | Ignored (zero) |
-| `11` | Four matrix B elements | Ignored (zero) |
-| `20` | None | Start `C = A * B` |
-| `21` | None | Start `C = C + A * B` |
-| `30` | Sixteen dummy bytes | Four signed 32-bit results, low byte first |
+| `02` | One dummy byte | Status: bit 0 BUSY, bit 1 DONE |
+| `45` | Unsigned Q16 multiplier (2 bytes), right shift (0–31), signed int8 output zero point, flags | Set output conversion; flag bit 0 enables ReLU, all other flag bits must be zero |
+| `48` | Three signed int32 biases (12 bytes) | BEGIN3: clear DONE and initialize three accumulators |
+| `49` | Any number of complete four-byte groups | FEED3: `activation weight0 weight1 weight2` per group |
+| `42` | None | FINISH: compute three int8 outputs, then set DONE |
+| `4A` | Twelve dummy bytes | Read three signed int32 sums, lane 0 then 1 then 2 |
+| `4B` | Three dummy bytes | Read three signed int8 results, lane 0 then 1 then 2 |
 
-MISO during the command byte is zero and should be ignored. Dummy bytes only
-provide the clock pulses to read data; their MOSI value does not matter.
-Status is captured when the command byte is received and stays fixed for that
-reply. Extra bytes after a complete command/response are ignored and return zero
-until CS goes high. Unknown and rejected commands behave the same way.
+For a real scale `s` below 1, approximate `s = m / 65536 / 2^r` with a
+16-bit `m` and right shift `r` from 0 to 31. Each output is
+`clamp(round_away_from_zero(sum × m / 2^(16+r)) + zero_point)`.
+Clamping is to `[-128, 127]`, or `[zero_point, 127]` with ReLU. The host
+computes `m` and `r` once per model layer. This approximation is not bit-exact
+for every possible model; the included open model is checked against its
+31-bit reference in tests. The scaler needs roughly `32 + r` system-clock
+cycles per output after FINISH. Wait for DONE before reading results.
 
-### Loading, calculation and DONE
+Reset defaults the multiplier, right shift and zero point to zero. SET_QUANT
+is accepted only while no job is active and the engine is idle. An incomplete
+or invalid quantization configuration has no effect. BEGIN3 includes all
+three biases in one frame; if interrupted, it invalidates the previous result
+and leaves no new job active. Complete FEED3 groups survive frame breaks;
+an incomplete group is discarded when CS rises. FEED3 after FINISH is ignored.
+DONE stays high until the next BEGIN3 or reset.
 
-Reset invalidates both input matrices and clears DONE. Start requires a complete
-A and B. Accumulation also requires an existing completed C. A rejected start
-leaves the current state and previous result unchanged; there are no error codes.
+This example uses one CS-low frame per line. MOSI bytes are hexadecimal;
+read commands clock zero bytes to receive MISO data. MISO is zero during
+each command byte.
 
-Starting a matrix load immediately invalidates that input matrix. Elements are
-written as their bytes arrive. Only the fourth complete data byte marks the
-matrix valid again. If CS rises early, reload the entire target matrix. An
-incomplete load does not invalidate the other matrix or the previous result.
-
-A command takes effect as soon as its required bytes are received; CS rising
-ends the frame but is not a separate commit operation. Accepted starts clear
-DONE and set BUSY. Completion clears BUSY and raises DONE. Reading results,
-reading status or loading new input matrices does not clear DONE. It remains
-high until the next accepted start or reset, so a host can use a rising-edge GPIO
-interrupt or poll status. A stale DONE after a rejected start is possible: the
-host must follow the loading rules.
-
-While busy, only ID and status commands are accepted. Loads, starts and result
-reads received while busy are ignored for the entire frame. Reading C before
-there is a complete result returns zeros. The 2x2 calculation is short enough
-that it may finish before a subsequent SPI status command can observe BUSY.
-
-### Example
-
-For A = `[1, 2; 3, 4]` and B = `[5, 6; 7, 8]`, send each line with its own CS:
-
-```text
-MOSI: 01 00                         MISO: 00 77
-MOSI: 10 01 02 03 04                 Load A
-MOSI: 11 05 06 07 08                 Load B
-MOSI: 20                            Start multiplication
-        Wait for DONE, or poll 02 00 until status is 02.
-MOSI: 30 + sixteen dummy bytes
-MISO: 00  13 00 00 00  16 00 00 00  2B 00 00 00  32 00 00 00
-```
-
-The result is `[19, 22; 43, 50]`. Send `21`, wait for the next completion, and
-read again to get `[38, 44; 86, 100]`. A subsequent `20` replaces C again.
+| MOSI frame | Result |
+| --- | --- |
+| `01 00` | ID byte `77` |
+| `45 00 80 00 00 00` | Set the shared output scale to 0.5 |
+| `48 00 00 00 00 01 00 00 00 FE FF FF FF` | Start with biases 0, 1, −2 |
+| `49 01 05 06 07 02 08 09 0A` | Send activations 1, 2 and three weights per activation |
+| `42` | Finish; wait until DONE is high |
+| `02 00` | Status byte `02` (DONE set, BUSY clear) |
+| `4A` followed by 12 zero bytes | Raw sums `15 00 00 00 19 00 00 00 19 00 00 00` (21, 25, 25) |
+| `4B 00 00 00` | Quantized outputs `0B 0D 0D` (11, 13, 13) |
 
 ## How to test
 
-Activate the Python environment, then run from `test/`:
-
-```sh
-make
-make -f Makefile.controller
-make -f Makefile.mac
-make -f Makefile.matrix
-make -f Makefile.matrix N=3
-```
-
-The top-level tests exercise the full SPI path, signed and random matrices,
-accumulation, DONE, frame boundaries, incomplete loads and recovery, reset,
-and MISO output-enable. Unit tests additionally check busy rejection, status
-snapshots, arithmetic overflow, and the parameterized matrix engine.
-
-`N=3` tests the engine only; the integrated SPI design is 2x2. Changing the
-integrated size requires rebuilding with a different `N` in `project.v` and
-adjusting host/test lengths (N*N input bytes and 4*N*N result bytes).
-Passing simulation does not establish area fit or maximum clock speed. These
-require the GDS flow, timing checks and gate-level tests.
-
-## External hardware
-
-An SPI host, a continuous system clock and reset. Optionally connect DONE to a
-host GPIO interrupt. No external hardware is required for simulation.
+From `test/`, with Python 3.11 and cocotb active, run `make`. The four tests
+exercise long streams, interrupted groups, aborted jobs, reset, signed
+arithmetic, randomized scaling, and a complete inference using the open TFLM
+sine model. The int8 outputs from one layer become the inputs to the next. See
+[test/README.md](../test/README.md) for model provenance and limitations.
