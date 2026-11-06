@@ -1,8 +1,8 @@
 {
-  "app": "Tiny Tapeout main b7b993ac",
+  "app": "Tiny Tapeout main 37f5534a",
   "repo": "https://github.com/talivick/tt-digit-reader",
-  "commit": "af9ab516a37bca5e45a362e295972fc651d26ce9",
-  "workflow_url": "https://github.com/talivick/tt-digit-reader/actions/runs/41152766461",
+  "commit": "4bc158dd8102eb61077dc505b9bf987026f4cc5c",
+  "workflow_url": "https://github.com/talivick/tt-digit-reader/actions/runs/41897845550",
   "project_id": 6343,
   "sort_id": 1793482172819
 }
