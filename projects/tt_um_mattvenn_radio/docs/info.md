@@ -23,8 +23,12 @@ The full description covers theory, specs, schematics and layout: [docs/how_it_w
 **Debug:**
 - `uio[3]` always outputs the raw comparator bits.
 - `uio[4..7]` show burst detected, toggle, trim direction and TX active.
-- The mode is latched at reset, and only when `uio[7:4]` = `1010`. Raw mode (`uio[1:0]` = `01`) lets `uio[2]` key the transmitter directly, in either role: on an RX board the receiver stays on, so `uio[3]` shows the chip hearing its own transmission (a loopback test). Release `uio[2]` after reset if you also strapped debug with it. Debug (`uio[2]` = 1) connects the detector output to `ua[2]`. Monopole fallback (`uio[3]` = 1) drives `ua[3]` only. Details are in the [pin map](https://github.com/mattvenn/ook-asic-radio/blob/main/PLAN.md#draft-pin-map-finalize-against-tt-demo-pcb).
+- The mode is latched at reset, and only when `uio[7:4]` = `1010`. Raw mode (`uio[1:0]` = `01`) lets `uio[2]` key the transmitter directly, in either role: on an RX board the receiver stays on, so `uio[3]` shows the chip hearing its own transmission (a loopback test). Release `uio[2]` after reset if you also strapped debug with it. Debug (`uio[2]` = 1) connects the detector output to `ua[2]`. Monopole fallback (`uio[3]` = 1) drives `ua[3]` only. `uio[7:4]` = `1011` does the same as `1010` and also selects **low LNA gain** (about 10 dB less): a fallback in case the receiver chain oscillates, at the cost of about 3 dB of sensitivity. Use the normal `1010` (or no straps) first. Details are in the [pin map](https://github.com/mattvenn/ook-asic-radio/blob/main/PLAN.md#draft-pin-map-finalize-against-tt-demo-pcb).
 
 ## External hardware
 
 4 × ~16.5 cm wires (two per board). An RTL-SDR or a scope is useful for checking the transmitter.
+
+## Radio regulations
+
+This is an experimental, uncertified transmitter. The ring oscillator is not tuned: it can land anywhere in about 330–560 MHz (~448 MHz typical), mostly outside the 433.05–434.79 MHz licence-exempt band, and its square wave has strong harmonics. That range includes aviation, emergency-service and 406 MHz distress-beacon frequencies. Power is low (about +3 dBm, 2 mW), but transmitting over the air may need an amateur radio licence (70 cm band: 420–450 MHz in the US, 430–440 MHz in the UK and much of Europe), and outside the amateur band it may not be legal at all. Measure the frequency with an SDR first, keep transmissions short, and prefer the cabled link test in [docs/bringup.md](https://github.com/mattvenn/ook-asic-radio/blob/main/docs/bringup.md). Receiving is fine. You are responsible for following your local rules.
