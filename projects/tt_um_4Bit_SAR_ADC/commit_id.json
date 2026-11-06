@@ -1,0 +1,9 @@
+{
+  "app": "custom_gds action",
+  "repo": "https://github.com/RVCE-DrSSN/tt_um_4Bit_SAR_ADC",
+  "commit": "42c2f1a0be822529a32d410faffde95ee56837fb",
+  "workflow_url": "https://github.com/RVCE-DrSSN/tt_um_4Bit_SAR_ADC/actions/runs/38781153754",
+  "project_id": 6104,
+  "sort_id": 1792087087545,
+  "analog": true
+}
