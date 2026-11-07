@@ -1,0 +1,41 @@
+{
+  "version": 1,
+  "author": "Uri Shaked",
+  "editor": "wokwi",
+  "parts": [
+    {
+      "type": "board-tt-block-input",
+      "id": "ttin",
+      "top": -304.93,
+      "left": -494.4,
+      "attrs": { "verilogRole": "input" }
+    },
+    {
+      "type": "board-tt-block-output",
+      "id": "ttout",
+      "top": -228.13,
+      "left": -33.6,
+      "attrs": { "verilogRole": "output" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text1",
+      "top": -96,
+      "left": -144,
+      "attrs": { "text": "2. Change input values" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text3",
+      "top": -432,
+      "left": -230.4,
+      "attrs": { "text": "1. Simulate with the green ▶ button" }
+    },
+    { "type": "wokwi-gate-not", "id": "not1", "top": -240, "left": -364.8, "attrs": {} }
+  ],
+  "connections": [
+    [ "not1:IN", "ttin:IN4", "green", [ "v0" ] ],
+    [ "not1:OUT", "ttout:OUT3", "green", [ "v48", "h556.8" ] ]
+  ],
+  "dependencies": {}
+}
