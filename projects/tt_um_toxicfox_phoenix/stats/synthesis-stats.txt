@@ -11,7 +11,8 @@
       686        - public wire bits
         8        - ports
        43        - port bits
-     3136 3.59E+04 cells
+     3137 3.59E+04 cells
+        1        -   branding
         2   25.024   sky130_fd_sc_hd__a2111o_2
         1   15.014   sky130_fd_sc_hd__a2111oi_2
        71  710.682   sky130_fd_sc_hd__a211o_2
@@ -77,6 +78,8 @@
         3   37.536   sky130_fd_sc_hd__or4bb_2
        19  309.046   sky130_fd_sc_hd__xnor2_2
        29  471.702   sky130_fd_sc_hd__xor2_2
+
+   Area for cell type \branding is unknown!
 
    Chip area for module '\tt_um_toxicfox_phoenix': 35946.976000
      of which used for sequential elements: 14346.259200 (39.91%)
