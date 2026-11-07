@@ -1,0 +1,48 @@
+# Tiny Tapeout project information (Wokwi project)
+project:
+  wokwi_id: "479985668941097985" # Set this to the ID of your Wokwi project (the number from the project's URL)
+  title: "Tiny Tapeout Workshop HVz" # Project title
+  author: "Homero Vazquez " # Your name
+  discord: "homero_vz_51123" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Supercon Workshop " # One line description of what your project does
+  language: "Wokwi" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 10 # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "none"
+  ui[1]: "none"
+  ui[2]: "none"
+  ui[3]: "none"
+  ui[4]: "shift_reg_in"
+  ui[5]: "adder_1"
+  ui[6]: "adder_2"
+  ui[7]: "adder_3"
+
+  # Outputs
+  uo[0]: "s_out"
+  uo[1]: "carry"
+  uo[2]: "none"
+  uo[3]: "none"
+  uo[4]: "none"
+  uo[5]: "shift_reg0"
+  uo[6]: "shift_reg1"
+  uo[7]: "shift_reg2"
+
+  # Bidirectional pins
+  uio[0]: "none"
+  uio[1]: "none"
+  uio[2]: "none"
+  uio[3]: "none"
+  uio[4]: "none"
+  uio[5]: "none"
+  uio[6]: "none"
+  uio[7]: "none"
+
+# Do not change!
+yaml_version: 6
