@@ -1,24 +1,106 @@
 ## How it works
-Este proyecto es un procesador RISC-V RV32I de ciclo unico, programable por UART en tiempo real -- no tiene ninguna instruccion pregrabada en el silicio. El chip arranca en modo de carga (LOAD), esperando recibir un programa completo por UART; una vez recibido, pasa a modo de ejecucion (RUN) y corre ese programa exactamente igual que cualquier microprocesador de ciclo unico convencional (un ciclo de reloj por instruccion, sin segmentacion).
 
-Implementa el set de instrucciones RV32I completo (aritmetica y logica de registro-registro y registro-inmediato, desplazamientos, comparaciones con y sin signo, saltos y branches, cargas y almacenamientos de byte/media palabra/palabra completa, lui/auipc), ademas de dos perifericos mapeados en memoria:
+This project is a **single-cycle RISC-V RV32I processor** that is programmed over UART. It has no program stored in silicon. After reset the chip is in LOAD mode and waits for a first program block of 32 bytes (8 instructions) on the UART. When the block is complete the chip switches to RUN mode and executes it at one instruction per clock cycle, with no pipeline. When the program needs more instructions, it asks an external SPI memory for the next block and keeps running, with the register file intact.
 
-UART: usado tanto para cargar el programa (bootloader) como, una vez el programa esta corriendo, para que el software transmita y reciba datos en tiempo real (direcciones 0x40 TX y 0x44 RX).
-SPI maestro (modo 0, 8 bits): permite que el software hable con un periferico SPI externo (direccion 0x48).
+It implements the RV32I base instruction set: register-register and register-immediate arithmetic and logic, shifts, signed and unsigned comparisons, jumps and branches, byte / halfword / word loads and stores, `lui` and `auipc`.
 
-Todo el diseño fue validado de forma exhaustiva en una FPGA Basys3 antes de esta sintesis: las 37 instrucciones del set se probaron individualmente, junto con pruebas de estres (generacion de Fibonacci), interaccion UART en tiempo real (calculadoras interactivas por teclado), y el periferico SPI en loopback fisico.
+### Block-chained program memory
 
-Carga un programa por UART (8N1, 115200 baudios) al pin de RX del proyecto: exactamente INSTR_DEPTH palabras de 32 bits (ver info.yaml para el numero exacto), enviadas byte por byte, LSB primero por palabra.
-El chip transiciona automaticamente a modo RUN al recibir la ultima palabra (visible en uo_out[7]).
-El programa cargado puede leer/escribir UART y SPI usando los registros mapeados en memoria (0x40, 0x44, 0x48), y leer entradas de proposito general en 0x50.
-Los resultados que el programa transmita por UART TX se reciben en cualquier terminal serial (por ejemplo RealTerm) conectada al mismo puerto.
+The physical instruction memory holds only 8 words of 32 bits (one 32-byte block) and the data memory holds 4 words. A longer program is split into 32-byte blocks stored in an external SPI memory: block `n` lives at address `n*32`. Block 0 is sent over UART; the program itself requests every other block.
+
+The chip has three modes, shown on `uo_out[7:6]`:
+
+| `uo_out[7:6]` | Mode | What happens |
+| --- | --- | --- |
+| `00` | LOAD | Waits for the 32 bytes of block 0 on the UART |
+| `01` | RUN | Executes the current block, one instruction per cycle |
+| `10` | BLOCKLOAD | Reads 32 bytes from the SPI memory, then returns to RUN with the PC at 0 |
+
+The modes are mutually exclusive: the UART bootloader, instruction execution and the SPI block read never happen at the same time.
+
+### UART receiver and reset behavior
+
+The UART receiver has a two-flip-flop input synchronizer and checks the stop bit. A frame whose stop bit is 0 is discarded, and the receiver then waits for the line to return high. With RX held low it no longer produces phantom `0x00` bytes. The UART divisor is 86 clock cycles per bit, so at 10 MHz the real baud rate is 116,279 (+0.94 % over 115200), which standard serial terminals accept.
+
+The design uses `rst_n` directly, with no reset synchronizer. If the RX line rises from low to high between about 4 us and 82 us after reset is released, the receiver can still produce one phantom byte, which shifts block 0. The fix is in the host: drive `ui_in[3]` high before releasing reset, or wait at least 100 us after releasing reset before sending.
+
+### Peripheral memory map
+
+| Address | Read | Write |
+| --- | --- | --- |
+| `0x40` | Bit 0 = `tx_busy` | Sends the low byte over UART TX |
+| `0x44` | Bit 8 = received-data flag, bits 7:0 = data | Acknowledges the received byte |
+| `0x4C` | -- | Requests the block whose number is written; starts the SPI read |
+| `0x50` | Inputs `ui_in[7:0]` | -- |
+
+### Validated specifications
+
+| Metric | Value |
+| --- | --- |
+| RV32I instructions verified | 30/30 (base set) |
+| Verification methods | Cycle-accurate Python model, cocotb, gate-level test and Basys3 FPGA |
+| Mutual-exclusion invariant | 0 violations in 136,353 simulated cycles |
+| Category programs validated on FPGA | 10/10 (A, B, C, D, D2, E, F2, G, H_suma, H_resta) |
+| Clock | 10 MHz |
+| UART | 115200 baud nominal, 8N1 (divisor 86, real 116,279 baud at 10 MHz) |
+| Physical instruction memory | 8 words, chained in blocks over SPI |
+| Size | 4x2 tiles |
+
+Silicon validation is pending. Everything above was verified in simulation, at gate level and on FPGA.
 
 ## How to test
-Carga un programa por UART (8N1, 115200 baudios) al pin de RX del proyecto: exactamente INSTR_DEPTH palabras de 32 bits (ver info.yaml para el numero exacto), enviadas byte por byte, LSB primero por palabra.
-El chip transiciona automaticamente a modo RUN al recibir la ultima palabra (visible en uo_out[7]).
-El programa cargado puede leer/escribir UART y SPI usando los registros mapeados en memoria (0x40, 0x44, 0x48), y leer entradas de proposito general en 0x50.
-Los resultados que el programa transmita por UART TX se reciben en cualquier terminal serial (por ejemplo RealTerm) conectada al mismo puerto.
 
-External hardware
-Un adaptador USB-Serial (o el propio USB del board de desarrollo si se usa passthrough) para hablar con el pin de UART.
-Opcionalmente, un periferico SPI (memoria, display, sensor) conectado a uio[0:3] siguiendo la convencion estandar de Pmod (CS, MOSI, MISO, SCK).
+### Requirements
+
+| Requirement | Detail |
+| --- | --- |
+| Board | Tiny Tapeout demo board with the project enabled |
+| Clock | 10 MHz (UART timing tolerates roughly 9.6 to 10.2 MHz, from a simulation sweep) |
+| Reset | `rst_n` low at start, with the clock running during reset. Drive `ui_in[3]` (UART RX) high before releasing it |
+| USB | USB-C cable from the demo board to the computer |
+| Serial terminal | RealTerm or similar, 115200 baud, 8 data bits, no parity, 1 stop bit |
+| Chip UART | RX on `ui_in[3]`, TX on `uo_out[4]` |
+| SPI memory | `0x03` read with a 16-bit address (mode 0 or 3) on `uio[0:3]`, holding the full program image from address 0 |
+| Files | `bloque0_<program>.bin` (32 bytes, sent over UART) and `spi_image_<program>.bin` (loaded into the SPI memory) |
+
+### Steps
+
+1. Connect the USB-C cable. The demo board bridges the chip UART to a serial port through its RP2350, as described in the Tiny Tapeout pinout page (UART to USB).
+2. Enable the project, set the clock to 10 MHz and reset, with the UART RX line (`ui_in[3]`) already high when reset is released. `uo_out[7:6]` should read `00` (LOAD).
+3. Load the full program image into the SPI memory: block 0 at address 0 and block `n` at `n*32`.
+4. Open the serial terminal on the port that reaches the chip UART.
+5. Send the file `bloque0_<program>.bin` (32 bytes) unmodified. Each word is sent least significant byte first, and the file is already in that order.
+6. After the last byte the chip enters RUN (`uo_out[7:6]` = `01`) and executes block 0.
+7. When the program requests a block, the chip enters BLOCKLOAD (`10`) during the SPI read and returns to RUN (`01`).
+8. Read the bytes the program sends over UART in the terminal.
+
+To repeat a test, reset the chip and send block 0 again.
+
+### What to expect
+
+| Observation | Where | Expected value |
+| --- | --- | --- |
+| After reset | `uo_out[7:6]` | `00` (LOAD) |
+| While block 0 is received | `uo_out[5]` (`loading_any`) | 1 while the 32 bytes arrive |
+| After the last byte | `uo_out[7:6]` | `01` (RUN) |
+| Execution | `uo_out[2:0]` | Low bits of the PC changing (debug) |
+| UART transmission | `uo_out[3]` (`tx_busy`) | 1 while each byte is sent |
+| Each block read | `uo_out[7:6]` and `uio[0]` (CS_n) | `10`, with CS_n low during the read |
+| Test program output | Serial terminal | `0x0D`, `0x07`, `0x08`, `0x10`, `0xAA`, in that order |
+
+The test program (`bloque0_test.bin` with its 8-block image) computes 10+3, 10-3, 12 AND 10 and 1 shifted left by 4, then ends with `0xAA` in an infinite loop. The first four blocks each request the next one before finishing. At 10 MHz each UART byte lasts about 86 microseconds and each block read takes on the order of 0.2 milliseconds (estimate).
+
+After `0xAA` the processor stays in an infinite loop. That is the expected behavior, not a failure.
+
+### Notes
+
+- The byte `0x03` appears in the programs. If your terminal or serial bridge treats it as Ctrl-C, disable that behavior or bytes will be lost.
+- If the SPI memory is not loaded, the chip executes whatever it reads and the output after block 0 is not valid.
+- The UART baud rate of the chip is the clock frequency divided by 86. At exactly 10 MHz it is 116,279 baud. A clock near 9.907 MHz gives exactly 115200 baud.
+- If the RX line is low or floating when reset is released and then rises within about 82 us, one phantom byte can enter block 0. Configure the UART pin as an output driving high before releasing reset, or wait at least 100 us.
+
+## External hardware
+
+- A serial path between the computer and the chip UART (`ui_in[3]` RX, `uo_out[4]` TX). The demo board provides it over USB-C. As an alternative, a 3.3 V USB-Serial adapter works: adapter TX to `ui_in[3]`, adapter RX to `uo_out[4]` and a common ground.
+- An external SPI memory on `uio[0:3]` in standard Pmod order (CS_n, MOSI, MISO, SCK), supporting the `0x03` read with a 16-bit address. On the demo board it can be emulated by the board's microcontroller. SCK is the clock divided by 8 (1.25 MHz at 10 MHz).
+- An oscilloscope or logic analyzer is optional, to watch `uo_out[7:6]` and the SPI lines.
