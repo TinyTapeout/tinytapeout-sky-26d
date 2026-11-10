@@ -1,0 +1,59 @@
+# Tiny Tapeout project information
+project:
+  title:        "OpenBlastCore32-TT08"
+  author:       "OpenBlastCore32 contributors"
+  discord:      ""
+  description:  "32-bit TTA CPU with shared cartridge memory and 1bpp VGA scanout candidate"
+  language:     "Verilog"
+  clock_hz:     50000000
+
+  tiles: "4x2"
+
+  top_module:  "tt_um_openblastcore32_tt08"
+
+  source_files:
+    - "tt_um_openblastcore32_tt08.v"
+    - "tt08_cpu.v"
+    - "tt08_handoff.v"
+    - "tt08_memory.v"
+    - "tt08_psram.v"
+    - "tt08_scanout.v"
+    - "tt08_minimal_audio.v"
+    - "phase2_gamepad_io.v"
+    - "vendor/gamepad_pmod/gamepad_pmod.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "Reserved PS/2 clock (receiver omitted)"
+  ui[1]: "Reserved PS/2 data (receiver omitted)"
+  ui[2]: "GPIO0 input"
+  ui[3]: "GPIO1 input"
+  ui[4]: "Gamepad PMOD latch input"
+  ui[5]: "Gamepad PMOD clock input"
+  ui[6]: "Gamepad PMOD data input"
+  ui[7]: "Reserved turbo input (no effect)"
+
+  # Outputs
+  uo[0]: "VGA R1"
+  uo[1]: "VGA G1"
+  uo[2]: "VGA B1"
+  uo[3]: "VGA VSync#"
+  uo[4]: "VGA R0"
+  uo[5]: "VGA G0"
+  uo[6]: "VGA B0"
+  uo[7]: "VGA HSync#"
+
+  # Bidirectional pins
+  uio[0]: "Flash CS#"
+  uio[1]: "Cartridge DQ0"
+  uio[2]: "Cartridge DQ1"
+  uio[3]: "Cartridge SCK"
+  uio[4]: "Cartridge DQ2"
+  uio[5]: "Cartridge DQ3"
+  uio[6]: "PSRAM CS#"
+  uio[7]: "Mono PWM audio (two pulse + noise)"
+
+# Do not change!
+yaml_version: 6
