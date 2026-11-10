@@ -1,0 +1,48 @@
+# Tiny Tapeout project information (Wokwi project)
+project:
+  wokwi_id: "480342286101670913" # Set this to the ID of your Wokwi project (the number from the project's URL)
+  title: "PWMgenerator" # Project title
+  author: "Sebastian Rivas" # Your name
+  discord: "" # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description: "Creates a 16 bit pwm generator using Flip-Flop D and logic gates" # One line description of what your project does
+  language: "Wokwi" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz: 32000 # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1" # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "SEL0"
+  ui[1]: "SEL1"
+  ui[2]: "IN0"
+  ui[3]: "IN1"
+  ui[4]: "IN2"
+  ui[5]: "IN3"
+  ui[6]: "IN4"
+  ui[7]: "IN5"
+
+  # Outputs
+  uo[0]: "PWM"
+  uo[1]: "A"
+  uo[2]: "B"
+  uo[3]: "C"
+  uo[4]: "D"
+  uo[5]: "E"
+  uo[6]: "F"
+  uo[7]: "G"
+
+  # Bidirectional pins
+  uio[0]: ""
+  uio[1]: ""
+  uio[2]: ""
+  uio[3]: ""
+  uio[4]: ""
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
