@@ -25,8 +25,15 @@ Each received sample is latched and passed through a mode-selected effect:
 | 110 | Fuzz → distortion chain |
 | 111 | Test tone: internal ~436 Hz square wave (input ignored) |
 
-Parameters ride `ui[7:4]` (LFO rates, depths, thresholds — table in the repo
-README). All arithmetic saturates; every effect is a pure function of the
+Parameters ride `ui[7:4]`:
+
+| Param bits | Dist (010) | Ring mod (011) | Tremolo (100) | Bitcrusher (101) | Fuzz (001) | Tone (111) |
+|---|---|---|---|---|---|---|
+| `ui[5:4]` | drive G = value+1 (×1..×4) | — | depth (min gain) | bit depth N | clip threshold | — |
+| `ui[7:6]` | — | LFO rate k: half-period 2^(10−k) samples | rate k | decimation ÷2^k | — | tone rate k |
+| `ui[4]` | — | — | min gain: 0 / 128 | — | — | — |
+
+All arithmetic saturates; every effect is a pure function of the
 latched sample. A 5-LED peak meter with per-sample decay drives `uo[5:1]`.
 
 ## How to test
@@ -35,7 +42,9 @@ Connect an I2S codec slave (or a microcontroller I2S-slave emulator) to
 `uio[0]` (MCLK), `uo[6]` (BCLK), `uo[7]` (LRCLK), `ui[0]` (ADC data),
 `uo[0]` (DAC data). Set the mode on `ui[3:1]` and parameters on `ui[7:4]`.
 With no codec attached, mode 111 (test tone) still drives `uo[0]` with a
-square wave — useful for scope checks of BCLK/LRCLK/data framing. cocotb
+square wave — useful for scope checks of BCLK/LRCLK/data framing. (Modes
+0–6 without a codec process whatever floats on `ui[0]`, so tie `ui[0]`
+low for a defined silence.) cocotb
 tests cover every mode, the I2S framing, reset state, and the LED meter;
 run them with `cd test && make -B`.
 
