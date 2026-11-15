@@ -1,10 +1,9 @@
 {
   "app": "custom_gds action",
   "repo": "https://github.com/ktm0228/ttsky26d-opamptrim",
-  "commit": "8b7749ab585e99b04c7e7ed16e093fd5d4d641c4",
-  "workflow_url": "https://github.com/ktm0228/ttsky26d-opamptrim/actions/runs/39371481956",
+  "commit": "a719a0978d189925de0f272fb00855dac00c9a52",
+  "workflow_url": "https://github.com/ktm0228/ttsky26d-opamptrim/actions/runs/43690321709",
   "project_id": 6203,
   "sort_id": 1792393640835,
-  "skip": true,
   "analog": true
 }
