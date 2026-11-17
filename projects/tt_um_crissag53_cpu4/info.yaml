@@ -1,0 +1,50 @@
+# Tiny Tapeout project information
+project:
+  title:        "4-bit Mini Processor"
+  author:       "crissag53"
+  discord:      ""
+  description:  "Tiny 4-bit processor (ADD, SUB, MUL, DIV, LD, ST) with a bus-style register interface"
+  language:     "Verilog"
+  clock_hz:     10000000
+
+  # A single tile is about 167x108 uM.
+  tiles: "1x1"
+
+  top_module:  "tt_um_crissag53_cpu4"
+
+  source_files:
+    - "project.v"
+
+pinout:
+  # Inputs
+  ui[0]: "D0 (write bus)"
+  ui[1]: "D1 (write bus)"
+  ui[2]: "D2 (write bus)"
+  ui[3]: "D3 (write bus)"
+  ui[4]: "D4 (write bus)"
+  ui[5]: "D5 (write bus)"
+  ui[6]: "D6 (write bus)"
+  ui[7]: "D7 (write bus)"
+
+  # Outputs
+  uo[0]: "RESULT0"
+  uo[1]: "RESULT1"
+  uo[2]: "RESULT2"
+  uo[3]: "RESULT3"
+  uo[4]: "RESULT4"
+  uo[5]: "RESULT5"
+  uo[6]: "RESULT6"
+  uo[7]: "RESULT7"
+
+  # Bidirectional pins
+  uio[0]: "ADDR0 (input)"
+  uio[1]: "ADDR1 (input)"
+  uio[2]: "WR strobe (input)"
+  uio[3]: "CPU_RDY (output)"
+  uio[4]: "ZERO (output)"
+  uio[5]: "ERROR (output)"
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
