@@ -5,154 +5,173 @@ This file is used to generate your project datasheet.
 ## How it works
 
 The design is an I2S **master** and the brain of a small digital guitar pedal
-(a "silicon pedalboard"). It generates the audio clocks — MCLK 24.576 MHz
-(512 fs) on `uio[0]`, BCLK 3.072 MHz (64 fs) on `uio[6]`, LRCLK 48 kHz on
-`uio[7]` — and exchanges 16-bit signed, MSB-first Philips-I2S audio: an
+(a "silicon pedalboard"). It generates the audio clocks (MCLK = clk = 24.576
+MHz (512 fs) on `uio[0]`, BCLK 3.072 MHz (64 fs) on `uio[6]`, LRCLK 48 kHz on
+`uio[7]`) and exchanges 16-bit signed, MSB-first Philips-I2S audio: an
 external ADC slave returns digitized samples on `ui[0]`, and the processed
-sample goes out on `uio[1]`. Data occupies slots 1–16 of each 32-slot
-half-frame after the one-slot I2S delay (slots 17–31 stay low); the master
+sample goes out on `uio[1]`. Data occupies slots 1-16 of each 32-slot
+half-frame after the one-slot I2S delay (slots 17-31 stay low); the master
 samples the ADC line mid-slot on BCLK rising edges, left half only, and
-shifts the DAC word out MSB-first, changing it on BCLK falling edges. The
-**same** processed sample is transmitted on both channel halves (mono
-contract). All arithmetic is 16-bit saturating.
+shifts the DAC word out MSB-first on BCLK falling edges. The **same**
+processed sample goes out on both channel halves (mono). All arithmetic is
+16-bit saturating.
 
-Each received sample is latched once per frame (48 kHz) and runs through a
-serial effect chain — a disabled stage passes its input through bit-exactly:
+Every audio clock is divided from `clk` (frame = 512 clk), so **any
+integer-divided clock near 24.576 MHz works**: the sample rate is simply
+clk / 512 (25 MHz gives 48.8 kHz). All time constants below are in frames,
+so they scale with it. Keep the MCLK wire (`uio[0]`) to the codec short.
 
-**fuzz → distortion → crush → tremolo**
+Each received sample is latched once per frame and runs through a serial
+effect chain, one registered stage per clock, sharing one multiplier. A
+disabled stage passes its input through bit-exactly:
 
-- **Octave fuzz** (`en[0]`): full-wave rectifier (octave doubler) with
-  saturating |x| (−32768 folds to +32767) and a fixed clip at 16384. The
-  output is always non-negative; fuzz has no param bit.
-- **Distortion** (`en[1]`): soft-knee piecewise-linear shaper on the stage
-  input's magnitude — unity below the knee T, slope 1/2 above it
-  (out = T + (a−T)/2), original sign reapplied. P0 picks the knee:
-  T = 8192 (soft ceiling 20479) or T = 4096 (ceiling 18431). Both knees sit
-  below the fuzz clip ceiling (16384), so a stacked fuzz works the shaper
-  across its knee.
-- **Crush** (`en[2]`): auto-lofi bitcrusher — the quantize depth follows the
-  input envelope, so quiet passages get crunchier. The envelope tracks the
-  pre-chain input magnitude: attack env ← (env+mag)/2, release
-  env ← env − env/256 − 1 (~256-frame ≈ 5.3 ms release, decaying to exactly
-  0); loud = env ≥ 16384. The depth pair {P1, loud} picks how many bits are
-  kept: 11 → 8 bits (mask 0xFF00), 01/10 → 6 bits (0xFC00), 00 → 4 bits
-  (0xF000) — the sign bit survives the mask. The depth lags the envelope by
-  exactly one frame (a sample's own magnitude never sets its own depth).
-- **Tremolo** (`en[3]`): stepped-gain tremolo — out = in >> s with the gain
-  step s driven by a triangle LFO (s = LFO gap >> 6). P2 sets the rate
-  (~23.4 Hz / ~46.9 Hz), P3 the depth span (gains 1, 1/2, 1/4, 1/8 =
-  0/−6/−12/−18 dB, or 1, 1/2 = 0/−6 dB).
+**comp -> fuzz -> distortion -> (tone + gate) -> phaser -> tremolo**
 
-Fuzz and distortion are pure functions of the latched sample; the crush
-depth and tremolo gain follow per-frame state (envelope / LFO).
+- **Compressor** (`ui[1]`): a smoothed peak envelope (attack ~0.7 ms,
+  release ~85 ms) feeds a gain table in 1.5 dB steps. Gain is +9 dB for
+  envelopes below about -24 dBFS and is pulled down above that (5/8 dB of
+  gain reduction per dB over the knee, roughly 2.7:1), down to -4.5 dB.
+  The gain slews (1/8 of the gap per frame) so it cannot click. The
+  envelope keeps running when the stage is off (it also keys the gate).
+- **Fuzz** (`ui[2]`): asymmetric clip on the magnitude, Fuzz-Face
+  inspired: the positive peaks clip at +0.6 FS, the negative ones at -0.4
+  FS easing toward -0.65 FS as the input level rises. The **octave switch**
+  on `ui[7]` instead outputs clipped + full-wave-rectified, an
+  octave-up blend (always non-negative).
+- **Distortion** (`ui[3]`): the input magnitude is multiplied by a drive
+  (default **x4**; K3 sets x1 to x7.97), then a three-piece diode knee:
+  slope 1 up to 8192, slope 1/4 up to 32768 (output 14336), slope 1/16
+  above, sign reapplied.
+- **Tone + noise gate** (automatic whenever fuzz **or** distortion is
+  on): a one-pole low-pass on the dirt output (corner about 2.2 kHz by
+  default; K2 sweeps it from about 490 Hz to 5.3 kHz), then a gate keyed
+  from the compressor envelope: it opens above about -42 dBFS and closes
+  below about -48 dBFS, opens within about a millisecond and closing over about
+  5 ms. The gate starts closed, so dirt is silent until a signal arrives.
+- **Phaser** (`ui[4]`): a placeholder slot. The enable is a no-op
+  (identity); no phaser is implemented in this version.
+- **Tremolo** (`ui[5]`): smooth triangle LFO on the gain (no steps), fixed
+  75% depth (gain 1.0 down to 0.26). K1 sets the rate from about 0.73 to
+  11.6 Hz (an approximately exponential, piecewise map); with no K1 fitted
+  the rate is about 5 Hz. The LFO restarts from the top when the effect is
+  switched off.
 
-**Controls.** The effect enables are DIP switches wired **directly** to
-`ui[7:4]` — bit order = chain order (`ui[4]`=fuzz, `ui[5]`=distortion,
-`ui[6]`=crush, `ui[7]`=tremolo), no internal preset logic:
+**Switches.** `ui[1]`-`ui[5]` are the effect enables and `ui[7]` is the
+fuzz octave switch. All are 2-flop synchronized and **debounced**: a change
+reaches the chain once two samples taken 256 frames (about 5.3 ms) apart
+agree, so an effect engages within about 5-11 ms and contact bounce never
+reaches the audio. A switch already on at power-up takes effect after about
+10.7 ms. `ui[6]` is reserved (it feeds an unused identity slot). With every
+enable off the pedal is **digital clean**: the signal still goes
+ADC -> chain -> DAC, bit-exact apart from the one-frame delay, a distinct
+mode from true bypass.
 
-`en = ui[7:4]`
+**Knobs.** `uio[2]`, `uio[3]`, `uio[4]` are RC-timing knob pins K1 (tremolo
+rate), K2 (tone), K3 (distortion drive). Each reader drives its pin low for
+1024 clk to discharge the capacitor, releases it, and counts clk until the
+pin reads high (raw = count / 64, capped at 255; a 65535 clk timeout means
+"absent"). The reading is smoothed (IIR over measurements) with a
+2-count hysteresis, so a steady pot gives a steady value. A knob that is
+absent (pin tied to ground, never rises) falls back to its default (trem
+~5 Hz, tone corner ~2.2 kHz, drive x4), so the pedal always sounds right
+with no knobs fitted. A floating, unconnected knob pin is not supported:
+tie unused knob pins to ground.
 
-With every DIP switch off the pedal is in its **digital clean** mode: audio
-still runs through the ADC, the (all-disabled, bit-exact identity) chain,
-and the DAC — the signal is digitized and re-reconstructed, a distinct mode
-from true bypass (below) and a convenient A/D–D/A reference for the analog
-front end.
+**Clip LED.** `uo[7]` (the decimal point) lights when the output sample hits
+full scale (0x7FFF or 0x8000) and holds about 43 ms (2048 frames).
 
-**True bypass.** The ASIC has no bypass role: a latching **3PDT footswitch
-wired externally** routes the guitar — one pole sends the signal either
-straight to the output jack (true bypass, the tile entirely out of the
-audio path) or into the preamp → ADC → tile → DAC → output jack. This is
-the standard pedal 3PDT wiring; the remaining pole is free for the usual
-bypass-LED/grounding convention. Because it's a hard analog switch, bypass
-needs no power and adds no conversion.
-
-**Clip LED.** The decimal point `uo[7]` is a clip indicator: it lights when
-the output sample hits full scale (0x7FFF or −32768) and holds ~43 ms
-(2048 frames), so short clips are visible.
-
-**Reserved pins.** `ui[3:1]` and `uo[6:0]` are unused by this design and
-reserved for the 2×2-tile v3 project; the reserved outputs are driven 0.
-
-**Params** — one character bit per effect, P3..P0 on `uio[5:2]` (tables
-below).
-
-Distortion knee constants, crush envelope shifts, and tremolo rates are
-provisional — tuned by listening session.
+**Reserved pins.** `ui[6]`; `uio[5]` (SPI MISO); `uo[0]`-`uo[2]` hold the SPI
+idle state (SCK 0, **CS 1 (deselected)**, MOSI 0); `uo[3]`-`uo[6]` are driven 0.
 
 ## Signal table
 
 | Pin | Dir | Function |
 |-----|-----|----------|
 | ui[0] | in | I2S ADC data in |
-| ui[1] | in | Reserved (v3) |
-| ui[2] | in | Reserved (v3) |
-| ui[3] | in | Reserved (v3) |
-| ui[4] | in | Enable: fuzz |
-| ui[5] | in | Enable: distortion |
-| ui[6] | in | Enable: crush |
-| ui[7] | in | Enable: tremolo |
-| uo[0] | out | Reserved (v3) |
-| uo[1] | out | Reserved (v3) |
-| uo[2] | out | Reserved (v3) |
-| uo[3] | out | Reserved (v3) |
-| uo[4] | out | Reserved (v3) |
-| uo[5] | out | Reserved (v3) |
-| uo[6] | out | Reserved (v3) |
+| ui[1] | in | Enable: comp |
+| ui[2] | in | Enable: fuzz |
+| ui[3] | in | Enable: dist |
+| ui[4] | in | Enable: phaser (stub, no effect) |
+| ui[5] | in | Enable: trem |
+| ui[6] | in | Reserved (no function) |
+| ui[7] | in | Fuzz octave switch |
+| uo[0] | out | Reserved SPI SCK (driven 0) |
+| uo[1] | out | Reserved SPI CS (driven 1, idle high) |
+| uo[2] | out | Reserved SPI MOSI (driven 0) |
+| uo[3] | out | Reserved (driven 0) |
+| uo[4] | out | Reserved (driven 0) |
+| uo[5] | out | Reserved (driven 0) |
+| uo[6] | out | Reserved (driven 0) |
 | uo[7] | out | dp = clip LED (peak hold ~43 ms) |
-| uio[0] | out | MCLK (24.576 MHz output) |
+| uio[0] | out | MCLK (= clk, 24.576 MHz) |
 | uio[1] | out | I2S DAC data out |
-| uio[2] | in | Param P0: distortion character |
-| uio[3] | in | Param P1: crush base depth |
-| uio[4] | in | Param P2: tremolo rate |
-| uio[5] | in | Param P3: tremolo depth |
+| uio[2] | bidir | K1 tremolo rate (RC knob) |
+| uio[3] | bidir | K2 post-dirt tone (RC knob) |
+| uio[4] | bidir | K3 distortion drive (RC knob) |
+| uio[5] | in | Reserved (SPI MISO, unused) |
 | uio[6] | out | I2S BCLK (master, 3.072 MHz) |
 | uio[7] | out | I2S LRCLK/WS (master, 48 kHz) |
 
-uio pin directions: `uio_oe = 8'b1100_0011` — uio[7:6] and uio[1:0] are
-outputs (LRCLK/BCLK, MCLK/DAC data), uio[5:2] are inputs (params).
+`uio_oe = {1, 1, 0, k3_drv, k2_drv, k1_drv, 1, 1}`: the knob pins are
+outputs (driven low) only while discharging their capacitor, inputs
+otherwise.
 
-### Param bits (P3..P0 on uio[5:2])
+### Knob ranges
 
-| Param | Pin | Effect | 0 | 1 |
-|---|---|---|---|---|
-| P0 | uio[2] | Distortion knee T | 8192 (ceiling 20479) | 4096 (ceiling 18431) |
-| P1 | uio[3] | Crush base depth | quiet 4 / loud 6 bits | quiet 6 / loud 8 bits |
-| P2 | uio[4] | Tremolo rate | ~23.4 Hz | ~46.9 Hz |
-| P3 | uio[5] | Tremolo depth | span 255: gains 1, 1/2, 1/4, 1/8 | span 127: gains 1, 1/2 |
-
-### DIP enables (ui[7:4])
-
-ui[4]=fuzz, ui[5]=distortion, ui[6]=crush, ui[7]=tremolo — each switch is
-its stage's enable directly (bit order = chain order); all four off =
-digital clean.
+| Knob | Pin | Absent | Effect of raw value v (0..255) |
+|---|---|---|---|
+| K1 | uio[2] | ~5 Hz | trem rate: inc = (64 + v[5:0]) << v[7:6]; f = inc x 48000 / 2^22 = 0.73 .. 11.6 Hz |
+| K2 | uio[3] | corner ~2.2 kHz | tone shift kt = 4 - v[7:6], alpha = 2^-kt, corner = -ln(1-alpha) x 48000 / 2pi: kt 4 ~490 Hz, kt 3 ~1.0 kHz, kt 2 ~2.2 kHz, kt 1 ~5.3 kHz (low to high v) |
+| K3 | uio[4] | x4 | dist drive (256 + 7v) / 256 = x1 .. x7.97 |
 
 ## How to test
 
-Hook up an I2S codec slave with all four I2S lines on uio: MCLK `uio[0]`,
-BCLK `uio[6]`, LRCLK `uio[7]`, DAC data `uio[1]`, and ADC data on `ui[0]`
-— e.g. a PCM1808 + PCM5102, or a Pico programmed as an I2S slave to inject
-and capture audio. Play some music and flip the `ui[7:4]` DIP switches:
-each bit turns its stage on/off live, and any combination stacks in chain
-order. All-off is the digital-clean reference; stomping the external 3PDT
-switch compares it against true bypass. Drive a full-scale sample (easiest
-through crush, which keeps the sign bit, or in digital clean) and the dp
-clip LED on `uo[7]` lights with its ~43 ms hold.
+Hook up an I2S codec: MCLK `uio[0]`, BCLK `uio[6]`, LRCLK `uio[7]`, DAC data
+`uio[1]` and ADC data on `ui[0]`; for example a PCM1808 ADC plus PCM5102 DAC,
+or a Pico programmed as an I2S slave. Play a guitar or some music and flip
+the enable switches: each turns its stage on live (about 5-11 ms) and any
+combination stacks in chain order. Fuzz with the octave switch on `ui[7]`;
+turn the knobs. All-off is the digital-clean reference; the external 3PDT
+switch compares it against true bypass. Drive a full-scale sample (easiest in
+digital clean) and the clip LED on `uo[7]` lights for about 43 ms.
 
-Without hardware, the cocotb suite covers the I2S framing, every chain
-stage and the enable matrix, the auto-lofi envelope, and the clip LED:
-`cd test && make -B`.
+Without hardware, the cocotb suite covers the I2S framing, every stage, the
+enable matrix, the debounce, the three knob readers and the clip LED:
+`cd test && make -B`. `python3 wav_tool.py check` runs a bit-exact
+comparison against an independent Python model, and
+`python3 wav_tool.py model` renders listening WAVs from that model.
 
 ## External hardware
 
-- **I2S codec**: PCM1808 ADC + PCM5102 DAC, configured as I2S **slaves**;
-  the PCM1808's SCKI comes from `uio[0]` (MCLK, 24.576 MHz).
-- **Clip LED**: the demoboard's onboard 7-seg decimal point, attached to
-  `uo[7]` via the demoboard solder jumpers — no other display is needed.
-- **True bypass**: a latching 3PDT footswitch — guitar to the common pole;
-  throw A routes the signal straight to the output jack, throw B through
-  the preamp → ADC → tile → DAC → output jack. The spare pole follows the
-  usual bypass-LED/ground convention.
-- **Guitar front end**: a high-impedance JFET-input preamp (TL072) with
-  mid-rail bias ahead of the ADC input.
-- **Controls**: DIP switches (or a Pico) drive the enables `ui[7:4]` and
-  the params `uio[5:2]`.
+- **I2S codec**: PCM1808 ADC + PCM5102 DAC as I2S **slaves**; the PCM1808's
+  SCKI comes from `uio[0]` (MCLK).
+- **Switches**: each of `ui[1]`-`ui[5]`, `ui[7]` is a switch **with an external
+  pull-down resistor to GND, the switch common to 3V3** (open = low = off).
+  Toggles, stomp switches and push-pull pots all work; the design
+  debounces them.
+- **Knobs (K1-K3, all optional)**: per knob, 3V3 -> 1 kOhm in series with a
+  100 kOhm linear pot -> node; node -> 10 nF -> GND; node -> the `uio` pin.
+  The 1 kOhm series resistor is **mandatory**: during each discharge the pin
+  drives low against the pot, and with the pot at 0 Ohm the 1 kOhm limits
+  that current to about 3.3 mA. Never omit it.
+  *Full scale and the capacitor.* A reading of raw = 255 needs a charge
+  count of at least 16,320 clk (the reader uses cnt >> 6). The count is
+  about -ln(1 - Vth/VDD) x R x C x f_clk, where Vth is the pad's input
+  threshold. With 101 kOhm x 10 nF (tau about 24,800 clk at 24.576 MHz)
+  full scale needs the pad to trip at about 0.48 x VDD or higher. A lower
+  threshold loses the top of the range: at about 0.4 x VDD a fully
+  rotated knob reads about 198, so K1 tops out near 6.4 Hz and K3 near
+  x6.4. **12-15 nF is recommended**: it guarantees the full range at the
+  cost of a small dead zone at the top of the rotation. The 65,535 clk
+  timeout still has margin at 15 nF (about 1.76 tau). This has not been
+  validated on hardware yet.
+  A **knob that is not fitted must have its pin tied to GND through about 10
+  kOhm** (not left floating) so it reads absent and the default is used.
+- **Clip LED**: the demoboard's 7-segment decimal point on `uo[7]`.
+- **True bypass**: a latching 3PDT footswitch: guitar to the common pole;
+  one throw straight to the output jack, the other through preamp -> ADC ->
+  tile -> DAC -> output; the spare pole does the bypass LED/ground job. The
+  ASIC has no bypass role.
+- **Guitar front end**: a high-impedance JFET-input preamp (for example a
+  TL072) with mid-rail bias ahead of the ADC, and a level control after
+  the DAC.
