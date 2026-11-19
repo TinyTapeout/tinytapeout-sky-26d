@@ -1,8 +1,8 @@
 {
   "app": "custom_gds action",
   "repo": "https://github.com/analogic-design/ttsky_analog_bg_26",
-  "commit": "37020bec9f937f7d2491cdd65e76bfd20d92eddb",
-  "workflow_url": "https://github.com/analogic-design/ttsky_analog_bg_26/actions/runs/41646481619",
+  "commit": "9bb2ccff4ed41e2dd9ac73d9d9eb84d93fcf4876",
+  "workflow_url": "https://github.com/analogic-design/ttsky_analog_bg_26/actions/runs/44462713029",
   "project_id": 6218,
   "sort_id": 1793913100838,
   "analog": true
