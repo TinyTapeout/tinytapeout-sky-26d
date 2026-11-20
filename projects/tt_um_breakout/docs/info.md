@@ -11,13 +11,12 @@ Clear all 16 bricks, arranged in eight columns and two rows, before losing three
 lives. The paddle moves at constant speed while Left or Right is held; holding
 both stops it. The ball bounces off the side and top walls, bricks and paddle.
 Hitting the left or right paddle half sets the ball's horizontal direction.
-A missed ball costs a life. Brick gaps are decorative: collision selects the
-brick cell using the ball's leading vertical point.
+A missed ball costs a life. Each brick fills its 32×16 logical-pixel collision
+cell (64×32 VGA pixels). The first brick starts at VGA coordinate (64, 64).
+Adjacent bricks touch and alternate pink and blue in both directions. When
+a brick is hit, its entire cell clears.
 
-Selecting Breakout through the demo-board helper leaves the ball on the paddle
-until A, Start or BOOT is pressed. All sixteen bricks remain visible while
-waiting. The former automatic serve could remove the bottom-right brick about
-1.28 seconds after selection, making it appear absent at startup.
+Release Select+B to select Breakout, then press B again to serve.
 
 ### Pong
 
@@ -102,8 +101,9 @@ RGB is black during blanking. Horizontal sync is active low at pixels 656–751,
 and vertical sync at lines 490–491. Gameplay updates start in vertical blanking
 and complete before the next active image. The sequential engine checks the
 four neighbors of each maze character with one gameplay wall decoder; the
-renderer has a separate wall lookup. Each arithmetic microstep computes and
-then consumes its result on the following clock.
+renderer reuses its raster cell coordinates for the maze, Pacman and ghost.
+The ALU result register captures every clock. Each movement step uses the result
+when the engine asserts its ready flag.
 
 The six-bit brick probe stores collision information for Breakout and ghost
 heading in bits [5:3] for Pacman. Its lower bits are not needed by Pacman now
@@ -114,10 +114,10 @@ Mode selection is held until reset.
 
 | Combined resource measurement | Current value |
 | --- | ---: |
-| Local SKY130 synthesis cell area | 9,459.0720 µm² |
+| Local SKY130 synthesis cell area | 9,196.32 µm² |
 | Flip-flops | 147 |
-| FabricFox packed logic cells | 835 / 5,280 |
-| FPGA final timing estimate | 32.04 MHz (25.2 MHz target passes) |
+| FabricFox packed logic cells | 822 / 5,280 |
+| FPGA final timing estimate | 31.65 MHz (25.2 MHz target passes) |
 
 These are local synthesis and FPGA results, not current routed ASIC occupancy.
 The previously hardened revision and its remaining warnings are described in
@@ -170,14 +170,15 @@ synchronizers.
 
 The helper provides game selection without pressing physical reset:
 
-- Keep DIP 3/7 OFF; press Select+B for Breakout, Select+Y for Pong or Select+A
+- Keep DIP 3/7 OFF; press Select+B for Breakout, Select+Y or Select+X for Pong, or Select+A
   for Pacman. Selection takes effect after all buttons are released, so
   Select+A cannot also start Pacman.
 - Once the arcade is loaded, a valid DIP 3/7 change stable for 0.5 seconds also
   selects a game. The helper ignores the reserved setting. Unchanged DIPs do
   not override a gamepad selection.
-- Selection resets the game and restores three lives. All games wait for a
-  separate A, Start or BOOT press. VGA also resets briefly. Keep DIP 2 OFF
+- Selection resets the game and restores three lives. Breakout waits for a fresh B press to
+  serve the first ball. The Pong shortcuts serve immediately. Pacman and DIP selections wait for A,
+  Start or BOOT. VGA also resets briefly. Keep DIP 2 OFF
   until ready to start; its OFF-to-ON transition can also launch.
 - From the board's factory test, BOOT loads the arcade and leaves it waiting;
   subsequent BOOT presses act as launch/restart. Keep DIP 2 OFF when using BOOT.
@@ -220,7 +221,7 @@ pressing left/right to move up/down. Release directions before changing axis.
 
 `make test` runs the input/gameplay unit tests, 10,000 reference frames for each
 game, directed pellet/teleport tests and four external-pin video tests. Run
-`python3 test/test_board_controls.py` separately for the nine helper tests.
+`python3 test/test_board_controls.py` separately for the helper tests.
 
 | External-pin test | Coverage |
 | --- | --- |
@@ -229,17 +230,9 @@ game, directed pellet/teleport tests and four external-pin video tests. Run
 | Pacman movement/walls | Player/ghost movement, stop on release, Up/Down, return to the top wall, continued blocking and reset into Pong |
 | Pacman pellets | Sparse food map, large pellet, collection, retained unvisited food, lives and red ghost after teleport |
 
-Current unit/reference/pellet tests pass. All four external-pin tests passed
-before the second teleport pellet was added; that small change has directed
-coverage and a regenerated VGA screenshot, but its external-pin rerun is pending. Video samples are grouped in raster order and
-unnecessary frame waits removed; the tests still use only package pins.
-The latest four video tests ran in separate simulator processes with independent
-build/result paths. They can also run against a matching gate-level netlist,
-but the current revision still needs that verification after hardening.
-Detailed fast tests cover all 16 brick cells, all 64 CPU impact positions,
-the stationary-paddle Pong regression, teleport/contact priority, pause,
-restart and collection of the final pellet. They complement the video checks;
-they do not replace gate-level or physical verification.
+All four fast RTL suites passed on the combined build, including the alternating
+ball visibility check. The external-pin VGA suite and post-route gate-level
+checks still need a run against this revision. [Verification notes](gate-level-verification.md)
 
 ## External hardware
 

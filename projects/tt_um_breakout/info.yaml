@@ -8,7 +8,14 @@ project:
   tiles: "1x1"
   top_module: "tt_um_breakout"
   source_files:
+    - "arcade_constants.vh"
     - "tt_um_breakout.v"
+    - "breakout_video.v"
+    - "breakout_controls.v"
+    - "arcade_session.v"
+    - "arcade_engine.v"
+    - "pacman_renderer.v"
+    - "breakout_renderer.v"
 pinout:
   ui[0]: "Left / Pacman up while ui[2] high (active high)"
   ui[1]: "Right / Pacman down while ui[2] high (active high)"
