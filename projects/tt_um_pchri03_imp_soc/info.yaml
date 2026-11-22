@@ -1,0 +1,83 @@
+# Tiny Tapeout project information
+project:
+  title:        "Imp SOC"                                   # Project title
+  author:       "Peter Nørlund"                               # Your name
+  discord:      "pchri03."                                    # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "The smallest possible SoC which can still run DOOM"    # One line description of what your project does
+  language:     "SystemVerilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     65000000 # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "2x2"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_pchri03_imp_soc"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - tt_um_pchri03_imp_soc.v
+    - audio_device.sv
+    - cpu.sv
+    - input_device.sv
+    - memory_device.sv
+    - register_file.sv
+    - serv/rtl/serv_aligner.v
+    - serv/rtl/serv_alu.v
+    - serv/rtl/serv_bufreg.v
+    - serv/rtl/serv_bufreg2.v
+    - serv/rtl/serv_compdec.v
+    - serv/rtl/serv_ctrl.v
+    - serv/rtl/serv_csr.v
+    - serv/rtl/serv_decode.v
+    - serv/rtl/serv_immdec.v
+    - serv/rtl/serv_mem_if.v
+    - serv/rtl/serv_rf_if.v
+    - serv/rtl/serv_state.v
+    - serv/rtl/serv_top.v
+    - serv/servile/servile_arbiter.v
+    - soc.sv
+    - timer_device.sv
+    - vga_device.sv
+    - vga_memory.sv
+    - vga_renderer.sv
+    - vga_timing.sv
+    - wb_arbiter.sv
+    - wb_interconnect.sv
+    - write_aligner.sv
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: ""
+  ui[1]: ""
+  ui[2]: ""
+  ui[3]: ""
+  ui[4]: "Game Controller PMOD (LATCH)"
+  ui[5]: "Game Controller PMOD (CLOCK)"
+  ui[6]: "Game Controller PMOD (DATA)"
+  ui[7]: ""
+
+  # Outputs
+  uo[0]: "Tiny VGA PMOD (R1)"
+  uo[1]: "Tiny VGA PMOD (G1)"
+  uo[2]: "Tiny VGA PMOD (B1)"
+  uo[3]: "Tiny VGA PMOD (VSYNC)"
+  uo[4]: "Tiny VGA PMOD (R2)"
+  uo[5]: "Tiny VGA PMOD (G2)"
+  uo[6]: "Tiny VGA PMOD (B2)"
+  uo[7]: "Tiny VGA PMOD (HSYNC)"
+
+  # Bidirectional pins
+  uio[0]: "QSPI PMOD (CS)"
+  uio[1]: "QSPI PMOD (MOSI/IO0)"
+  uio[2]: "QSPI PMOD (MISO/IO1)"
+  uio[3]: "QSPI PMOD (SCK)"
+  uio[4]: "QSPI PMOD (IO2)"
+  uio[5]: "QSPI PMOD (IO3)"
+  uio[6]: "QSPI PMOD (CS1)"
+  uio[7]: "TT Audio PMOD (PWM)"
+
+# Do not change!
+yaml_version: 6
