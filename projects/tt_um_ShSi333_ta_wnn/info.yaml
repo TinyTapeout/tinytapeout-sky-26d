@@ -1,0 +1,52 @@
+# Tiny Tapeout project information (v4.2: second vote-count stage folded into the decision, 50 MHz)
+project:
+  title:        "Protein secondary structure WNN with on-chip Tsetlin learning"
+  author:       "Shruti Sivaraman"
+  discord:      ""      # fill in (optional)
+  description:  "600 hardwired LUTs + 15 on-chip-trainable Tsetlin LUTs predict helix/strand/coil for each protein residue from 24 profile-chemistry bits"
+  language:     "Verilog"
+  clock_hz:     50000000
+
+  tiles: "8x2"
+
+  # Must match the module name in src/ (keep your GitHub-username prefix)
+  top_module:  "tt_um_ShSi333_ta_wnn"
+
+  source_files:
+    - "tt_um_ShSi333_ta_wnn.v"
+    - "ta_wnn_top.v"
+    - "hyb_wnn.v"
+
+pinout:
+  # Inputs
+  ui[0]: "feature byte bit 0"
+  ui[1]: "feature byte bit 1"
+  ui[2]: "feature byte bit 2"
+  ui[3]: "feature byte bit 3"
+  ui[4]: "feature byte bit 4"
+  ui[5]: "feature byte bit 5"
+  ui[6]: "feature byte bit 6"
+  ui[7]: "feature byte bit 7"
+
+  # Outputs
+  uo[0]: "predicted class bit 0"
+  uo[1]: "predicted class bit 1"
+  uo[2]: "class valid (pulse)"
+  uo[3]: "busy"
+  uo[4]: "training update applied (pulse)"
+  uo[5]: ""
+  uo[6]: ""
+  uo[7]: ""
+
+  # Bidirectional pins (all used as inputs)
+  uio[0]: "byte strobe (rising edge)"
+  uio[1]: "label bit 0"
+  uio[2]: "label bit 1"
+  uio[3]: "train on this residue"
+  uio[4]: "re-initialise trainable LUTs"
+  uio[5]: ""
+  uio[6]: ""
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
