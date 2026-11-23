@@ -1,0 +1,56 @@
+# Tiny Tapeout project information
+project:
+  title:        "Multiply-Accumulate (MAC) unit"      # Project title
+  author:       "Mihails Ivanovs"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "2x2 systolic matrix multiplier (mini MXU): four signed int4 MAC cells computing C = A x B"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     50000000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_mihail_ivan_ov_multiply_accumulate_mac_unit"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "mac_design.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "data0"
+  ui[1]: "data1"
+  ui[2]: "data2"
+  ui[3]: "data3"
+  ui[4]: "reg_sel0"
+  ui[5]: "reg_sel1"
+  ui[6]: "write"
+  ui[7]: "clear"
+
+  # Outputs
+  uo[0]: "res0"
+  uo[1]: "res1"
+  uo[2]: "res2"
+  uo[3]: "res3"
+  uo[4]: "res4"
+  uo[5]: "res5"
+  uo[6]: "res6"
+  uo[7]: "res7"
+
+  # Bidirectional pins
+  uio[0]: "res8"
+  uio[1]: "res9"
+  uio[2]: "res10"
+  uio[3]: "res11"
+  uio[4]: "out_sel0"
+  uio[5]: "out_sel1"
+  uio[6]: "en"
+  uio[7]: ""
+
+# Do not change!
+yaml_version: 6
