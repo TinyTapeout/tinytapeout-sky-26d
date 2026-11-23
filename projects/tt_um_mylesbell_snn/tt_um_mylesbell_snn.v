@@ -24,5 +24,5 @@ module tt_um_mylesbell_snn (
     assign uo_out = {8{VGND}};
     assign uio_out = {8{VGND}};
     assign uio_oe = {8{VGND}};
-    assign ua[2:0] = {3{VGND}};
+    assign ua[3:0] = {4{VGND}};
 endmodule

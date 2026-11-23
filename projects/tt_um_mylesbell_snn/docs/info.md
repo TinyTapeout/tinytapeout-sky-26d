@@ -1,11 +1,12 @@
 ## How it works
 
 This revision is a placeholder for an analogue SNN component trial.
-It occupies two tiles (1x2) and declares three analogue pins.
+It occupies two tiles (1×2). The four reserved analogue pins `ua[0]` through
+`ua[3]` connect to VGND.
 
 ## How to test
 
-This revision has no functional SNN test.
+Leave all four grounded analogue pins undriven on the bench.
 
 ## External hardware
 
