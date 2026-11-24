@@ -1,0 +1,54 @@
+
+# Tiny Tapeout project information
+project:
+  title:        "pwm_Generator"      # Project title
+  author:       "Sebastian Rivas"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "Generates a Pulse Width Modulation signal with fixed duty cycle"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     25175000       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_pwmGen"
+  
+  # List your project's source files here. Source files must be in ./src and you must list each source file separately, one per line:
+  source_files:
+    - "tt_um_pwmGen.sv"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+pinout:
+  # Inputs
+  ui[0]: "D0"
+  ui[1]: "D1"
+  ui[2]: "D2"
+  ui[3]: "D3"
+  ui[4]: "D4"
+  ui[5]: "D5"
+  ui[6]: "D6"
+  ui[7]: "D7"
+
+  # Outputs
+  uo[0]: "pwm_r"
+  uo[1]: "~pwm_r"
+  uo[2]: "period_end_r"
+  uo[3]: "tick_r"
+  uo[4]: "en_r"
+  uo[5]: "msb_r"
+  uo[6]: "any_sel_r"
+  uo[7]: "multi_sel_r"
+
+  # Bidirectional pins
+  uio[0]: "EN"
+  uio[1]: "SEL0"
+  uio[2]: "SEL1"
+  uio[3]: "pwm_r"
+  uio[4]: "~pwm_r"
+  uio[5]: "period_end_r"
+  uio[6]: "msb_r"
+  uio[7]: "tick_r"
+
+# Do not change!
+yaml_version: 6
