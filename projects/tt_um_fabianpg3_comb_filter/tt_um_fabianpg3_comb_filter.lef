@@ -2,9 +2,9 @@ VERSION 5.7 ;
   NOWIREEXTENSIONATPIN ON ;
   DIVIDERCHAR "/" ;
   BUSBITCHARS "[]" ;
-MACRO tt_um_fabianpg3_vga_playground_mariogame
+MACRO tt_um_fabianpg3_comb_filter
   CLASS BLOCK ;
-  FOREIGN tt_um_fabianpg3_vga_playground_mariogame ;
+  FOREIGN tt_um_fabianpg3_comb_filter ;
   ORIGIN 0.000 0.000 ;
   SIZE 161.000 BY 111.520 ;
   PIN VGND
@@ -59,6 +59,7 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
   PIN ena
     DIRECTION INPUT ;
     USE SIGNAL ;
+    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 146.590 110.520 146.890 111.520 ;
@@ -85,7 +86,6 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
   PIN ui_in[1]
     DIRECTION INPUT ;
     USE SIGNAL ;
-    ANTENNAGATEAREA 0.213000 ;
     PORT
       LAYER met4 ;
         RECT 135.550 110.520 135.850 111.520 ;
@@ -334,7 +334,6 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
   PIN uo_out[0]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
         RECT 94.150 110.520 94.450 111.520 ;
@@ -388,7 +387,6 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
   PIN uo_out[6]
     DIRECTION OUTPUT ;
     USE SIGNAL ;
-    ANTENNADIFFAREA 0.445500 ;
     PORT
       LAYER met4 ;
         RECT 77.590 110.520 77.890 111.520 ;
@@ -409,13 +407,12 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
       LAYER li1 ;
         RECT 2.760 2.635 158.240 108.885 ;
       LAYER met1 ;
-        RECT 1.450 2.480 159.550 111.480 ;
+        RECT 2.760 2.480 158.540 109.040 ;
       LAYER met2 ;
-        RECT 1.470 2.535 159.520 111.510 ;
+        RECT 5.160 2.535 156.300 110.685 ;
       LAYER met3 ;
-        RECT 1.445 2.555 158.175 110.665 ;
+        RECT 14.785 2.555 150.815 110.665 ;
       LAYER met4 ;
-        RECT 10.415 110.120 30.270 110.665 ;
         RECT 31.370 110.120 33.030 110.665 ;
         RECT 34.130 110.120 35.790 110.665 ;
         RECT 36.890 110.120 38.550 110.665 ;
@@ -458,18 +455,15 @@ MACRO tt_um_fabianpg3_vga_playground_mariogame
         RECT 139.010 110.120 140.670 110.665 ;
         RECT 141.770 110.120 143.430 110.665 ;
         RECT 144.530 110.120 146.190 110.665 ;
-        RECT 147.290 110.120 157.025 110.665 ;
-        RECT 10.415 109.440 157.025 110.120 ;
-        RECT 10.415 6.295 17.880 109.440 ;
-        RECT 20.280 6.295 21.180 109.440 ;
-        RECT 23.580 6.295 56.750 109.440 ;
-        RECT 59.150 6.295 60.050 109.440 ;
-        RECT 62.450 6.295 95.620 109.440 ;
-        RECT 98.020 6.295 98.920 109.440 ;
-        RECT 101.320 6.295 134.490 109.440 ;
-        RECT 136.890 6.295 137.790 109.440 ;
-        RECT 140.190 6.295 157.025 109.440 ;
+        RECT 30.655 109.440 146.905 110.120 ;
+        RECT 30.655 68.855 56.750 109.440 ;
+        RECT 59.150 68.855 60.050 109.440 ;
+        RECT 62.450 68.855 95.620 109.440 ;
+        RECT 98.020 68.855 98.920 109.440 ;
+        RECT 101.320 68.855 134.490 109.440 ;
+        RECT 136.890 68.855 137.790 109.440 ;
+        RECT 140.190 68.855 146.905 109.440 ;
   END
-END tt_um_fabianpg3_vga_playground_mariogame
+END tt_um_fabianpg3_comb_filter
 END LIBRARY
 
