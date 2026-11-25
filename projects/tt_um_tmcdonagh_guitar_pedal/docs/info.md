@@ -22,8 +22,10 @@ clk / 512 (25 MHz gives 48.8 kHz). All time constants below are in frames,
 so they scale with it. Keep the MCLK wire (`uio[0]`) to the codec short.
 
 Each received sample is latched once per frame and runs through a serial
-effect chain, one registered stage per clock, sharing one multiplier. A
-disabled stage passes its input through bit-exactly:
+effect chain: a step counter runs the stages one after another through one
+running chain register, sharing one serial multiplier (each multiply takes
+14 clk, the whole chain about 116 of the 512 clk in a frame). A disabled
+stage passes its input through bit-exactly:
 
 **comp -> fuzz -> distortion -> (tone + gate) -> phaser -> tremolo**
 
@@ -48,8 +50,14 @@ disabled stage passes its input through bit-exactly:
   from the compressor envelope: it opens above about -42 dBFS and closes
   below about -48 dBFS, opens within about a millisecond and closing over about
   5 ms. The gate starts closed, so dirt is silent until a signal arrives.
-- **Phaser** (`ui[4]`): a placeholder slot. The enable is a no-op
-  (identity); no phaser is implemented in this version.
+- **Phaser** (`ui[4]`): Phase 90-style, four first-order allpass stages
+  (no feedback) mixed 50/50 with the dry signal, giving two notches that
+  sweep together (the first from about 200 Hz to 2 kHz, the second from
+  about 1.2 to 12 kHz) on an exponential triangle LFO. The rate comes from
+  K1, shared with the tremolo (0.73 to 11.6 Hz); with no K1 fitted it is
+  about 1.0 Hz. The allpass states keep running when the stage is off,
+  and the LFO holds at its start point while the stage is off and restarts
+  from there when it is switched on.
 - **Tremolo** (`ui[5]`): smooth triangle LFO on the gain (no steps), fixed
   75% depth (gain 1.0 down to 0.26). K1 sets the rate from about 0.73 to
   11.6 Hz (an approximately exponential, piecewise map); with no K1 fitted
@@ -61,15 +69,19 @@ fuzz octave switch. All are 2-flop synchronized and **debounced**: a change
 reaches the chain once two samples taken 256 frames (about 5.3 ms) apart
 agree, so an effect engages within about 5-11 ms and contact bounce never
 reaches the audio. A switch already on at power-up takes effect after about
-10.7 ms. `ui[6]` is reserved (it feeds an unused identity slot). With every
-enable off the pedal is **digital clean**: the signal still goes
+10.7 ms. `ui[6]` is the delay enable, shared with the PSRAM MISO (see External
+hardware below); the delay is not implemented yet, so it has no effect.
+With every enable off the pedal is **digital clean**: the signal still goes
 ADC -> chain -> DAC, bit-exact apart from the one-frame delay, a distinct
 mode from true bypass.
 
-**Knobs.** `uio[2]`, `uio[3]`, `uio[4]` are RC-timing knob pins K1 (tremolo
-rate), K2 (tone), K3 (distortion drive). Each reader drives its pin low for
-1024 clk to discharge the capacitor, releases it, and counts clk until the
-pin reads high (raw = count / 64, capped at 255; a 65535 clk timeout means
+**Knobs.** `uio[2]`-`uio[5]` are RC-timing knob pins K1 (tremolo
+and phaser rate), K2 (tone), K3 (distortion drive), K4 (delay time, read but not
+used yet). One shared round-robin reader measures the four knobs in turn
+(K1, K2, K3, K4; a full rotation takes at most about 4 x 66k clk = 11 ms
+with every knob absent; fitted knobs are faster). For the knob in turn it
+drives the pin low for 1024 clk to discharge the capacitor, releases it, and
+counts clk until the pin reads high (raw = count / 64, capped at 255; a 65535 clk timeout means
 "absent"). The reading is smoothed (IIR over measurements) with a
 2-count hysteresis, so a steady pot gives a steady value. A knob that is
 absent (pin tied to ground, never rises) falls back to its default (trem
@@ -80,8 +92,11 @@ tie unused knob pins to ground.
 **Clip LED.** `uo[7]` (the decimal point) lights when the output sample hits
 full scale (0x7FFF or 0x8000) and holds about 43 ms (2048 frames).
 
-**Reserved pins.** `ui[6]`; `uio[5]` (SPI MISO); `uo[0]`-`uo[2]` hold the SPI
-idle state (SCK 0, **CS 1 (deselected)**, MOSI 0); `uo[3]`-`uo[6]` are driven 0.
+**Reserved pins.** `uo[0]`-`uo[2]` are the future SPI bus for the PSRAM
+delay and the 595 shift register (SCK, CE# and MOSI) and sit at their idle
+state (SCK 0, **CE# 1 (deselected)**, MOSI 0); `uo[3]` (595 latch, idle
+low) and `uo[4]`-`uo[6]` are driven 0. The Rev B pin map is frozen: pins do not move
+in later revisions.
 
 ## Signal table
 
@@ -91,28 +106,28 @@ idle state (SCK 0, **CS 1 (deselected)**, MOSI 0); `uo[3]`-`uo[6]` are driven 0.
 | ui[1] | in | Enable: comp |
 | ui[2] | in | Enable: fuzz |
 | ui[3] | in | Enable: dist |
-| ui[4] | in | Enable: phaser (stub, no effect) |
+| ui[4] | in | Enable: phaser |
 | ui[5] | in | Enable: trem |
-| ui[6] | in | Reserved (no function) |
+| ui[6] | in | Delay enable switch + PSRAM MISO, shared (Rev B; the delay is not implemented yet, no effect) |
 | ui[7] | in | Fuzz octave switch |
-| uo[0] | out | Reserved SPI SCK (driven 0) |
-| uo[1] | out | Reserved SPI CS (driven 1, idle high) |
-| uo[2] | out | Reserved SPI MOSI (driven 0) |
-| uo[3] | out | Reserved (driven 0) |
+| uo[0] | out | SPI SCK (PSRAM SCLK + 595 SRCLK; idle 0 for now) |
+| uo[1] | out | PSRAM CE# (idle 1 for now) |
+| uo[2] | out | SPI MOSI (PSRAM SI + 595 SER; idle 0 for now) |
+| uo[3] | out | 595 latch RCLK (idle low, driven 0 for now) |
 | uo[4] | out | Reserved (driven 0) |
 | uo[5] | out | Reserved (driven 0) |
 | uo[6] | out | Reserved (driven 0) |
 | uo[7] | out | dp = clip LED (peak hold ~43 ms) |
 | uio[0] | out | MCLK (= clk, 24.576 MHz) |
 | uio[1] | out | I2S DAC data out |
-| uio[2] | bidir | K1 tremolo rate (RC knob) |
+| uio[2] | bidir | K1 tremolo + phaser rate (RC knob) |
 | uio[3] | bidir | K2 post-dirt tone (RC knob) |
 | uio[4] | bidir | K3 distortion drive (RC knob) |
-| uio[5] | in | Reserved (SPI MISO, unused) |
+| uio[5] | bidir | K4 delay time (RC knob; read, not yet used) |
 | uio[6] | out | I2S BCLK (master, 3.072 MHz) |
 | uio[7] | out | I2S LRCLK/WS (master, 48 kHz) |
 
-`uio_oe = {1, 1, 0, k3_drv, k2_drv, k1_drv, 1, 1}`: the knob pins are
+`uio_oe = {1, 1, k4_drv, k3_drv, k2_drv, k1_drv, 1, 1}`: the knob pins are
 outputs (driven low) only while discharging their capacitor, inputs
 otherwise.
 
@@ -120,9 +135,10 @@ otherwise.
 
 | Knob | Pin | Absent | Effect of raw value v (0..255) |
 |---|---|---|---|
-| K1 | uio[2] | ~5 Hz | trem rate: inc = (64 + v[5:0]) << v[7:6]; f = inc x 48000 / 2^22 = 0.73 .. 11.6 Hz |
+| K1 | uio[2] | trem ~5 Hz, phaser ~1.0 Hz | trem + phaser rate: inc = (64 + v[5:0]) << v[7:6]; f = inc x 48000 / 2^22 = 0.73 .. 11.6 Hz |
 | K2 | uio[3] | corner ~2.2 kHz | tone shift kt = 4 - v[7:6], alpha = 2^-kt, corner = -ln(1-alpha) x 48000 / 2pi: kt 4 ~490 Hz, kt 3 ~1.0 kHz, kt 2 ~2.2 kHz, kt 1 ~5.3 kHz (low to high v) |
 | K3 | uio[4] | x4 | dist drive (256 + 7v) / 256 = x1 .. x7.97 |
+| K4 | uio[5] | n/a | delay time (Rev B3); read but not used yet |
 
 ## How to test
 
@@ -131,12 +147,21 @@ Hook up an I2S codec: MCLK `uio[0]`, BCLK `uio[6]`, LRCLK `uio[7]`, DAC data
 or a Pico programmed as an I2S slave. Play a guitar or some music and flip
 the enable switches: each turns its stage on live (about 5-11 ms) and any
 combination stacks in chain order. Fuzz with the octave switch on `ui[7]`;
-turn the knobs. All-off is the digital-clean reference; the external 3PDT
+turn the knobs.
+
+**Testing the phaser.** Switch on `ui[4]` alone on a sustained chord or
+open strings: you hear two notches sweeping up and down at about 1 Hz
+(K1 absent). Turn K1 and the sweep speeds up to about 11 Hz; the tremolo
+shares K1, so with both on the two LFOs run at the same rate. Phaser plus
+fuzz or distortion (`ui[2]`/`ui[3]`) puts the phaser after the tone and
+gate, as on a pedalboard. Switching the phaser off and on again restarts
+the sweep from its start point. All-off is the digital-clean reference; the external 3PDT
 switch compares it against true bypass. Drive a full-scale sample (easiest in
 digital clean) and the clip LED on `uo[7]` lights for about 43 ms.
 
 Without hardware, the cocotb suite covers the I2S framing, every stage, the
-enable matrix, the debounce, the three knob readers and the clip LED:
+enable matrix, the debounce, the knob reader (K1..K4), the serial
+multiplier and the clip LED:
 `cd test && make -B`. `python3 wav_tool.py check` runs a bit-exact
 comparison against an independent Python model, and
 `python3 wav_tool.py model` renders listening WAVs from that model.
@@ -149,7 +174,7 @@ comparison against an independent Python model, and
   pull-down resistor to GND, the switch common to 3V3** (open = low = off).
   Toggles, stomp switches and push-pull pots all work; the design
   debounces them.
-- **Knobs (K1-K3, all optional)**: per knob, 3V3 -> 1 kOhm in series with a
+- **Knobs (K1-K4, all optional; K4 = delay time on `uio[5]`, same RC parts as K1-K3; use 22-27 nF instead of 10-15 nF if the FPGA runs at 12.5 MHz)**: per knob, 3V3 -> 1 kOhm in series with a
   100 kOhm linear pot -> node; node -> 10 nF -> GND; node -> the `uio` pin.
   The 1 kOhm series resistor is **mandatory**: during each discharge the pin
   drives low against the pot, and with the pot at 0 Ohm the 1 kOhm limits
@@ -167,6 +192,14 @@ comparison against an independent Python model, and
   validated on hardware yet.
   A **knob that is not fitted must have its pin tied to GND through about 10
   kOhm** (not left floating) so it reads absent and the default is used.
+- **Shared ui[6] (delay enable + PSRAM MISO, Rev B)**: wire the delay
+  switch from 3V3 through a **10 kOhm** resistor to `ui[6]`, a 100 kOhm
+  pull-down on `ui[6]`, and the PSRAM SO pin directly to `ui[6]`. The PSRAM
+  SO is high-Z while CE# (`uo[1]`) is high; during a read it drives `ui[6]`
+  hard against the 10 kOhm. **On the demoboard DIP 7 (`ui[6]`) must stay OFF
+  whenever the PSRAM is wired** (a DIP is a hard 3V3 and would fight SO); use
+  the external 10 kOhm switch instead. With no PSRAM fitted, `ui[6]` is a
+  plain switch. (The delay itself arrives in a later revision.)
 - **Clip LED**: the demoboard's 7-segment decimal point on `uo[7]`.
 - **True bypass**: a latching 3PDT footswitch: guitar to the common pole;
   one throw straight to the output jack, the other through preamp -> ADC ->
