@@ -24,7 +24,7 @@
       "type": "wokwi-7segment",
       "id": "sevseg1",
       "top": 321.78,
-      "left": 1253.08,
+      "left": 1310.68,
       "attrs": { "common": "cathode" }
     },
     {
