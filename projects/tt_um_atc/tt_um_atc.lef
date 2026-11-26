@@ -2,7 +2,6 @@ VERSION 5.8 ;
 BUSBITCHARS "[]" ;
 DIVIDERCHAR "/" ;
 
-
 MACRO tt_um_atc
   CLASS BLOCK ;
   ORIGIN 0 0 ;
