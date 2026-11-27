@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "author": "Uri Shaked",
+  "author": "Karla Fuentes Luna",
   "editor": "wokwi",
   "parts": [
     {
@@ -16,221 +16,11286 @@
       "id": "clock1",
       "top": 144,
       "left": -192,
-      "attrs": { "frequency": "10000" }
+      "attrs": {
+        "frequency": "10000"
+      }
     },
-    { "type": "wokwi-gnd", "id": "pwr1", "top": 442.8, "left": 1153.47, "attrs": {} },
-    { "type": "wokwi-vcc", "id": "pwr2", "top": 299.56, "left": -189.93, "attrs": {} },
+    {
+      "type": "wokwi-gnd",
+      "id": "pwr1",
+      "top": 415,
+      "left": -605,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr2",
+      "top": 299.56,
+      "left": -189.93,
+      "attrs": {}
+    },
     {
       "type": "wokwi-7segment",
       "id": "sevseg1",
-      "top": 321.78,
-      "left": 1310.68,
-      "attrs": { "common": "cathode" }
+      "top": 290,
+      "left": -620,
+      "attrs": {
+        "common": "cathode"
+      }
     },
     {
       "type": "wokwi-slide-switch",
       "id": "sw2",
       "top": 159.2,
       "left": -110.03,
-      "attrs": { "value": "1" }
+      "attrs": {
+        "value": "1"
+      }
     },
     {
       "type": "wokwi-pushbutton",
       "id": "btn1",
       "top": 180.2,
       "left": -55.53,
-      "attrs": { "color": "grey", "label": "Step", "bounce": "0", "key": "s" }
+      "attrs": {
+        "color": "grey",
+        "label": "Step",
+        "bounce": "0",
+        "key": "s"
+      }
     },
-    { "type": "wokwi-vcc", "id": "pwr3", "top": 155.56, "left": 30.87, "attrs": {} },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr3",
+      "top": 155.56,
+      "left": 30.87,
+      "attrs": {}
+    },
     {
       "type": "board-tt-block-input",
       "id": "ttin1",
       "top": 301.07,
       "left": -69.93,
-      "attrs": { "verilogRole": "input" }
+      "attrs": {
+        "verilogRole": "input"
+      }
     },
     {
       "type": "wokwi-pushbutton",
       "id": "btn2",
       "top": 228.2,
       "left": -209.13,
-      "attrs": { "color": "grey", "label": "RESET", "bounce": "0", "key": "r" }
+      "attrs": {
+        "color": "grey",
+        "label": "RESET",
+        "bounce": "0",
+        "key": "r"
+      }
     },
-    { "type": "wokwi-gnd", "id": "gnd1", "top": 307.2, "left": -259.8, "attrs": {} },
+    {
+      "type": "wokwi-gnd",
+      "id": "gnd1",
+      "top": 307.2,
+      "left": -259.8,
+      "attrs": {}
+    },
     {
       "type": "board-tt-block-output",
       "id": "ttout1",
       "top": 320.27,
-      "left": 957.27,
-      "attrs": { "verilogRole": "output" }
+      "left": 10620.0,
+      "attrs": {
+        "verilogRole": "output"
+      }
     },
     {
       "type": "wokwi-resistor",
       "id": "r1",
       "top": 224.75,
       "left": -288,
-      "attrs": { "value": "1000" }
+      "attrs": {
+        "value": "1000"
+      }
     },
-    { "type": "wokwi-vcc", "id": "pwr4", "top": 183.16, "left": -316.8, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or1", "top": -537.6, "left": 518.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or2", "top": -1113.6, "left": 345.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or3", "top": -1027.2, "left": 422.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or4", "top": -134.4, "left": 403.2, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or5", "top": -182.4, "left": 288, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or6", "top": -998.4, "left": 201.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or7", "top": -1065.6, "left": 182.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or8", "top": -1152, "left": 192, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or9", "top": -19.2, "left": 662.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or10", "top": -576, "left": 364.8, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or11", "top": -480, "left": 249.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or12", "top": -614.4, "left": 230.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or13", "top": -489.6, "left": 364.8, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or14", "top": -547.2, "left": 240, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or15", "top": -816, "left": 672, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or16", "top": -777.6, "left": 873.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or17", "top": -748.8, "left": 480, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or18", "top": -806.4, "left": 489.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or19", "top": -854.4, "left": 508.8, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or20", "top": -326.4, "left": 768, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or21", "top": -297.6, "left": 912, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or22", "top": -307.2, "left": 614.4, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or23", "top": -374.4, "left": 624, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or24", "top": 28.8, "left": 681.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or25", "top": 0, "left": 864, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or26", "top": 163.2, "left": 460.8, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or27", "top": 211.2, "left": 537.6, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or28", "top": 240, "left": 307.2, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or29", "top": 182.4, "left": 307.2, "attrs": {} },
-    { "type": "wokwi-gate-or-2", "id": "or30", "top": 124.8, "left": 307.2, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and1", "top": 471.6, "left": 366.87, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and2", "top": 548.4, "left": 626.07, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and3", "top": 567.6, "left": 366.87, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and4", "top": 596.4, "left": 491.67, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and5", "top": 490.8, "left": 482.07, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and6", "top": 615.6, "left": 366.87, "attrs": {} },
-    { "type": "wokwi-gate-and-2", "id": "and7", "top": 519.6, "left": 366.87, "attrs": {} }
+    {
+      "type": "wokwi-vcc",
+      "id": "pwr4",
+      "top": 183.16,
+      "left": -316.8,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-pushbutton",
+      "id": "btnptt",
+      "top": 470,
+      "left": -330,
+      "attrs": {
+        "color": "red",
+        "label": "PTT",
+        "bounce": "0",
+        "key": "p"
+      }
+    },
+    {
+      "type": "wokwi-vcc",
+      "id": "pwrptt",
+      "top": 430,
+      "left": -380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-resistor",
+      "id": "rptt",
+      "top": 540,
+      "left": -250,
+      "rotate": 90,
+      "attrs": {
+        "value": "10000"
+      }
+    },
+    {
+      "type": "wokwi-gnd",
+      "id": "gndptt",
+      "top": 600,
+      "left": -260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop1",
+      "top": -40.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop2",
+      "top": 20.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop3",
+      "top": 80.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and1",
+      "top": -40.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and2",
+      "top": 20.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and3",
+      "top": 80.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and4",
+      "top": 140.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and5",
+      "top": -40.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not1",
+      "top": 20.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and6",
+      "top": -40.0,
+      "left": 440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop4",
+      "top": 370.0,
+      "left": 740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop5",
+      "top": 430.0,
+      "left": 740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop6",
+      "top": 490.0,
+      "left": 740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop7",
+      "top": 550.0,
+      "left": 740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and7",
+      "top": 370.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor1",
+      "top": 430.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and8",
+      "top": 370.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor2",
+      "top": 370.0,
+      "left": 440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and9",
+      "top": 430.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor3",
+      "top": 430.0,
+      "left": 440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and10",
+      "top": 490.0,
+      "left": 240,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or1",
+      "top": 490.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and11",
+      "top": 490.0,
+      "left": 440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor4",
+      "top": 370.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and12",
+      "top": 550.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and13",
+      "top": 610.0,
+      "left": 340,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and14",
+      "top": 430.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and15",
+      "top": 490.0,
+      "left": 540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and16",
+      "top": 370.0,
+      "left": 640,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop8",
+      "top": 370.0,
+      "left": 1410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop9",
+      "top": 430.0,
+      "left": 1410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop10",
+      "top": 490.0,
+      "left": 1410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop11",
+      "top": 550.0,
+      "left": 1410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and17",
+      "top": 370.0,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor5",
+      "top": 430.0,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and18",
+      "top": 370.0,
+      "left": 1010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor6",
+      "top": 370.0,
+      "left": 1110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and19",
+      "top": 430.0,
+      "left": 1010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor7",
+      "top": 430.0,
+      "left": 1110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and20",
+      "top": 490.0,
+      "left": 910,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or2",
+      "top": 490.0,
+      "left": 1010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and21",
+      "top": 490.0,
+      "left": 1110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor8",
+      "top": 370.0,
+      "left": 1210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and22",
+      "top": 550.0,
+      "left": 1010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and23",
+      "top": 610.0,
+      "left": 1010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and24",
+      "top": 430.0,
+      "left": 1210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and25",
+      "top": 490.0,
+      "left": 1210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and26",
+      "top": 370.0,
+      "left": 1310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop12",
+      "top": 370.0,
+      "left": 2080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop13",
+      "top": 430.0,
+      "left": 2080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop14",
+      "top": 490.0,
+      "left": 2080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop15",
+      "top": 550.0,
+      "left": 2080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and27",
+      "top": 370.0,
+      "left": 1580,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor9",
+      "top": 430.0,
+      "left": 1580,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and28",
+      "top": 370.0,
+      "left": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor10",
+      "top": 370.0,
+      "left": 1780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and29",
+      "top": 430.0,
+      "left": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor11",
+      "top": 430.0,
+      "left": 1780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and30",
+      "top": 490.0,
+      "left": 1580,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or3",
+      "top": 490.0,
+      "left": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and31",
+      "top": 490.0,
+      "left": 1780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor12",
+      "top": 370.0,
+      "left": 1880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and32",
+      "top": 550.0,
+      "left": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and33",
+      "top": 610.0,
+      "left": 1680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and34",
+      "top": 430.0,
+      "left": 1880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and35",
+      "top": 490.0,
+      "left": 1880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and36",
+      "top": 370.0,
+      "left": 1980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and37",
+      "top": -140.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and38",
+      "top": -80.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop16",
+      "top": -140.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop17",
+      "top": -80.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop18",
+      "top": -20.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop19",
+      "top": 40.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop20",
+      "top": -140.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop21",
+      "top": -80.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop22",
+      "top": -20.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop23",
+      "top": 40.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop24",
+      "top": -140.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop25",
+      "top": -80.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop26",
+      "top": -20.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop27",
+      "top": 40.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop28",
+      "top": -140.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop29",
+      "top": -80.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop30",
+      "top": -20.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop31",
+      "top": 40.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and39",
+      "top": 60.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and40",
+      "top": 120.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and41",
+      "top": 180.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and42",
+      "top": 240.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and43",
+      "top": 60.0,
+      "left": 2540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and44",
+      "top": 120.0,
+      "left": 2540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and45",
+      "top": 60.0,
+      "left": 2640,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not2",
+      "top": 60.0,
+      "left": 2740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and46",
+      "top": 60.0,
+      "left": 2840,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and47",
+      "top": -140.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor13",
+      "top": -80.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and48",
+      "top": -140.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor14",
+      "top": -140.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and49",
+      "top": -80.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor15",
+      "top": -80.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and50",
+      "top": -20.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or4",
+      "top": -20.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and51",
+      "top": -20.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor16",
+      "top": -140.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and52",
+      "top": 40.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and53",
+      "top": 100.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or5",
+      "top": 40.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and54",
+      "top": -80.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and55",
+      "top": -20.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and56",
+      "top": -140.0,
+      "left": 3410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and57",
+      "top": -140.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor17",
+      "top": -80.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and58",
+      "top": -140.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor18",
+      "top": -140.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and59",
+      "top": -80.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor19",
+      "top": -80.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and60",
+      "top": -20.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or6",
+      "top": -20.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and61",
+      "top": -20.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor20",
+      "top": -140.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and62",
+      "top": 40.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and63",
+      "top": 100.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and64",
+      "top": -80.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and65",
+      "top": -20.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and66",
+      "top": -140.0,
+      "left": 4080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and67",
+      "top": -140.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor21",
+      "top": -80.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and68",
+      "top": -140.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor22",
+      "top": -140.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and69",
+      "top": -80.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor23",
+      "top": -80.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and70",
+      "top": -20.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or7",
+      "top": -20.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and71",
+      "top": -20.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor24",
+      "top": -140.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and72",
+      "top": 40.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and73",
+      "top": 100.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and74",
+      "top": -80.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and75",
+      "top": -20.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and76",
+      "top": -140.0,
+      "left": 4750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and77",
+      "top": -140.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor25",
+      "top": -80.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and78",
+      "top": -140.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor26",
+      "top": -140.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and79",
+      "top": -80.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor27",
+      "top": -80.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and80",
+      "top": -20.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or8",
+      "top": -20.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and81",
+      "top": -20.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor28",
+      "top": -140.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and82",
+      "top": 40.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and83",
+      "top": -80.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and84",
+      "top": -20.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and85",
+      "top": -140.0,
+      "left": 5420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop32",
+      "top": 470.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop33",
+      "top": 530.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop34",
+      "top": 590.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop35",
+      "top": 650.0,
+      "left": 3510,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop36",
+      "top": 470.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop37",
+      "top": 530.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop38",
+      "top": 590.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop39",
+      "top": 650.0,
+      "left": 4180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop40",
+      "top": 470.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop41",
+      "top": 530.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop42",
+      "top": 590.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop43",
+      "top": 650.0,
+      "left": 4850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop44",
+      "top": 470.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop45",
+      "top": 530.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop46",
+      "top": 590.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop47",
+      "top": 650.0,
+      "left": 5520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and86",
+      "top": 470.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and87",
+      "top": 530.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and88",
+      "top": 590.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and89",
+      "top": 650.0,
+      "left": 2440,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and90",
+      "top": 470.0,
+      "left": 2540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and91",
+      "top": 530.0,
+      "left": 2540,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and92",
+      "top": 470.0,
+      "left": 2640,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not3",
+      "top": 470.0,
+      "left": 2740,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and93",
+      "top": 470.0,
+      "left": 2840,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and94",
+      "top": 470.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor29",
+      "top": 530.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and95",
+      "top": 470.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor30",
+      "top": 470.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and96",
+      "top": 530.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor31",
+      "top": 530.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and97",
+      "top": 590.0,
+      "left": 3010,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or9",
+      "top": 590.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and98",
+      "top": 590.0,
+      "left": 3210,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor32",
+      "top": 470.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and99",
+      "top": 650.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and100",
+      "top": 710.0,
+      "left": 3110,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and101",
+      "top": 530.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and102",
+      "top": 590.0,
+      "left": 3310,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and103",
+      "top": 470.0,
+      "left": 3410,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and104",
+      "top": 470.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor33",
+      "top": 530.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and105",
+      "top": 470.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor34",
+      "top": 470.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and106",
+      "top": 530.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor35",
+      "top": 530.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and107",
+      "top": 590.0,
+      "left": 3680,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or10",
+      "top": 590.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and108",
+      "top": 590.0,
+      "left": 3880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor36",
+      "top": 470.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and109",
+      "top": 650.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and110",
+      "top": 710.0,
+      "left": 3780,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and111",
+      "top": 530.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and112",
+      "top": 590.0,
+      "left": 3980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and113",
+      "top": 470.0,
+      "left": 4080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and114",
+      "top": 470.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor37",
+      "top": 530.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and115",
+      "top": 470.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor38",
+      "top": 470.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and116",
+      "top": 530.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor39",
+      "top": 530.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and117",
+      "top": 590.0,
+      "left": 4350,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or11",
+      "top": 590.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and118",
+      "top": 590.0,
+      "left": 4550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor40",
+      "top": 470.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and119",
+      "top": 650.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and120",
+      "top": 710.0,
+      "left": 4450,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and121",
+      "top": 530.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and122",
+      "top": 590.0,
+      "left": 4650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and123",
+      "top": 470.0,
+      "left": 4750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and124",
+      "top": 470.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor41",
+      "top": 530.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and125",
+      "top": 470.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor42",
+      "top": 470.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and126",
+      "top": 530.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor43",
+      "top": 530.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and127",
+      "top": 590.0,
+      "left": 5020,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or12",
+      "top": 590.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and128",
+      "top": 590.0,
+      "left": 5220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor44",
+      "top": 470.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and129",
+      "top": 650.0,
+      "left": 5120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and130",
+      "top": 530.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and131",
+      "top": 590.0,
+      "left": 5320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and132",
+      "top": 470.0,
+      "left": 5420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop48",
+      "top": -320.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop49",
+      "top": -260.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop50",
+      "top": -200.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop51",
+      "top": -140.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop52",
+      "top": 60.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop53",
+      "top": 120.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop54",
+      "top": 180.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop55",
+      "top": 240.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop56",
+      "top": 440.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop57",
+      "top": 500.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop58",
+      "top": 560.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop59",
+      "top": 620.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and133",
+      "top": -320.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor45",
+      "top": -260.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and134",
+      "top": -320.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor46",
+      "top": -320.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and135",
+      "top": -260.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor47",
+      "top": -260.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and136",
+      "top": -200.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or13",
+      "top": -200.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and137",
+      "top": -200.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor48",
+      "top": -320.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and138",
+      "top": -140.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and139",
+      "top": -80.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and140",
+      "top": -260.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and141",
+      "top": -200.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and142",
+      "top": -320.0,
+      "left": 6280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and143",
+      "top": 60.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor49",
+      "top": 120.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and144",
+      "top": 60.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor50",
+      "top": 60.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and145",
+      "top": 120.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor51",
+      "top": 120.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and146",
+      "top": 180.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or14",
+      "top": 180.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and147",
+      "top": 180.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor52",
+      "top": 60.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and148",
+      "top": 240.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and149",
+      "top": 300.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and150",
+      "top": 120.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and151",
+      "top": 180.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and152",
+      "top": 60.0,
+      "left": 6280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and153",
+      "top": 440.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor53",
+      "top": 500.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and154",
+      "top": 440.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor54",
+      "top": 440.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and155",
+      "top": 500.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor55",
+      "top": 500.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and156",
+      "top": 560.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or15",
+      "top": 560.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and157",
+      "top": 560.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor56",
+      "top": 440.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and158",
+      "top": 620.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and159",
+      "top": 680.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and160",
+      "top": 500.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and161",
+      "top": 560.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and162",
+      "top": 440.0,
+      "left": 6280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and163",
+      "top": -580.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not4",
+      "top": -520.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and164",
+      "top": -580.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and165",
+      "top": -460.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and166",
+      "top": -520.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop60",
+      "top": -580.0,
+      "left": 7050,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop61",
+      "top": -520.0,
+      "left": 7050,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop62",
+      "top": -460.0,
+      "left": 7050,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop63",
+      "top": -400.0,
+      "left": 7050,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop64",
+      "top": -580.0,
+      "left": 7720,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop65",
+      "top": -520.0,
+      "left": 7720,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop66",
+      "top": -460.0,
+      "left": 7720,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop67",
+      "top": -400.0,
+      "left": 7720,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop68",
+      "top": -580.0,
+      "left": 8390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop69",
+      "top": -520.0,
+      "left": 8390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop70",
+      "top": -460.0,
+      "left": 8390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop71",
+      "top": -400.0,
+      "left": 8390,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and167",
+      "top": -580.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor57",
+      "top": -520.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and168",
+      "top": -580.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor58",
+      "top": -580.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and169",
+      "top": -520.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor59",
+      "top": -520.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and170",
+      "top": -460.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or16",
+      "top": -460.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and171",
+      "top": -460.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor60",
+      "top": -580.0,
+      "left": 6850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and172",
+      "top": -400.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and173",
+      "top": -340.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or17",
+      "top": -400.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and174",
+      "top": -520.0,
+      "left": 6850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and175",
+      "top": -460.0,
+      "left": 6850,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and176",
+      "top": -580.0,
+      "left": 6950,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and177",
+      "top": -580.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor61",
+      "top": -520.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and178",
+      "top": -580.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor62",
+      "top": -580.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and179",
+      "top": -520.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor63",
+      "top": -520.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and180",
+      "top": -460.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or18",
+      "top": -460.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and181",
+      "top": -460.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor64",
+      "top": -580.0,
+      "left": 7520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and182",
+      "top": -400.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and183",
+      "top": -340.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and184",
+      "top": -520.0,
+      "left": 7520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and185",
+      "top": -460.0,
+      "left": 7520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and186",
+      "top": -580.0,
+      "left": 7620,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and187",
+      "top": -580.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor65",
+      "top": -520.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and188",
+      "top": -580.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor66",
+      "top": -580.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and189",
+      "top": -520.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor67",
+      "top": -520.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and190",
+      "top": -460.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or19",
+      "top": -460.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and191",
+      "top": -460.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor68",
+      "top": -580.0,
+      "left": 8190,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and192",
+      "top": -400.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and193",
+      "top": -340.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and194",
+      "top": -520.0,
+      "left": 8190,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and195",
+      "top": -460.0,
+      "left": 8190,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and196",
+      "top": -580.0,
+      "left": 8290,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop72",
+      "top": -580.0,
+      "left": 8760,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or20",
+      "top": -580.0,
+      "left": 8560,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and197",
+      "top": -580.0,
+      "left": 8660,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop73",
+      "top": -200.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and198",
+      "top": -200.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and199",
+      "top": -140.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or21",
+      "top": -200.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop74",
+      "top": -140.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and200",
+      "top": -80.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and201",
+      "top": -20.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or22",
+      "top": -140.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop75",
+      "top": -80.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and202",
+      "top": 40.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and203",
+      "top": 100.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or23",
+      "top": -80.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop76",
+      "top": -20.0,
+      "left": 6750,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and204",
+      "top": 160.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and205",
+      "top": 220.0,
+      "left": 6550,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or24",
+      "top": -20.0,
+      "left": 6650,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop77",
+      "top": -200.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and206",
+      "top": -200.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and207",
+      "top": -140.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or25",
+      "top": -200.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop78",
+      "top": -140.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and208",
+      "top": -80.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and209",
+      "top": -20.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or26",
+      "top": -140.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop79",
+      "top": -80.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and210",
+      "top": 40.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and211",
+      "top": 100.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or27",
+      "top": -80.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop80",
+      "top": -20.0,
+      "left": 7420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and212",
+      "top": 160.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and213",
+      "top": 220.0,
+      "left": 7220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or28",
+      "top": -20.0,
+      "left": 7320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop81",
+      "top": -200.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and214",
+      "top": -200.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and215",
+      "top": -140.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or29",
+      "top": -200.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop82",
+      "top": -140.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and216",
+      "top": -80.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and217",
+      "top": -20.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or30",
+      "top": -140.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop83",
+      "top": -80.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and218",
+      "top": 40.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and219",
+      "top": 100.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or31",
+      "top": -80.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop84",
+      "top": -20.0,
+      "left": 8090,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and220",
+      "top": 160.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and221",
+      "top": 220.0,
+      "left": 7890,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or32",
+      "top": -20.0,
+      "left": 7990,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop85",
+      "top": -440.0,
+      "left": 8760,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and222",
+      "top": -440.0,
+      "left": 8560,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and223",
+      "top": -380.0,
+      "left": 8560,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or33",
+      "top": -440.0,
+      "left": 8660,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not5",
+      "top": 910.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and224",
+      "top": 910.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or34",
+      "top": 970.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or35",
+      "top": 1030.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or36",
+      "top": 970.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and225",
+      "top": 1090.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or37",
+      "top": 1030.0,
+      "left": 5980,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or38",
+      "top": 910.0,
+      "left": 6080,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-flip-flop-d",
+      "id": "flop86",
+      "top": 910.0,
+      "left": 6480,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and226",
+      "top": 1150.0,
+      "left": 5880,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and227",
+      "top": 910.0,
+      "left": 6180,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or39",
+      "top": 910.0,
+      "left": 6280,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and228",
+      "top": 910.0,
+      "left": 6380,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not6",
+      "top": -1075.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not7",
+      "top": -1015.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and229",
+      "top": -1075.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and230",
+      "top": -1015.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and231",
+      "top": -955.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and232",
+      "top": -815.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and233",
+      "top": -755.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and234",
+      "top": -695.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or40",
+      "top": -815.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or41",
+      "top": -815.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and235",
+      "top": -635.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and236",
+      "top": -575.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and237",
+      "top": -515.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or42",
+      "top": -755.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or43",
+      "top": -755.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and238",
+      "top": -455.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and239",
+      "top": -395.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and240",
+      "top": -335.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or44",
+      "top": -695.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or45",
+      "top": -695.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and241",
+      "top": -275.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and242",
+      "top": -215.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and243",
+      "top": -155.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or46",
+      "top": -635.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or47",
+      "top": -635.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and244",
+      "top": -1075.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and245",
+      "top": -1015.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and246",
+      "top": -955.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or48",
+      "top": -1075.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or49",
+      "top": -1075.0,
+      "left": 9690,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and247",
+      "top": -895.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and248",
+      "top": -835.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and249",
+      "top": -775.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or50",
+      "top": -1015.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or51",
+      "top": -1015.0,
+      "left": 9690,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and250",
+      "top": -715.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and251",
+      "top": -655.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and252",
+      "top": -595.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or52",
+      "top": -955.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or53",
+      "top": -955.0,
+      "left": 9690,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and253",
+      "top": -535.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and254",
+      "top": -475.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and255",
+      "top": -415.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or54",
+      "top": -895.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or55",
+      "top": -895.0,
+      "left": 9690,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and256",
+      "top": -15.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and257",
+      "top": 45.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and258",
+      "top": 105.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or56",
+      "top": -15.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or57",
+      "top": -15.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and259",
+      "top": 165.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and260",
+      "top": 225.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and261",
+      "top": 285.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or58",
+      "top": 45.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or59",
+      "top": 45.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and262",
+      "top": 345.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and263",
+      "top": 405.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and264",
+      "top": 465.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or60",
+      "top": 105.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or61",
+      "top": 105.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and265",
+      "top": 525.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and266",
+      "top": 585.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and267",
+      "top": 645.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or62",
+      "top": 165.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or63",
+      "top": 165.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and268",
+      "top": -275.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and269",
+      "top": -215.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and270",
+      "top": -155.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or64",
+      "top": -275.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or65",
+      "top": -275.0,
+      "left": 9690,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and271",
+      "top": -95.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and272",
+      "top": -35.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or66",
+      "top": -215.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and273",
+      "top": 25.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and274",
+      "top": 85.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or67",
+      "top": -155.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and275",
+      "top": 145.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and276",
+      "top": 205.0,
+      "left": 9490,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or68",
+      "top": -95.0,
+      "left": 9590,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not8",
+      "top": -1075.0,
+      "left": 9860,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not9",
+      "top": -1015.0,
+      "left": 9860,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and277",
+      "top": -1075.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and278",
+      "top": -1015.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and279",
+      "top": -955.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and280",
+      "top": -955.0,
+      "left": 9860,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and281",
+      "top": -1075.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and282",
+      "top": -1015.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and283",
+      "top": -955.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and284",
+      "top": -895.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or69",
+      "top": -1075.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or70",
+      "top": -1015.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or71",
+      "top": -1075.0,
+      "left": 10260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and285",
+      "top": -895.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and286",
+      "top": -835.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and287",
+      "top": -775.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and288",
+      "top": -835.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or72",
+      "top": -955.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or73",
+      "top": -895.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or74",
+      "top": -1015.0,
+      "left": 10260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and289",
+      "top": -715.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and290",
+      "top": -655.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and291",
+      "top": -595.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and292",
+      "top": -775.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or75",
+      "top": -835.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or76",
+      "top": -775.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or77",
+      "top": -955.0,
+      "left": 10260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and293",
+      "top": -535.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and294",
+      "top": -475.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and295",
+      "top": -415.0,
+      "left": 10060,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and296",
+      "top": -715.0,
+      "left": 9960,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or78",
+      "top": -715.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or79",
+      "top": -655.0,
+      "left": 10160,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or80",
+      "top": -895.0,
+      "left": 10260,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not10",
+      "top": 875.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not11",
+      "top": 935.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not12",
+      "top": 995.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor69",
+      "top": 1055.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not13",
+      "top": 875.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or81",
+      "top": 1115.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or82",
+      "top": 875.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor70",
+      "top": 1175.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not14",
+      "top": 935.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or83",
+      "top": 935.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or84",
+      "top": 995.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or85",
+      "top": 995.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and297",
+      "top": 1235.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not15",
+      "top": 1055.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and298",
+      "top": 1055.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or86",
+      "top": 875.0,
+      "left": 9420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and299",
+      "top": 1115.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or87",
+      "top": 875.0,
+      "left": 9520,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or88",
+      "top": 1115.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and300",
+      "top": 1175.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and301",
+      "top": 1295.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not16",
+      "top": 1175.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and302",
+      "top": 1235.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or89",
+      "top": 1235.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and303",
+      "top": 1295.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or90",
+      "top": 935.0,
+      "left": 9420,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-xor-2",
+      "id": "xor71",
+      "top": 1355.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or91",
+      "top": 1295.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and304",
+      "top": 1355.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or92",
+      "top": 1355.0,
+      "left": 9320,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-not",
+      "id": "not17",
+      "top": 1585.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and305",
+      "top": 1585.0,
+      "left": 9220,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-and-2",
+      "id": "and306",
+      "top": 1645.0,
+      "left": 9120,
+      "attrs": {}
+    },
+    {
+      "type": "wokwi-gate-or-2",
+      "id": "or93",
+      "top": 1585.0,
+      "left": 9320,
+      "attrs": {}
+    }
   ],
   "connections": [
-    [ "pwr2:VCC", "sw1:8a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:7a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:6a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:5a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:4a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:1a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:2a", "red", [ "v0" ] ],
-    [ "pwr2:VCC", "sw1:3a", "red", [ "v0" ] ],
-    [ "ttout1:EXTOUT0", "sevseg1:A", "blue", [ "h21.01", "v-28.8", "h96" ] ],
-    [ "ttout1:EXTOUT1", "sevseg1:B", "blue", [ "h11.41", "v-48", "h122.99", "v41.34" ] ],
+    [
+      "pwr2:VCC",
+      "sw1:8a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:7a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:6a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:5a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:4a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:1a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:2a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwr2:VCC",
+      "sw1:3a",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT0",
+      "sevseg1:A",
+      "blue",
+      [
+        "h40.0",
+        "v-1535.3",
+        "h-11352.0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT1",
+      "sevseg1:B",
+      "blue",
+      [
+        "h52.0",
+        "v-1556.9",
+        "h-11357.0"
+      ]
+    ],
     [
       "ttout1:EXTOUT2",
       "sevseg1:C",
       "blue",
-      [ "h30.61", "v-38.4", "h115.2", "v105.6", "h-28.8" ]
+      [
+        "h64.0",
+        "v-1578.5",
+        "h-11362.0"
+      ]
     ],
-    [ "ttout1:EXTOUT3", "sevseg1:D", "blue", [ "h57.6", "v57.6", "h48" ] ],
-    [ "sevseg1:E", "ttout1:EXTOUT4", "blue", [ "v9.6", "h-48", "v-38.4" ] ],
-    [ "ttout1:EXTOUT5", "sevseg1:F", "blue", [ "h69.01", "v-57.6", "h28.8" ] ],
-    [ "ttout1:EXTOUT6", "sevseg1:G", "blue", [ "h78.61", "v-57.6" ] ],
-    [ "ttout1:EXTOUT7", "sevseg1:DP", "blue", [ "v28.8", "h136.21" ] ],
-    [ "pwr1:GND", "sevseg1:COM.1", "black", [ "v0" ] ],
-    [ "sw2:1", "clock1:CLK", "blue", [ "h-19.2", "v-57.6" ] ],
-    [ "sw1:1b", "ttin1:EXTIN0", "green", [ "h0" ] ],
-    [ "sw1:2b", "ttin1:EXTIN1", "green", [ "h0" ] ],
-    [ "ttin1:EXTIN2", "sw1:3b", "green", [ "h0" ] ],
-    [ "ttin1:EXTIN3", "sw1:4b", "green", [ "h0" ] ],
-    [ "sw1:5b", "ttin1:EXTIN4", "green", [ "h0" ] ],
-    [ "ttin1:EXTIN5", "sw1:6b", "green", [ "h0" ] ],
-    [ "sw1:7b", "ttin1:EXTIN6", "green", [ "h0" ] ],
-    [ "sw1:8b", "ttin1:EXTIN7", "green", [ "v0" ] ],
-    [ "sw2:2", "ttin1:EXTCLK", "blue", [ "v0" ] ],
-    [ "btn1:1.l", "sw2:3", "blue", [ "h0" ] ],
-    [ "pwr3:VCC", "btn1:2.r", "red", [ "v0" ] ],
-    [ "btn2:2.l", "gnd1:GND", "black", [ "h0" ] ],
-    [ "ttin1:EXTRST_N", "btn2:1.r", "orange", [ "h-38.4", "v-96" ] ],
-    [ "btn2:1.l", "r1:2", "green", [ "h0" ] ],
-    [ "pwr4:VCC", "r1:1", "red", [ "v0" ] ],
-    [ "ttin1:IN1", "or8:A", "green", [ "h38.4", "v-364.8" ] ],
-    [ "ttin1:IN2", "or8:B", "green", [ "h38.4", "v-364.8" ] ],
-    [ "ttin1:IN4", "or7:A", "green", [ "h48", "v-345.6" ] ],
-    [ "ttin1:IN5", "or7:B", "green", [ "h57.6", "v-345.6" ] ],
-    [ "ttin1:IN6", "or6:A", "green", [ "h67.2", "v-326.4" ] ],
-    [ "ttin1:IN7", "or6:B", "green", [ "h76.8", "v-316.8" ] ],
-    [ "or6:OUT", "or3:B", "green", [ "v0" ] ],
-    [ "or7:OUT", "or2:B", "green", [ "v0" ] ],
-    [ "or8:OUT", "or2:A", "green", [ "v0" ] ],
-    [ "or2:OUT", "or3:A", "green", [ "v0" ] ],
-    [ "or3:OUT", "ttout1:OUT0", "green", [ "v0", "h326.4", "v288" ] ],
-    [ "or17:OUT", "or16:B", "green", [ "v0" ] ],
-    [ "or18:OUT", "or15:B", "green", [ "v0" ] ],
-    [ "or19:OUT", "or15:A", "green", [ "v0" ] ],
-    [ "or15:OUT", "or16:A", "green", [ "v0" ] ],
-    [ "or16:OUT", "ttout1:OUT1", "green", [ "v0", "h192", "v547.2" ] ],
-    [ "ttin1:IN1", "or19:A", "green", [ "h96", "v-96" ] ],
-    [ "ttin1:IN0", "or19:B", "green", [ "h96", "v-67.2" ] ],
-    [ "ttin1:IN2", "or18:A", "green", [ "h96", "v-57.6" ] ],
-    [ "ttin1:IN3", "or18:B", "green", [ "h96", "v-57.6" ] ],
-    [ "ttin1:IN6", "or17:A", "green", [ "h96", "v-48" ] ],
-    [ "ttin1:IN7", "or17:B", "green", [ "h96", "v-38.4" ] ],
-    [ "or10:OUT", "or1:A", "green", [ "v0" ] ],
-    [ "or13:OUT", "or1:B", "green", [ "v0" ] ],
-    [ "or12:OUT", "or10:A", "green", [ "v0" ] ],
-    [ "or14:OUT", "or10:B", "green", [ "v0" ] ],
-    [ "or11:OUT", "or13:A", "green", [ "v0" ] ],
-    [ "or1:OUT", "ttout1:OUT2", "green", [ "v0", "h201.6", "v403.2" ] ],
-    [ "ttin1:IN7", "or13:B", "green", [ "h124.8", "v-873.6", "h345.6" ] ],
-    [ "ttin1:IN6", "or11:B", "green", [ "h124.8", "v-412.8" ] ],
-    [ "ttin1:IN5", "or11:A", "green", [ "h124.8", "v-422.4" ] ],
-    [ "ttin1:IN4", "or14:B", "green", [ "h124.8", "v-441.6" ] ],
-    [ "ttin1:IN3", "or14:A", "green", [ "h124.8", "v-451.2" ] ],
-    [ "ttin1:IN2", "or12:B", "green", [ "h124.8", "v-480" ] ],
-    [ "ttin1:IN0", "or12:A", "green", [ "h124.8", "v-489.6" ] ],
-    [ "or22:OUT", "or20:B", "green", [ "v0" ] ],
-    [ "or23:OUT", "or20:A", "green", [ "v0" ] ],
-    [ "or20:OUT", "or21:A", "green", [ "v0" ] ],
-    [ "or21:OUT", "ttout1:OUT3", "green", [ "v0", "h163.2", "v230.4" ] ],
-    [ "ttin1:IN1", "or23:A", "green", [ "h153.6", "v-710.4", "h182.4" ] ],
-    [ "ttin1:IN2", "or23:B", "green", [ "h153.6", "v-278.4" ] ],
-    [ "ttin1:IN4", "or22:A", "green", [ "h153.6", "v-268.8" ] ],
-    [ "ttin1:IN5", "or22:B", "green", [ "h153.6", "v-249.6" ] ],
-    [ "ttin1:IN7", "or21:B", "green", [ "h153.6", "v-249.6" ] ],
-    [ "or5:OUT", "or4:A", "green", [ "v0" ] ],
-    [ "or4:OUT", "ttout1:OUT4", "green", [ "v0", "h307.2", "v153.6" ] ],
-    [ "ttin1:IN1", "or5:A", "green", [ "h172.8", "v-528", "h192" ] ],
-    [ "ttin1:IN5", "or5:B", "green", [ "h172.8", "v-172.8" ] ],
-    [ "ttin1:IN7", "or4:B", "green", [ "h172.8", "v-163.2" ] ],
-    [ "or9:OUT", "or25:A", "green", [ "v0" ] ],
-    [ "or24:OUT", "or25:B", "green", [ "v0" ] ],
-    [ "or25:OUT", "ttout1:OUT5", "green", [ "v0", "h259.2", "v67.2" ] ],
-    [ "ttin1:IN3", "or9:A", "green", [ "h182.4", "v-412.8", "h201.6" ] ],
-    [ "ttin1:IN4", "or9:B", "green", [ "h182.4", "v-76.8" ] ],
-    [ "ttin1:IN5", "or24:A", "green", [ "h182.4", "v-38.4" ] ],
-    [ "ttin1:IN7", "or24:B", "green", [ "h182.4", "v-48" ] ],
-    [ "or28:OUT", "or27:B", "green", [ "v0" ] ],
-    [ "or29:OUT", "or26:B", "green", [ "v0" ] ],
-    [ "or30:OUT", "or26:A", "green", [ "v0" ] ],
-    [ "or26:OUT", "or27:A", "green", [ "v0" ] ],
-    [ "or27:OUT", "ttout1:OUT6", "green", [ "v0", "h115.2", "v-86.4" ] ],
-    [ "ttin1:IN1", "or30:A", "green", [ "h201.6", "v57.6" ] ],
-    [ "ttin1:IN2", "or30:B", "green", [ "h201.6", "v76.8" ] ],
-    [ "ttin1:IN3", "or29:A", "green", [ "h201.6", "v96" ] ],
-    [ "ttin1:IN4", "or29:B", "green", [ "h201.6", "v-182.4", "h144" ] ],
-    [ "ttin1:IN5", "or28:A", "green", [ "h201.6", "v124.8" ] ],
-    [ "ttin1:IN7", "or28:B", "green", [ "h201.6", "v124.8" ] ],
-    [ "and1:OUT", "and5:A", "red", [ "v0" ] ],
-    [ "and7:OUT", "and5:B", "red", [ "v0" ] ],
-    [ "and3:OUT", "and4:A", "red", [ "v0" ] ],
-    [ "and6:OUT", "and4:B", "red", [ "v0" ] ],
-    [ "and4:OUT", "and2:B", "red", [ "v0" ] ],
-    [ "and5:OUT", "and2:A", "red", [ "v0" ] ],
-    [ "and2:OUT", "ttout1:OUT7", "red", [ "v0", "h124.8", "v-326.4" ] ],
-    [ "ttin1:IN0", "and6:B", "red", [ "h230.4", "v297.6", "h0", "v172.8" ] ],
-    [ "ttin1:IN1", "and6:A", "red", [ "h230.4", "v441.6" ] ],
-    [ "ttin1:IN2", "and3:B", "red", [ "h230.4", "v403.2" ] ],
-    [ "ttin1:IN3", "and3:A", "red", [ "h230.4", "v374.4" ] ],
-    [ "ttin1:IN4", "and7:B", "red", [ "h230.4", "v336" ] ],
-    [ "ttin1:IN5", "and7:A", "red", [ "h230.4", "v307.2" ] ],
-    [ "ttin1:IN6", "and1:B", "red", [ "h230.4", "v278.4" ] ],
-    [ "ttin1:IN7", "and1:A", "red", [ "h230.4", "v240" ] ]
+    [
+      "ttout1:EXTOUT3",
+      "sevseg1:D",
+      "blue",
+      [
+        "h76.0",
+        "v-1600.1",
+        "h-11367.0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT4",
+      "sevseg1:E",
+      "blue",
+      [
+        "h88.0",
+        "v-1621.7",
+        "h-11372.0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT5",
+      "sevseg1:F",
+      "blue",
+      [
+        "h100.0",
+        "v-1643.3",
+        "h-11377.0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT6",
+      "sevseg1:G",
+      "blue",
+      [
+        "h112.0",
+        "v-1664.9",
+        "h-11382.0"
+      ]
+    ],
+    [
+      "ttout1:EXTOUT7",
+      "sevseg1:DP",
+      "blue",
+      [
+        "h124.0",
+        "v-1686.5",
+        "h-11387.0"
+      ]
+    ],
+    [
+      "pwr1:GND",
+      "sevseg1:COM.1",
+      "black",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "sw2:3",
+      "clock1:CLK",
+      "blue",
+      []
+    ],
+    [
+      "sw1:1b",
+      "ttin1:EXTIN0",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sw1:2b",
+      "ttin1:EXTIN1",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "ttin1:EXTIN2",
+      "sw1:3b",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "ttin1:EXTIN3",
+      "sw1:4b",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sw1:5b",
+      "ttin1:EXTIN4",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "ttin1:EXTIN5",
+      "sw1:6b",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sw1:7b",
+      "ttin1:EXTIN6",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "sw1:8b",
+      "ttin1:EXTIN7",
+      "green",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "sw2:2",
+      "ttin1:EXTCLK",
+      "blue",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btn1:1.l",
+      "sw2:1",
+      "blue",
+      []
+    ],
+    [
+      "pwr3:VCC",
+      "btn1:2.r",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "btn2:2.l",
+      "gnd1:GND",
+      "black",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "ttin1:EXTRST_N",
+      "btn2:1.r",
+      "orange",
+      [
+        "h-38.4",
+        "v-96"
+      ]
+    ],
+    [
+      "btn2:1.l",
+      "r1:2",
+      "green",
+      [
+        "h0"
+      ]
+    ],
+    [
+      "pwr4:VCC",
+      "r1:1",
+      "red",
+      [
+        "v0"
+      ]
+    ],
+    [
+      "pwrptt:VCC",
+      "btnptt:1.l",
+      "red",
+      []
+    ],
+    [
+      "btnptt:2.r",
+      "ttin1:EXTIN0",
+      "magenta",
+      []
+    ],
+    [
+      "rptt:1",
+      "ttin1:EXTIN0",
+      "magenta",
+      []
+    ],
+    [
+      "rptt:2",
+      "gndptt:GND",
+      "black",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop1:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and1:OUT",
+      "flop1:D",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop2:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and2:OUT",
+      "flop2:D",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop3:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and3:OUT",
+      "flop3:D",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:IN0",
+      "and1:A",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and1:B",
+      "brown",
+      []
+    ],
+    [
+      "flop1:Q",
+      "and2:A",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and2:B",
+      "brown",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and3:A",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and3:B",
+      "brown",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and4:A",
+      "violet",
+      []
+    ],
+    [
+      "flop3:NOTQ",
+      "and4:B",
+      "violet",
+      []
+    ],
+    [
+      "and4:OUT",
+      "and5:A",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and5:B",
+      "brown",
+      []
+    ],
+    [
+      "and4:OUT",
+      "not1:IN",
+      "violet",
+      []
+    ],
+    [
+      "not1:OUT",
+      "and6:A",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and6:B",
+      "brown",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop4:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and13:OUT",
+      "flop4:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop5:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and14:OUT",
+      "flop5:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop6:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and15:OUT",
+      "flop6:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop7:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and16:OUT",
+      "flop7:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and7:A",
+      "brown",
+      []
+    ],
+    [
+      "flop4:Q",
+      "and7:B",
+      "orange",
+      []
+    ],
+    [
+      "flop4:Q",
+      "xor1:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "xor1:B",
+      "brown",
+      []
+    ],
+    [
+      "and7:OUT",
+      "and8:A",
+      "orange",
+      []
+    ],
+    [
+      "flop7:NOTQ",
+      "and8:B",
+      "orange",
+      []
+    ],
+    [
+      "flop5:Q",
+      "xor2:A",
+      "orange",
+      []
+    ],
+    [
+      "and8:OUT",
+      "xor2:B",
+      "orange",
+      []
+    ],
+    [
+      "and7:OUT",
+      "and9:A",
+      "orange",
+      []
+    ],
+    [
+      "flop5:Q",
+      "and9:B",
+      "orange",
+      []
+    ],
+    [
+      "flop6:Q",
+      "xor3:A",
+      "orange",
+      []
+    ],
+    [
+      "and9:OUT",
+      "xor3:B",
+      "orange",
+      []
+    ],
+    [
+      "flop6:Q",
+      "and10:A",
+      "orange",
+      []
+    ],
+    [
+      "flop5:Q",
+      "and10:B",
+      "orange",
+      []
+    ],
+    [
+      "flop7:Q",
+      "or1:A",
+      "orange",
+      []
+    ],
+    [
+      "and10:OUT",
+      "or1:B",
+      "orange",
+      []
+    ],
+    [
+      "and7:OUT",
+      "and11:A",
+      "orange",
+      []
+    ],
+    [
+      "or1:OUT",
+      "and11:B",
+      "orange",
+      []
+    ],
+    [
+      "flop7:Q",
+      "xor4:A",
+      "orange",
+      []
+    ],
+    [
+      "and11:OUT",
+      "xor4:B",
+      "orange",
+      []
+    ],
+    [
+      "and7:OUT",
+      "and12:A",
+      "orange",
+      []
+    ],
+    [
+      "flop7:Q",
+      "and12:B",
+      "orange",
+      []
+    ],
+    [
+      "xor1:OUT",
+      "and13:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and13:B",
+      "brown",
+      []
+    ],
+    [
+      "xor2:OUT",
+      "and14:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and14:B",
+      "brown",
+      []
+    ],
+    [
+      "xor3:OUT",
+      "and15:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and15:B",
+      "brown",
+      []
+    ],
+    [
+      "xor4:OUT",
+      "and16:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and16:B",
+      "brown",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop8:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and23:OUT",
+      "flop8:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop9:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and24:OUT",
+      "flop9:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop10:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and25:OUT",
+      "flop10:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop11:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and26:OUT",
+      "flop11:D",
+      "orange",
+      []
+    ],
+    [
+      "and12:OUT",
+      "and17:A",
+      "orange",
+      []
+    ],
+    [
+      "flop8:Q",
+      "and17:B",
+      "orange",
+      []
+    ],
+    [
+      "flop8:Q",
+      "xor5:A",
+      "orange",
+      []
+    ],
+    [
+      "and12:OUT",
+      "xor5:B",
+      "orange",
+      []
+    ],
+    [
+      "and17:OUT",
+      "and18:A",
+      "orange",
+      []
+    ],
+    [
+      "flop11:NOTQ",
+      "and18:B",
+      "orange",
+      []
+    ],
+    [
+      "flop9:Q",
+      "xor6:A",
+      "orange",
+      []
+    ],
+    [
+      "and18:OUT",
+      "xor6:B",
+      "orange",
+      []
+    ],
+    [
+      "and17:OUT",
+      "and19:A",
+      "orange",
+      []
+    ],
+    [
+      "flop9:Q",
+      "and19:B",
+      "orange",
+      []
+    ],
+    [
+      "flop10:Q",
+      "xor7:A",
+      "orange",
+      []
+    ],
+    [
+      "and19:OUT",
+      "xor7:B",
+      "orange",
+      []
+    ],
+    [
+      "flop10:Q",
+      "and20:A",
+      "orange",
+      []
+    ],
+    [
+      "flop9:Q",
+      "and20:B",
+      "orange",
+      []
+    ],
+    [
+      "flop11:Q",
+      "or2:A",
+      "orange",
+      []
+    ],
+    [
+      "and20:OUT",
+      "or2:B",
+      "orange",
+      []
+    ],
+    [
+      "and17:OUT",
+      "and21:A",
+      "orange",
+      []
+    ],
+    [
+      "or2:OUT",
+      "and21:B",
+      "orange",
+      []
+    ],
+    [
+      "flop11:Q",
+      "xor8:A",
+      "orange",
+      []
+    ],
+    [
+      "and21:OUT",
+      "xor8:B",
+      "orange",
+      []
+    ],
+    [
+      "and17:OUT",
+      "and22:A",
+      "orange",
+      []
+    ],
+    [
+      "flop11:Q",
+      "and22:B",
+      "orange",
+      []
+    ],
+    [
+      "xor5:OUT",
+      "and23:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and23:B",
+      "brown",
+      []
+    ],
+    [
+      "xor6:OUT",
+      "and24:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and24:B",
+      "brown",
+      []
+    ],
+    [
+      "xor7:OUT",
+      "and25:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and25:B",
+      "brown",
+      []
+    ],
+    [
+      "xor8:OUT",
+      "and26:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and26:B",
+      "brown",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop12:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and33:OUT",
+      "flop12:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop13:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and34:OUT",
+      "flop13:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop14:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and35:OUT",
+      "flop14:D",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop15:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and36:OUT",
+      "flop15:D",
+      "orange",
+      []
+    ],
+    [
+      "and22:OUT",
+      "and27:A",
+      "orange",
+      []
+    ],
+    [
+      "flop12:Q",
+      "and27:B",
+      "orange",
+      []
+    ],
+    [
+      "flop12:Q",
+      "xor9:A",
+      "orange",
+      []
+    ],
+    [
+      "and22:OUT",
+      "xor9:B",
+      "orange",
+      []
+    ],
+    [
+      "and27:OUT",
+      "and28:A",
+      "orange",
+      []
+    ],
+    [
+      "flop15:NOTQ",
+      "and28:B",
+      "orange",
+      []
+    ],
+    [
+      "flop13:Q",
+      "xor10:A",
+      "orange",
+      []
+    ],
+    [
+      "and28:OUT",
+      "xor10:B",
+      "orange",
+      []
+    ],
+    [
+      "and27:OUT",
+      "and29:A",
+      "orange",
+      []
+    ],
+    [
+      "flop13:Q",
+      "and29:B",
+      "orange",
+      []
+    ],
+    [
+      "flop14:Q",
+      "xor11:A",
+      "orange",
+      []
+    ],
+    [
+      "and29:OUT",
+      "xor11:B",
+      "orange",
+      []
+    ],
+    [
+      "flop14:Q",
+      "and30:A",
+      "orange",
+      []
+    ],
+    [
+      "flop13:Q",
+      "and30:B",
+      "orange",
+      []
+    ],
+    [
+      "flop15:Q",
+      "or3:A",
+      "orange",
+      []
+    ],
+    [
+      "and30:OUT",
+      "or3:B",
+      "orange",
+      []
+    ],
+    [
+      "and27:OUT",
+      "and31:A",
+      "orange",
+      []
+    ],
+    [
+      "or3:OUT",
+      "and31:B",
+      "orange",
+      []
+    ],
+    [
+      "flop15:Q",
+      "xor12:A",
+      "orange",
+      []
+    ],
+    [
+      "and31:OUT",
+      "xor12:B",
+      "orange",
+      []
+    ],
+    [
+      "and27:OUT",
+      "and32:A",
+      "orange",
+      []
+    ],
+    [
+      "flop15:Q",
+      "and32:B",
+      "orange",
+      []
+    ],
+    [
+      "xor9:OUT",
+      "and33:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and33:B",
+      "brown",
+      []
+    ],
+    [
+      "xor10:OUT",
+      "and34:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and34:B",
+      "brown",
+      []
+    ],
+    [
+      "xor11:OUT",
+      "and35:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and35:B",
+      "brown",
+      []
+    ],
+    [
+      "xor12:OUT",
+      "and36:A",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and36:B",
+      "brown",
+      []
+    ],
+    [
+      "and32:OUT",
+      "and37:A",
+      "orange",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and37:B",
+      "violet",
+      []
+    ],
+    [
+      "and5:OUT",
+      "and38:A",
+      "violet",
+      []
+    ],
+    [
+      "and32:OUT",
+      "and38:B",
+      "orange",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop16:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or5:OUT",
+      "flop16:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop17:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and54:OUT",
+      "flop17:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop18:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and55:OUT",
+      "flop18:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop19:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and56:OUT",
+      "flop19:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop20:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and63:OUT",
+      "flop20:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop21:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and64:OUT",
+      "flop21:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop22:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and65:OUT",
+      "flop22:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop23:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and66:OUT",
+      "flop23:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop24:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and73:OUT",
+      "flop24:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop25:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and74:OUT",
+      "flop25:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop26:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and75:OUT",
+      "flop26:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop27:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and76:OUT",
+      "flop27:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop28:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and82:OUT",
+      "flop28:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop29:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and83:OUT",
+      "flop29:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop30:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and84:OUT",
+      "flop30:D",
+      "cyan",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop31:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and85:OUT",
+      "flop31:D",
+      "cyan",
+      []
+    ],
+    [
+      "flop19:Q",
+      "and39:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop16:Q",
+      "and39:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop23:Q",
+      "and40:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop20:Q",
+      "and40:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:Q",
+      "and41:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop24:Q",
+      "and41:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop31:Q",
+      "and42:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop28:Q",
+      "and42:B",
+      "cyan",
+      []
+    ],
+    [
+      "and39:OUT",
+      "and43:A",
+      "cyan",
+      []
+    ],
+    [
+      "and40:OUT",
+      "and43:B",
+      "cyan",
+      []
+    ],
+    [
+      "and41:OUT",
+      "and44:A",
+      "cyan",
+      []
+    ],
+    [
+      "and42:OUT",
+      "and44:B",
+      "cyan",
+      []
+    ],
+    [
+      "and43:OUT",
+      "and45:A",
+      "cyan",
+      []
+    ],
+    [
+      "and44:OUT",
+      "and45:B",
+      "cyan",
+      []
+    ],
+    [
+      "and45:OUT",
+      "not2:IN",
+      "cyan",
+      []
+    ],
+    [
+      "and37:OUT",
+      "and46:A",
+      "cyan",
+      []
+    ],
+    [
+      "not2:OUT",
+      "and46:B",
+      "cyan",
+      []
+    ],
+    [
+      "and46:OUT",
+      "and47:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop16:Q",
+      "and47:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop16:Q",
+      "xor13:A",
+      "cyan",
+      []
+    ],
+    [
+      "and46:OUT",
+      "xor13:B",
+      "cyan",
+      []
+    ],
+    [
+      "and47:OUT",
+      "and48:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop19:NOTQ",
+      "and48:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop17:Q",
+      "xor14:A",
+      "cyan",
+      []
+    ],
+    [
+      "and48:OUT",
+      "xor14:B",
+      "cyan",
+      []
+    ],
+    [
+      "and47:OUT",
+      "and49:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop17:Q",
+      "and49:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop18:Q",
+      "xor15:A",
+      "cyan",
+      []
+    ],
+    [
+      "and49:OUT",
+      "xor15:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop18:Q",
+      "and50:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop17:Q",
+      "and50:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop19:Q",
+      "or4:A",
+      "cyan",
+      []
+    ],
+    [
+      "and50:OUT",
+      "or4:B",
+      "cyan",
+      []
+    ],
+    [
+      "and47:OUT",
+      "and51:A",
+      "cyan",
+      []
+    ],
+    [
+      "or4:OUT",
+      "and51:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop19:Q",
+      "xor16:A",
+      "cyan",
+      []
+    ],
+    [
+      "and51:OUT",
+      "xor16:B",
+      "cyan",
+      []
+    ],
+    [
+      "and47:OUT",
+      "and52:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop19:Q",
+      "and52:B",
+      "cyan",
+      []
+    ],
+    [
+      "xor13:OUT",
+      "and53:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and53:B",
+      "violet",
+      []
+    ],
+    [
+      "and53:OUT",
+      "or5:A",
+      "cyan",
+      []
+    ],
+    [
+      "and38:OUT",
+      "or5:B",
+      "cyan",
+      []
+    ],
+    [
+      "xor14:OUT",
+      "and54:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and54:B",
+      "violet",
+      []
+    ],
+    [
+      "xor15:OUT",
+      "and55:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and55:B",
+      "violet",
+      []
+    ],
+    [
+      "xor16:OUT",
+      "and56:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and56:B",
+      "violet",
+      []
+    ],
+    [
+      "and52:OUT",
+      "and57:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop20:Q",
+      "and57:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop20:Q",
+      "xor17:A",
+      "cyan",
+      []
+    ],
+    [
+      "and52:OUT",
+      "xor17:B",
+      "cyan",
+      []
+    ],
+    [
+      "and57:OUT",
+      "and58:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop23:NOTQ",
+      "and58:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop21:Q",
+      "xor18:A",
+      "cyan",
+      []
+    ],
+    [
+      "and58:OUT",
+      "xor18:B",
+      "cyan",
+      []
+    ],
+    [
+      "and57:OUT",
+      "and59:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop21:Q",
+      "and59:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop22:Q",
+      "xor19:A",
+      "cyan",
+      []
+    ],
+    [
+      "and59:OUT",
+      "xor19:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop22:Q",
+      "and60:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop21:Q",
+      "and60:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop23:Q",
+      "or6:A",
+      "cyan",
+      []
+    ],
+    [
+      "and60:OUT",
+      "or6:B",
+      "cyan",
+      []
+    ],
+    [
+      "and57:OUT",
+      "and61:A",
+      "cyan",
+      []
+    ],
+    [
+      "or6:OUT",
+      "and61:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop23:Q",
+      "xor20:A",
+      "cyan",
+      []
+    ],
+    [
+      "and61:OUT",
+      "xor20:B",
+      "cyan",
+      []
+    ],
+    [
+      "and57:OUT",
+      "and62:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop23:Q",
+      "and62:B",
+      "cyan",
+      []
+    ],
+    [
+      "xor17:OUT",
+      "and63:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and63:B",
+      "violet",
+      []
+    ],
+    [
+      "xor18:OUT",
+      "and64:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and64:B",
+      "violet",
+      []
+    ],
+    [
+      "xor19:OUT",
+      "and65:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and65:B",
+      "violet",
+      []
+    ],
+    [
+      "xor20:OUT",
+      "and66:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and66:B",
+      "violet",
+      []
+    ],
+    [
+      "and62:OUT",
+      "and67:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop24:Q",
+      "and67:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop24:Q",
+      "xor21:A",
+      "cyan",
+      []
+    ],
+    [
+      "and62:OUT",
+      "xor21:B",
+      "cyan",
+      []
+    ],
+    [
+      "and67:OUT",
+      "and68:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:NOTQ",
+      "and68:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop25:Q",
+      "xor22:A",
+      "cyan",
+      []
+    ],
+    [
+      "and68:OUT",
+      "xor22:B",
+      "cyan",
+      []
+    ],
+    [
+      "and67:OUT",
+      "and69:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop25:Q",
+      "and69:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop26:Q",
+      "xor23:A",
+      "cyan",
+      []
+    ],
+    [
+      "and69:OUT",
+      "xor23:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop26:Q",
+      "and70:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop25:Q",
+      "and70:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:Q",
+      "or7:A",
+      "cyan",
+      []
+    ],
+    [
+      "and70:OUT",
+      "or7:B",
+      "cyan",
+      []
+    ],
+    [
+      "and67:OUT",
+      "and71:A",
+      "cyan",
+      []
+    ],
+    [
+      "or7:OUT",
+      "and71:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:Q",
+      "xor24:A",
+      "cyan",
+      []
+    ],
+    [
+      "and71:OUT",
+      "xor24:B",
+      "cyan",
+      []
+    ],
+    [
+      "and67:OUT",
+      "and72:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:Q",
+      "and72:B",
+      "cyan",
+      []
+    ],
+    [
+      "xor21:OUT",
+      "and73:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and73:B",
+      "violet",
+      []
+    ],
+    [
+      "xor22:OUT",
+      "and74:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and74:B",
+      "violet",
+      []
+    ],
+    [
+      "xor23:OUT",
+      "and75:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and75:B",
+      "violet",
+      []
+    ],
+    [
+      "xor24:OUT",
+      "and76:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and76:B",
+      "violet",
+      []
+    ],
+    [
+      "and72:OUT",
+      "and77:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop28:Q",
+      "and77:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop28:Q",
+      "xor25:A",
+      "cyan",
+      []
+    ],
+    [
+      "and72:OUT",
+      "xor25:B",
+      "cyan",
+      []
+    ],
+    [
+      "and77:OUT",
+      "and78:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop31:NOTQ",
+      "and78:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop29:Q",
+      "xor26:A",
+      "cyan",
+      []
+    ],
+    [
+      "and78:OUT",
+      "xor26:B",
+      "cyan",
+      []
+    ],
+    [
+      "and77:OUT",
+      "and79:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop29:Q",
+      "and79:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop30:Q",
+      "xor27:A",
+      "cyan",
+      []
+    ],
+    [
+      "and79:OUT",
+      "xor27:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop30:Q",
+      "and80:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop29:Q",
+      "and80:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop31:Q",
+      "or8:A",
+      "cyan",
+      []
+    ],
+    [
+      "and80:OUT",
+      "or8:B",
+      "cyan",
+      []
+    ],
+    [
+      "and77:OUT",
+      "and81:A",
+      "cyan",
+      []
+    ],
+    [
+      "or8:OUT",
+      "and81:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop31:Q",
+      "xor28:A",
+      "cyan",
+      []
+    ],
+    [
+      "and81:OUT",
+      "xor28:B",
+      "cyan",
+      []
+    ],
+    [
+      "xor25:OUT",
+      "and82:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and82:B",
+      "violet",
+      []
+    ],
+    [
+      "xor26:OUT",
+      "and83:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and83:B",
+      "violet",
+      []
+    ],
+    [
+      "xor27:OUT",
+      "and84:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and84:B",
+      "violet",
+      []
+    ],
+    [
+      "xor28:OUT",
+      "and85:A",
+      "cyan",
+      []
+    ],
+    [
+      "and6:OUT",
+      "and85:B",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop32:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and100:OUT",
+      "flop32:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop33:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and101:OUT",
+      "flop33:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop34:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and102:OUT",
+      "flop34:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop35:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and103:OUT",
+      "flop35:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop36:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and110:OUT",
+      "flop36:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop37:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and111:OUT",
+      "flop37:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop38:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and112:OUT",
+      "flop38:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop39:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and113:OUT",
+      "flop39:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop40:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and120:OUT",
+      "flop40:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop41:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and121:OUT",
+      "flop41:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop42:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and122:OUT",
+      "flop42:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop43:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and123:OUT",
+      "flop43:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop44:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and129:OUT",
+      "flop44:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop45:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and130:OUT",
+      "flop45:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop46:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and131:OUT",
+      "flop46:D",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop47:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and132:OUT",
+      "flop47:D",
+      "gold",
+      []
+    ],
+    [
+      "flop35:Q",
+      "and86:A",
+      "gold",
+      []
+    ],
+    [
+      "flop32:Q",
+      "and86:B",
+      "gold",
+      []
+    ],
+    [
+      "flop39:Q",
+      "and87:A",
+      "gold",
+      []
+    ],
+    [
+      "flop36:Q",
+      "and87:B",
+      "gold",
+      []
+    ],
+    [
+      "flop43:Q",
+      "and88:A",
+      "gold",
+      []
+    ],
+    [
+      "flop40:Q",
+      "and88:B",
+      "gold",
+      []
+    ],
+    [
+      "flop47:Q",
+      "and89:A",
+      "gold",
+      []
+    ],
+    [
+      "flop44:Q",
+      "and89:B",
+      "gold",
+      []
+    ],
+    [
+      "and86:OUT",
+      "and90:A",
+      "gold",
+      []
+    ],
+    [
+      "and87:OUT",
+      "and90:B",
+      "gold",
+      []
+    ],
+    [
+      "and88:OUT",
+      "and91:A",
+      "gold",
+      []
+    ],
+    [
+      "and89:OUT",
+      "and91:B",
+      "gold",
+      []
+    ],
+    [
+      "and90:OUT",
+      "and92:A",
+      "gold",
+      []
+    ],
+    [
+      "and91:OUT",
+      "and92:B",
+      "gold",
+      []
+    ],
+    [
+      "and92:OUT",
+      "not3:IN",
+      "gold",
+      []
+    ],
+    [
+      "and4:OUT",
+      "and93:A",
+      "violet",
+      []
+    ],
+    [
+      "not3:OUT",
+      "and93:B",
+      "gold",
+      []
+    ],
+    [
+      "and93:OUT",
+      "and94:A",
+      "gold",
+      []
+    ],
+    [
+      "flop32:Q",
+      "and94:B",
+      "gold",
+      []
+    ],
+    [
+      "flop32:Q",
+      "xor29:A",
+      "gold",
+      []
+    ],
+    [
+      "and93:OUT",
+      "xor29:B",
+      "gold",
+      []
+    ],
+    [
+      "and94:OUT",
+      "and95:A",
+      "gold",
+      []
+    ],
+    [
+      "flop35:NOTQ",
+      "and95:B",
+      "gold",
+      []
+    ],
+    [
+      "flop33:Q",
+      "xor30:A",
+      "gold",
+      []
+    ],
+    [
+      "and95:OUT",
+      "xor30:B",
+      "gold",
+      []
+    ],
+    [
+      "and94:OUT",
+      "and96:A",
+      "gold",
+      []
+    ],
+    [
+      "flop33:Q",
+      "and96:B",
+      "gold",
+      []
+    ],
+    [
+      "flop34:Q",
+      "xor31:A",
+      "gold",
+      []
+    ],
+    [
+      "and96:OUT",
+      "xor31:B",
+      "gold",
+      []
+    ],
+    [
+      "flop34:Q",
+      "and97:A",
+      "gold",
+      []
+    ],
+    [
+      "flop33:Q",
+      "and97:B",
+      "gold",
+      []
+    ],
+    [
+      "flop35:Q",
+      "or9:A",
+      "gold",
+      []
+    ],
+    [
+      "and97:OUT",
+      "or9:B",
+      "gold",
+      []
+    ],
+    [
+      "and94:OUT",
+      "and98:A",
+      "gold",
+      []
+    ],
+    [
+      "or9:OUT",
+      "and98:B",
+      "gold",
+      []
+    ],
+    [
+      "flop35:Q",
+      "xor32:A",
+      "gold",
+      []
+    ],
+    [
+      "and98:OUT",
+      "xor32:B",
+      "gold",
+      []
+    ],
+    [
+      "and94:OUT",
+      "and99:A",
+      "gold",
+      []
+    ],
+    [
+      "flop35:Q",
+      "and99:B",
+      "gold",
+      []
+    ],
+    [
+      "xor29:OUT",
+      "and100:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and100:B",
+      "brown",
+      []
+    ],
+    [
+      "xor30:OUT",
+      "and101:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and101:B",
+      "brown",
+      []
+    ],
+    [
+      "xor31:OUT",
+      "and102:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and102:B",
+      "brown",
+      []
+    ],
+    [
+      "xor32:OUT",
+      "and103:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and103:B",
+      "brown",
+      []
+    ],
+    [
+      "and99:OUT",
+      "and104:A",
+      "gold",
+      []
+    ],
+    [
+      "flop36:Q",
+      "and104:B",
+      "gold",
+      []
+    ],
+    [
+      "flop36:Q",
+      "xor33:A",
+      "gold",
+      []
+    ],
+    [
+      "and99:OUT",
+      "xor33:B",
+      "gold",
+      []
+    ],
+    [
+      "and104:OUT",
+      "and105:A",
+      "gold",
+      []
+    ],
+    [
+      "flop39:NOTQ",
+      "and105:B",
+      "gold",
+      []
+    ],
+    [
+      "flop37:Q",
+      "xor34:A",
+      "gold",
+      []
+    ],
+    [
+      "and105:OUT",
+      "xor34:B",
+      "gold",
+      []
+    ],
+    [
+      "and104:OUT",
+      "and106:A",
+      "gold",
+      []
+    ],
+    [
+      "flop37:Q",
+      "and106:B",
+      "gold",
+      []
+    ],
+    [
+      "flop38:Q",
+      "xor35:A",
+      "gold",
+      []
+    ],
+    [
+      "and106:OUT",
+      "xor35:B",
+      "gold",
+      []
+    ],
+    [
+      "flop38:Q",
+      "and107:A",
+      "gold",
+      []
+    ],
+    [
+      "flop37:Q",
+      "and107:B",
+      "gold",
+      []
+    ],
+    [
+      "flop39:Q",
+      "or10:A",
+      "gold",
+      []
+    ],
+    [
+      "and107:OUT",
+      "or10:B",
+      "gold",
+      []
+    ],
+    [
+      "and104:OUT",
+      "and108:A",
+      "gold",
+      []
+    ],
+    [
+      "or10:OUT",
+      "and108:B",
+      "gold",
+      []
+    ],
+    [
+      "flop39:Q",
+      "xor36:A",
+      "gold",
+      []
+    ],
+    [
+      "and108:OUT",
+      "xor36:B",
+      "gold",
+      []
+    ],
+    [
+      "and104:OUT",
+      "and109:A",
+      "gold",
+      []
+    ],
+    [
+      "flop39:Q",
+      "and109:B",
+      "gold",
+      []
+    ],
+    [
+      "xor33:OUT",
+      "and110:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and110:B",
+      "brown",
+      []
+    ],
+    [
+      "xor34:OUT",
+      "and111:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and111:B",
+      "brown",
+      []
+    ],
+    [
+      "xor35:OUT",
+      "and112:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and112:B",
+      "brown",
+      []
+    ],
+    [
+      "xor36:OUT",
+      "and113:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and113:B",
+      "brown",
+      []
+    ],
+    [
+      "and109:OUT",
+      "and114:A",
+      "gold",
+      []
+    ],
+    [
+      "flop40:Q",
+      "and114:B",
+      "gold",
+      []
+    ],
+    [
+      "flop40:Q",
+      "xor37:A",
+      "gold",
+      []
+    ],
+    [
+      "and109:OUT",
+      "xor37:B",
+      "gold",
+      []
+    ],
+    [
+      "and114:OUT",
+      "and115:A",
+      "gold",
+      []
+    ],
+    [
+      "flop43:NOTQ",
+      "and115:B",
+      "gold",
+      []
+    ],
+    [
+      "flop41:Q",
+      "xor38:A",
+      "gold",
+      []
+    ],
+    [
+      "and115:OUT",
+      "xor38:B",
+      "gold",
+      []
+    ],
+    [
+      "and114:OUT",
+      "and116:A",
+      "gold",
+      []
+    ],
+    [
+      "flop41:Q",
+      "and116:B",
+      "gold",
+      []
+    ],
+    [
+      "flop42:Q",
+      "xor39:A",
+      "gold",
+      []
+    ],
+    [
+      "and116:OUT",
+      "xor39:B",
+      "gold",
+      []
+    ],
+    [
+      "flop42:Q",
+      "and117:A",
+      "gold",
+      []
+    ],
+    [
+      "flop41:Q",
+      "and117:B",
+      "gold",
+      []
+    ],
+    [
+      "flop43:Q",
+      "or11:A",
+      "gold",
+      []
+    ],
+    [
+      "and117:OUT",
+      "or11:B",
+      "gold",
+      []
+    ],
+    [
+      "and114:OUT",
+      "and118:A",
+      "gold",
+      []
+    ],
+    [
+      "or11:OUT",
+      "and118:B",
+      "gold",
+      []
+    ],
+    [
+      "flop43:Q",
+      "xor40:A",
+      "gold",
+      []
+    ],
+    [
+      "and118:OUT",
+      "xor40:B",
+      "gold",
+      []
+    ],
+    [
+      "and114:OUT",
+      "and119:A",
+      "gold",
+      []
+    ],
+    [
+      "flop43:Q",
+      "and119:B",
+      "gold",
+      []
+    ],
+    [
+      "xor37:OUT",
+      "and120:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and120:B",
+      "brown",
+      []
+    ],
+    [
+      "xor38:OUT",
+      "and121:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and121:B",
+      "brown",
+      []
+    ],
+    [
+      "xor39:OUT",
+      "and122:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and122:B",
+      "brown",
+      []
+    ],
+    [
+      "xor40:OUT",
+      "and123:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and123:B",
+      "brown",
+      []
+    ],
+    [
+      "and119:OUT",
+      "and124:A",
+      "gold",
+      []
+    ],
+    [
+      "flop44:Q",
+      "and124:B",
+      "gold",
+      []
+    ],
+    [
+      "flop44:Q",
+      "xor41:A",
+      "gold",
+      []
+    ],
+    [
+      "and119:OUT",
+      "xor41:B",
+      "gold",
+      []
+    ],
+    [
+      "and124:OUT",
+      "and125:A",
+      "gold",
+      []
+    ],
+    [
+      "flop47:NOTQ",
+      "and125:B",
+      "gold",
+      []
+    ],
+    [
+      "flop45:Q",
+      "xor42:A",
+      "gold",
+      []
+    ],
+    [
+      "and125:OUT",
+      "xor42:B",
+      "gold",
+      []
+    ],
+    [
+      "and124:OUT",
+      "and126:A",
+      "gold",
+      []
+    ],
+    [
+      "flop45:Q",
+      "and126:B",
+      "gold",
+      []
+    ],
+    [
+      "flop46:Q",
+      "xor43:A",
+      "gold",
+      []
+    ],
+    [
+      "and126:OUT",
+      "xor43:B",
+      "gold",
+      []
+    ],
+    [
+      "flop46:Q",
+      "and127:A",
+      "gold",
+      []
+    ],
+    [
+      "flop45:Q",
+      "and127:B",
+      "gold",
+      []
+    ],
+    [
+      "flop47:Q",
+      "or12:A",
+      "gold",
+      []
+    ],
+    [
+      "and127:OUT",
+      "or12:B",
+      "gold",
+      []
+    ],
+    [
+      "and124:OUT",
+      "and128:A",
+      "gold",
+      []
+    ],
+    [
+      "or12:OUT",
+      "and128:B",
+      "gold",
+      []
+    ],
+    [
+      "flop47:Q",
+      "xor44:A",
+      "gold",
+      []
+    ],
+    [
+      "and128:OUT",
+      "xor44:B",
+      "gold",
+      []
+    ],
+    [
+      "xor41:OUT",
+      "and129:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and129:B",
+      "brown",
+      []
+    ],
+    [
+      "xor42:OUT",
+      "and130:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and130:B",
+      "brown",
+      []
+    ],
+    [
+      "xor43:OUT",
+      "and131:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and131:B",
+      "brown",
+      []
+    ],
+    [
+      "xor44:OUT",
+      "and132:A",
+      "gold",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and132:B",
+      "brown",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop48:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and139:OUT",
+      "flop48:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop49:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and140:OUT",
+      "flop49:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop50:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and141:OUT",
+      "flop50:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop51:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and142:OUT",
+      "flop51:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop52:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and149:OUT",
+      "flop52:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop53:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and150:OUT",
+      "flop53:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop54:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and151:OUT",
+      "flop54:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop55:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and152:OUT",
+      "flop55:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop56:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and159:OUT",
+      "flop56:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop57:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and160:OUT",
+      "flop57:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop58:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and161:OUT",
+      "flop58:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop59:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and162:OUT",
+      "flop59:D",
+      "limegreen",
+      []
+    ],
+    [
+      "and32:OUT",
+      "and133:A",
+      "orange",
+      []
+    ],
+    [
+      "flop48:Q",
+      "and133:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop48:Q",
+      "xor45:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and32:OUT",
+      "xor45:B",
+      "orange",
+      []
+    ],
+    [
+      "and133:OUT",
+      "and134:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop51:NOTQ",
+      "and134:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop49:Q",
+      "xor46:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and134:OUT",
+      "xor46:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and133:OUT",
+      "and135:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop49:Q",
+      "and135:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop50:Q",
+      "xor47:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and135:OUT",
+      "xor47:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop50:Q",
+      "and136:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop49:Q",
+      "and136:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop51:Q",
+      "or13:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and136:OUT",
+      "or13:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and133:OUT",
+      "and137:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or13:OUT",
+      "and137:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop51:Q",
+      "xor48:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and137:OUT",
+      "xor48:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and133:OUT",
+      "and138:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop51:Q",
+      "and138:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor45:OUT",
+      "and139:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and139:B",
+      "brown",
+      []
+    ],
+    [
+      "xor46:OUT",
+      "and140:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and140:B",
+      "brown",
+      []
+    ],
+    [
+      "xor47:OUT",
+      "and141:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and141:B",
+      "brown",
+      []
+    ],
+    [
+      "xor48:OUT",
+      "and142:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and142:B",
+      "brown",
+      []
+    ],
+    [
+      "and138:OUT",
+      "and143:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop52:Q",
+      "and143:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop52:Q",
+      "xor49:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and138:OUT",
+      "xor49:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and143:OUT",
+      "and144:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop55:NOTQ",
+      "and144:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop53:Q",
+      "xor50:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and144:OUT",
+      "xor50:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and143:OUT",
+      "and145:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop53:Q",
+      "and145:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop54:Q",
+      "xor51:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and145:OUT",
+      "xor51:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop54:Q",
+      "and146:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop53:Q",
+      "and146:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop55:Q",
+      "or14:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and146:OUT",
+      "or14:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and143:OUT",
+      "and147:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or14:OUT",
+      "and147:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop55:Q",
+      "xor52:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and147:OUT",
+      "xor52:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and143:OUT",
+      "and148:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop55:Q",
+      "and148:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor49:OUT",
+      "and149:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and149:B",
+      "brown",
+      []
+    ],
+    [
+      "xor50:OUT",
+      "and150:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and150:B",
+      "brown",
+      []
+    ],
+    [
+      "xor51:OUT",
+      "and151:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and151:B",
+      "brown",
+      []
+    ],
+    [
+      "xor52:OUT",
+      "and152:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and152:B",
+      "brown",
+      []
+    ],
+    [
+      "and148:OUT",
+      "and153:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop56:Q",
+      "and153:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop56:Q",
+      "xor53:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and148:OUT",
+      "xor53:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and153:OUT",
+      "and154:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop59:NOTQ",
+      "and154:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop57:Q",
+      "xor54:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and154:OUT",
+      "xor54:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and153:OUT",
+      "and155:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop57:Q",
+      "and155:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop58:Q",
+      "xor55:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and155:OUT",
+      "xor55:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop58:Q",
+      "and156:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop57:Q",
+      "and156:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop59:Q",
+      "or15:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and156:OUT",
+      "or15:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and153:OUT",
+      "and157:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or15:OUT",
+      "and157:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop59:Q",
+      "xor56:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and157:OUT",
+      "xor56:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and153:OUT",
+      "and158:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop59:Q",
+      "and158:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor53:OUT",
+      "and159:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and159:B",
+      "brown",
+      []
+    ],
+    [
+      "xor54:OUT",
+      "and160:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and160:B",
+      "brown",
+      []
+    ],
+    [
+      "xor55:OUT",
+      "and161:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and161:B",
+      "brown",
+      []
+    ],
+    [
+      "xor56:OUT",
+      "and162:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and162:B",
+      "brown",
+      []
+    ],
+    [
+      "and158:OUT",
+      "and163:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and163:B",
+      "brown",
+      []
+    ],
+    [
+      "and158:OUT",
+      "not4:IN",
+      "limegreen",
+      []
+    ],
+    [
+      "not4:OUT",
+      "and164:A",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and164:B",
+      "brown",
+      []
+    ],
+    [
+      "and32:OUT",
+      "and165:A",
+      "orange",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and165:B",
+      "violet",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and166:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and166:B",
+      "violet",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop60:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or17:OUT",
+      "flop60:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop61:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and174:OUT",
+      "flop61:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop62:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and175:OUT",
+      "flop62:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop63:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and176:OUT",
+      "flop63:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop64:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and183:OUT",
+      "flop64:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop65:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and184:OUT",
+      "flop65:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop66:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and185:OUT",
+      "flop66:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop67:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and186:OUT",
+      "flop67:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop68:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and193:OUT",
+      "flop68:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop69:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and194:OUT",
+      "flop69:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop70:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and195:OUT",
+      "flop70:D",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop71:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and196:OUT",
+      "flop71:D",
+      "limegreen",
+      []
+    ],
+    [
+      "and165:OUT",
+      "and167:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop60:Q",
+      "and167:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop60:Q",
+      "xor57:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and165:OUT",
+      "xor57:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and167:OUT",
+      "and168:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop63:NOTQ",
+      "and168:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop61:Q",
+      "xor58:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and168:OUT",
+      "xor58:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and167:OUT",
+      "and169:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop61:Q",
+      "and169:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop62:Q",
+      "xor59:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and169:OUT",
+      "xor59:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop62:Q",
+      "and170:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop61:Q",
+      "and170:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop63:Q",
+      "or16:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and170:OUT",
+      "or16:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and167:OUT",
+      "and171:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or16:OUT",
+      "and171:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop63:Q",
+      "xor60:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and171:OUT",
+      "xor60:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and167:OUT",
+      "and172:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop63:Q",
+      "and172:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor57:OUT",
+      "and173:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and173:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and173:OUT",
+      "or17:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and166:OUT",
+      "or17:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor58:OUT",
+      "and174:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and174:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor59:OUT",
+      "and175:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and175:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor60:OUT",
+      "and176:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and176:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and172:OUT",
+      "and177:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop64:Q",
+      "and177:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop64:Q",
+      "xor61:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and172:OUT",
+      "xor61:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and177:OUT",
+      "and178:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop67:NOTQ",
+      "and178:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop65:Q",
+      "xor62:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and178:OUT",
+      "xor62:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and177:OUT",
+      "and179:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop65:Q",
+      "and179:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop66:Q",
+      "xor63:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and179:OUT",
+      "xor63:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop66:Q",
+      "and180:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop65:Q",
+      "and180:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop67:Q",
+      "or18:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and180:OUT",
+      "or18:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and177:OUT",
+      "and181:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or18:OUT",
+      "and181:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop67:Q",
+      "xor64:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and181:OUT",
+      "xor64:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and177:OUT",
+      "and182:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop67:Q",
+      "and182:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor61:OUT",
+      "and183:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and183:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor62:OUT",
+      "and184:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and184:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor63:OUT",
+      "and185:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and185:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor64:OUT",
+      "and186:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and186:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and182:OUT",
+      "and187:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop68:Q",
+      "and187:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop68:Q",
+      "xor65:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and182:OUT",
+      "xor65:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and187:OUT",
+      "and188:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop71:NOTQ",
+      "and188:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop69:Q",
+      "xor66:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and188:OUT",
+      "xor66:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and187:OUT",
+      "and189:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop69:Q",
+      "and189:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop70:Q",
+      "xor67:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and189:OUT",
+      "xor67:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop70:Q",
+      "and190:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop69:Q",
+      "and190:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop71:Q",
+      "or19:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and190:OUT",
+      "or19:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and187:OUT",
+      "and191:A",
+      "limegreen",
+      []
+    ],
+    [
+      "or19:OUT",
+      "and191:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop71:Q",
+      "xor68:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and191:OUT",
+      "xor68:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and187:OUT",
+      "and192:A",
+      "limegreen",
+      []
+    ],
+    [
+      "flop71:Q",
+      "and192:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor65:OUT",
+      "and193:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and193:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor66:OUT",
+      "and194:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and194:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor67:OUT",
+      "and195:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and195:B",
+      "limegreen",
+      []
+    ],
+    [
+      "xor68:OUT",
+      "and196:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and196:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop72:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and197:OUT",
+      "flop72:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop72:Q",
+      "or20:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and192:OUT",
+      "or20:B",
+      "limegreen",
+      []
+    ],
+    [
+      "or20:OUT",
+      "and197:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and197:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop73:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or21:OUT",
+      "flop73:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop60:Q",
+      "and198:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and198:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop73:Q",
+      "and199:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and199:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and198:OUT",
+      "or21:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and199:OUT",
+      "or21:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop74:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or22:OUT",
+      "flop74:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop61:Q",
+      "and200:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and200:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop74:Q",
+      "and201:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and201:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and200:OUT",
+      "or22:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and201:OUT",
+      "or22:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop75:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or23:OUT",
+      "flop75:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop62:Q",
+      "and202:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and202:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop75:Q",
+      "and203:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and203:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and202:OUT",
+      "or23:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and203:OUT",
+      "or23:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop76:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or24:OUT",
+      "flop76:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop63:Q",
+      "and204:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and204:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop76:Q",
+      "and205:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and205:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and204:OUT",
+      "or24:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and205:OUT",
+      "or24:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop77:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or25:OUT",
+      "flop77:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop64:Q",
+      "and206:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and206:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop77:Q",
+      "and207:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and207:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and206:OUT",
+      "or25:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and207:OUT",
+      "or25:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop78:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or26:OUT",
+      "flop78:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop65:Q",
+      "and208:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and208:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop78:Q",
+      "and209:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and209:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and208:OUT",
+      "or26:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and209:OUT",
+      "or26:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop79:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or27:OUT",
+      "flop79:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop66:Q",
+      "and210:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and210:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop79:Q",
+      "and211:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and211:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and210:OUT",
+      "or27:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and211:OUT",
+      "or27:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop80:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or28:OUT",
+      "flop80:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop67:Q",
+      "and212:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and212:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop80:Q",
+      "and213:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and213:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and212:OUT",
+      "or28:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and213:OUT",
+      "or28:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop81:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or29:OUT",
+      "flop81:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop68:Q",
+      "and214:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and214:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop81:Q",
+      "and215:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and215:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and214:OUT",
+      "or29:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and215:OUT",
+      "or29:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop82:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or30:OUT",
+      "flop82:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop69:Q",
+      "and216:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and216:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop82:Q",
+      "and217:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and217:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and216:OUT",
+      "or30:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and217:OUT",
+      "or30:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop83:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or31:OUT",
+      "flop83:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop70:Q",
+      "and218:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and218:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop83:Q",
+      "and219:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and219:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and218:OUT",
+      "or31:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and219:OUT",
+      "or31:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop84:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or32:OUT",
+      "flop84:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop71:Q",
+      "and220:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and220:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop84:Q",
+      "and221:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and221:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and220:OUT",
+      "or32:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and221:OUT",
+      "or32:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop85:CLK",
+      "gray",
+      []
+    ],
+    [
+      "or33:OUT",
+      "flop85:D",
+      "limegreen",
+      []
+    ],
+    [
+      "flop72:Q",
+      "and222:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and163:OUT",
+      "and222:B",
+      "limegreen",
+      []
+    ],
+    [
+      "flop85:Q",
+      "and223:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and164:OUT",
+      "and223:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and222:OUT",
+      "or33:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and223:OUT",
+      "or33:B",
+      "limegreen",
+      []
+    ],
+    [
+      "ttin1:IN7",
+      "not5:IN",
+      "red",
+      []
+    ],
+    [
+      "not5:OUT",
+      "and224:A",
+      "red",
+      []
+    ],
+    [
+      "ttin1:RST_N",
+      "and224:B",
+      "brown",
+      []
+    ],
+    [
+      "flop28:Q",
+      "or34:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop29:Q",
+      "or34:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop30:Q",
+      "or35:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop31:Q",
+      "or35:B",
+      "cyan",
+      []
+    ],
+    [
+      "or34:OUT",
+      "or36:A",
+      "red",
+      []
+    ],
+    [
+      "or35:OUT",
+      "or36:B",
+      "red",
+      []
+    ],
+    [
+      "flop26:Q",
+      "and225:A",
+      "cyan",
+      []
+    ],
+    [
+      "flop25:Q",
+      "and225:B",
+      "cyan",
+      []
+    ],
+    [
+      "flop27:Q",
+      "or37:A",
+      "cyan",
+      []
+    ],
+    [
+      "and225:OUT",
+      "or37:B",
+      "red",
+      []
+    ],
+    [
+      "or36:OUT",
+      "or38:A",
+      "red",
+      []
+    ],
+    [
+      "or37:OUT",
+      "or38:B",
+      "red",
+      []
+    ],
+    [
+      "ttin1:CLK",
+      "flop86:CLK",
+      "gray",
+      []
+    ],
+    [
+      "and228:OUT",
+      "flop86:D",
+      "red",
+      []
+    ],
+    [
+      "flop2:Q",
+      "and226:A",
+      "violet",
+      []
+    ],
+    [
+      "flop3:Q",
+      "and226:B",
+      "violet",
+      []
+    ],
+    [
+      "or38:OUT",
+      "and227:A",
+      "red",
+      []
+    ],
+    [
+      "and226:OUT",
+      "and227:B",
+      "red",
+      []
+    ],
+    [
+      "flop86:Q",
+      "or39:A",
+      "red",
+      []
+    ],
+    [
+      "and227:OUT",
+      "or39:B",
+      "red",
+      []
+    ],
+    [
+      "or39:OUT",
+      "and228:A",
+      "red",
+      []
+    ],
+    [
+      "and224:OUT",
+      "and228:B",
+      "red",
+      []
+    ],
+    [
+      "ttin1:IN1",
+      "not6:IN",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN2",
+      "not7:IN",
+      "blue",
+      []
+    ],
+    [
+      "not7:OUT",
+      "and229:A",
+      "blue",
+      []
+    ],
+    [
+      "not6:OUT",
+      "and229:B",
+      "blue",
+      []
+    ],
+    [
+      "not7:OUT",
+      "and230:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN1",
+      "and230:B",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN2",
+      "and231:A",
+      "blue",
+      []
+    ],
+    [
+      "not6:OUT",
+      "and231:B",
+      "blue",
+      []
+    ],
+    [
+      "flop16:Q",
+      "and232:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and232:B",
+      "blue",
+      []
+    ],
+    [
+      "flop32:Q",
+      "and233:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and233:B",
+      "blue",
+      []
+    ],
+    [
+      "flop73:Q",
+      "and234:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and234:B",
+      "blue",
+      []
+    ],
+    [
+      "and232:OUT",
+      "or40:A",
+      "blue",
+      []
+    ],
+    [
+      "and233:OUT",
+      "or40:B",
+      "blue",
+      []
+    ],
+    [
+      "or40:OUT",
+      "or41:A",
+      "blue",
+      []
+    ],
+    [
+      "and234:OUT",
+      "or41:B",
+      "blue",
+      []
+    ],
+    [
+      "flop17:Q",
+      "and235:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and235:B",
+      "blue",
+      []
+    ],
+    [
+      "flop33:Q",
+      "and236:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and236:B",
+      "blue",
+      []
+    ],
+    [
+      "flop74:Q",
+      "and237:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and237:B",
+      "blue",
+      []
+    ],
+    [
+      "and235:OUT",
+      "or42:A",
+      "blue",
+      []
+    ],
+    [
+      "and236:OUT",
+      "or42:B",
+      "blue",
+      []
+    ],
+    [
+      "or42:OUT",
+      "or43:A",
+      "blue",
+      []
+    ],
+    [
+      "and237:OUT",
+      "or43:B",
+      "blue",
+      []
+    ],
+    [
+      "flop18:Q",
+      "and238:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and238:B",
+      "blue",
+      []
+    ],
+    [
+      "flop34:Q",
+      "and239:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and239:B",
+      "blue",
+      []
+    ],
+    [
+      "flop75:Q",
+      "and240:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and240:B",
+      "blue",
+      []
+    ],
+    [
+      "and238:OUT",
+      "or44:A",
+      "blue",
+      []
+    ],
+    [
+      "and239:OUT",
+      "or44:B",
+      "blue",
+      []
+    ],
+    [
+      "or44:OUT",
+      "or45:A",
+      "blue",
+      []
+    ],
+    [
+      "and240:OUT",
+      "or45:B",
+      "blue",
+      []
+    ],
+    [
+      "flop19:Q",
+      "and241:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and241:B",
+      "blue",
+      []
+    ],
+    [
+      "flop35:Q",
+      "and242:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and242:B",
+      "blue",
+      []
+    ],
+    [
+      "flop76:Q",
+      "and243:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and243:B",
+      "blue",
+      []
+    ],
+    [
+      "and241:OUT",
+      "or46:A",
+      "blue",
+      []
+    ],
+    [
+      "and242:OUT",
+      "or46:B",
+      "blue",
+      []
+    ],
+    [
+      "or46:OUT",
+      "or47:A",
+      "blue",
+      []
+    ],
+    [
+      "and243:OUT",
+      "or47:B",
+      "blue",
+      []
+    ],
+    [
+      "flop20:Q",
+      "and244:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and244:B",
+      "blue",
+      []
+    ],
+    [
+      "flop36:Q",
+      "and245:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and245:B",
+      "blue",
+      []
+    ],
+    [
+      "flop77:Q",
+      "and246:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and246:B",
+      "blue",
+      []
+    ],
+    [
+      "and244:OUT",
+      "or48:A",
+      "blue",
+      []
+    ],
+    [
+      "and245:OUT",
+      "or48:B",
+      "blue",
+      []
+    ],
+    [
+      "or48:OUT",
+      "or49:A",
+      "blue",
+      []
+    ],
+    [
+      "and246:OUT",
+      "or49:B",
+      "blue",
+      []
+    ],
+    [
+      "flop21:Q",
+      "and247:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and247:B",
+      "blue",
+      []
+    ],
+    [
+      "flop37:Q",
+      "and248:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and248:B",
+      "blue",
+      []
+    ],
+    [
+      "flop78:Q",
+      "and249:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and249:B",
+      "blue",
+      []
+    ],
+    [
+      "and247:OUT",
+      "or50:A",
+      "blue",
+      []
+    ],
+    [
+      "and248:OUT",
+      "or50:B",
+      "blue",
+      []
+    ],
+    [
+      "or50:OUT",
+      "or51:A",
+      "blue",
+      []
+    ],
+    [
+      "and249:OUT",
+      "or51:B",
+      "blue",
+      []
+    ],
+    [
+      "flop22:Q",
+      "and250:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and250:B",
+      "blue",
+      []
+    ],
+    [
+      "flop38:Q",
+      "and251:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and251:B",
+      "blue",
+      []
+    ],
+    [
+      "flop79:Q",
+      "and252:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and252:B",
+      "blue",
+      []
+    ],
+    [
+      "and250:OUT",
+      "or52:A",
+      "blue",
+      []
+    ],
+    [
+      "and251:OUT",
+      "or52:B",
+      "blue",
+      []
+    ],
+    [
+      "or52:OUT",
+      "or53:A",
+      "blue",
+      []
+    ],
+    [
+      "and252:OUT",
+      "or53:B",
+      "blue",
+      []
+    ],
+    [
+      "flop23:Q",
+      "and253:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and253:B",
+      "blue",
+      []
+    ],
+    [
+      "flop39:Q",
+      "and254:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and254:B",
+      "blue",
+      []
+    ],
+    [
+      "flop80:Q",
+      "and255:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and255:B",
+      "blue",
+      []
+    ],
+    [
+      "and253:OUT",
+      "or54:A",
+      "blue",
+      []
+    ],
+    [
+      "and254:OUT",
+      "or54:B",
+      "blue",
+      []
+    ],
+    [
+      "or54:OUT",
+      "or55:A",
+      "blue",
+      []
+    ],
+    [
+      "and255:OUT",
+      "or55:B",
+      "blue",
+      []
+    ],
+    [
+      "flop24:Q",
+      "and256:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and256:B",
+      "blue",
+      []
+    ],
+    [
+      "flop40:Q",
+      "and257:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and257:B",
+      "blue",
+      []
+    ],
+    [
+      "flop81:Q",
+      "and258:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and258:B",
+      "blue",
+      []
+    ],
+    [
+      "and256:OUT",
+      "or56:A",
+      "blue",
+      []
+    ],
+    [
+      "and257:OUT",
+      "or56:B",
+      "blue",
+      []
+    ],
+    [
+      "or56:OUT",
+      "or57:A",
+      "blue",
+      []
+    ],
+    [
+      "and258:OUT",
+      "or57:B",
+      "blue",
+      []
+    ],
+    [
+      "flop25:Q",
+      "and259:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and259:B",
+      "blue",
+      []
+    ],
+    [
+      "flop41:Q",
+      "and260:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and260:B",
+      "blue",
+      []
+    ],
+    [
+      "flop82:Q",
+      "and261:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and261:B",
+      "blue",
+      []
+    ],
+    [
+      "and259:OUT",
+      "or58:A",
+      "blue",
+      []
+    ],
+    [
+      "and260:OUT",
+      "or58:B",
+      "blue",
+      []
+    ],
+    [
+      "or58:OUT",
+      "or59:A",
+      "blue",
+      []
+    ],
+    [
+      "and261:OUT",
+      "or59:B",
+      "blue",
+      []
+    ],
+    [
+      "flop26:Q",
+      "and262:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and262:B",
+      "blue",
+      []
+    ],
+    [
+      "flop42:Q",
+      "and263:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and263:B",
+      "blue",
+      []
+    ],
+    [
+      "flop83:Q",
+      "and264:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and264:B",
+      "blue",
+      []
+    ],
+    [
+      "and262:OUT",
+      "or60:A",
+      "blue",
+      []
+    ],
+    [
+      "and263:OUT",
+      "or60:B",
+      "blue",
+      []
+    ],
+    [
+      "or60:OUT",
+      "or61:A",
+      "blue",
+      []
+    ],
+    [
+      "and264:OUT",
+      "or61:B",
+      "blue",
+      []
+    ],
+    [
+      "flop27:Q",
+      "and265:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and265:B",
+      "blue",
+      []
+    ],
+    [
+      "flop43:Q",
+      "and266:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and266:B",
+      "blue",
+      []
+    ],
+    [
+      "flop84:Q",
+      "and267:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and267:B",
+      "blue",
+      []
+    ],
+    [
+      "and265:OUT",
+      "or62:A",
+      "blue",
+      []
+    ],
+    [
+      "and266:OUT",
+      "or62:B",
+      "blue",
+      []
+    ],
+    [
+      "or62:OUT",
+      "or63:A",
+      "blue",
+      []
+    ],
+    [
+      "and267:OUT",
+      "or63:B",
+      "blue",
+      []
+    ],
+    [
+      "flop28:Q",
+      "and268:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and268:B",
+      "blue",
+      []
+    ],
+    [
+      "flop44:Q",
+      "and269:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and269:B",
+      "blue",
+      []
+    ],
+    [
+      "flop85:Q",
+      "and270:A",
+      "limegreen",
+      []
+    ],
+    [
+      "and231:OUT",
+      "and270:B",
+      "blue",
+      []
+    ],
+    [
+      "and268:OUT",
+      "or64:A",
+      "blue",
+      []
+    ],
+    [
+      "and269:OUT",
+      "or64:B",
+      "blue",
+      []
+    ],
+    [
+      "or64:OUT",
+      "or65:A",
+      "blue",
+      []
+    ],
+    [
+      "and270:OUT",
+      "or65:B",
+      "blue",
+      []
+    ],
+    [
+      "flop29:Q",
+      "and271:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and271:B",
+      "blue",
+      []
+    ],
+    [
+      "flop45:Q",
+      "and272:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and272:B",
+      "blue",
+      []
+    ],
+    [
+      "and271:OUT",
+      "or66:A",
+      "blue",
+      []
+    ],
+    [
+      "and272:OUT",
+      "or66:B",
+      "blue",
+      []
+    ],
+    [
+      "flop30:Q",
+      "and273:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and273:B",
+      "blue",
+      []
+    ],
+    [
+      "flop46:Q",
+      "and274:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and274:B",
+      "blue",
+      []
+    ],
+    [
+      "and273:OUT",
+      "or67:A",
+      "blue",
+      []
+    ],
+    [
+      "and274:OUT",
+      "or67:B",
+      "blue",
+      []
+    ],
+    [
+      "flop31:Q",
+      "and275:A",
+      "cyan",
+      []
+    ],
+    [
+      "and229:OUT",
+      "and275:B",
+      "blue",
+      []
+    ],
+    [
+      "flop47:Q",
+      "and276:A",
+      "gold",
+      []
+    ],
+    [
+      "and230:OUT",
+      "and276:B",
+      "blue",
+      []
+    ],
+    [
+      "and275:OUT",
+      "or68:A",
+      "blue",
+      []
+    ],
+    [
+      "and276:OUT",
+      "or68:B",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN3",
+      "not8:IN",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN4",
+      "not9:IN",
+      "blue",
+      []
+    ],
+    [
+      "not9:OUT",
+      "and277:A",
+      "blue",
+      []
+    ],
+    [
+      "not8:OUT",
+      "and277:B",
+      "blue",
+      []
+    ],
+    [
+      "not9:OUT",
+      "and278:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN3",
+      "and278:B",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN4",
+      "and279:A",
+      "blue",
+      []
+    ],
+    [
+      "not8:OUT",
+      "and279:B",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN4",
+      "and280:A",
+      "blue",
+      []
+    ],
+    [
+      "ttin1:IN3",
+      "and280:B",
+      "blue",
+      []
+    ],
+    [
+      "or41:OUT",
+      "and281:A",
+      "blue",
+      []
+    ],
+    [
+      "and277:OUT",
+      "and281:B",
+      "blue",
+      []
+    ],
+    [
+      "or49:OUT",
+      "and282:A",
+      "blue",
+      []
+    ],
+    [
+      "and278:OUT",
+      "and282:B",
+      "blue",
+      []
+    ],
+    [
+      "or57:OUT",
+      "and283:A",
+      "blue",
+      []
+    ],
+    [
+      "and279:OUT",
+      "and283:B",
+      "blue",
+      []
+    ],
+    [
+      "or65:OUT",
+      "and284:A",
+      "blue",
+      []
+    ],
+    [
+      "and280:OUT",
+      "and284:B",
+      "blue",
+      []
+    ],
+    [
+      "and281:OUT",
+      "or69:A",
+      "blue",
+      []
+    ],
+    [
+      "and282:OUT",
+      "or69:B",
+      "blue",
+      []
+    ],
+    [
+      "and283:OUT",
+      "or70:A",
+      "blue",
+      []
+    ],
+    [
+      "and284:OUT",
+      "or70:B",
+      "blue",
+      []
+    ],
+    [
+      "or69:OUT",
+      "or71:A",
+      "blue",
+      []
+    ],
+    [
+      "or70:OUT",
+      "or71:B",
+      "blue",
+      []
+    ],
+    [
+      "or43:OUT",
+      "and285:A",
+      "blue",
+      []
+    ],
+    [
+      "and277:OUT",
+      "and285:B",
+      "blue",
+      []
+    ],
+    [
+      "or51:OUT",
+      "and286:A",
+      "blue",
+      []
+    ],
+    [
+      "and278:OUT",
+      "and286:B",
+      "blue",
+      []
+    ],
+    [
+      "or59:OUT",
+      "and287:A",
+      "blue",
+      []
+    ],
+    [
+      "and279:OUT",
+      "and287:B",
+      "blue",
+      []
+    ],
+    [
+      "or66:OUT",
+      "and288:A",
+      "blue",
+      []
+    ],
+    [
+      "and280:OUT",
+      "and288:B",
+      "blue",
+      []
+    ],
+    [
+      "and285:OUT",
+      "or72:A",
+      "blue",
+      []
+    ],
+    [
+      "and286:OUT",
+      "or72:B",
+      "blue",
+      []
+    ],
+    [
+      "and287:OUT",
+      "or73:A",
+      "blue",
+      []
+    ],
+    [
+      "and288:OUT",
+      "or73:B",
+      "blue",
+      []
+    ],
+    [
+      "or72:OUT",
+      "or74:A",
+      "blue",
+      []
+    ],
+    [
+      "or73:OUT",
+      "or74:B",
+      "blue",
+      []
+    ],
+    [
+      "or45:OUT",
+      "and289:A",
+      "blue",
+      []
+    ],
+    [
+      "and277:OUT",
+      "and289:B",
+      "blue",
+      []
+    ],
+    [
+      "or53:OUT",
+      "and290:A",
+      "blue",
+      []
+    ],
+    [
+      "and278:OUT",
+      "and290:B",
+      "blue",
+      []
+    ],
+    [
+      "or61:OUT",
+      "and291:A",
+      "blue",
+      []
+    ],
+    [
+      "and279:OUT",
+      "and291:B",
+      "blue",
+      []
+    ],
+    [
+      "or67:OUT",
+      "and292:A",
+      "blue",
+      []
+    ],
+    [
+      "and280:OUT",
+      "and292:B",
+      "blue",
+      []
+    ],
+    [
+      "and289:OUT",
+      "or75:A",
+      "blue",
+      []
+    ],
+    [
+      "and290:OUT",
+      "or75:B",
+      "blue",
+      []
+    ],
+    [
+      "and291:OUT",
+      "or76:A",
+      "blue",
+      []
+    ],
+    [
+      "and292:OUT",
+      "or76:B",
+      "blue",
+      []
+    ],
+    [
+      "or75:OUT",
+      "or77:A",
+      "blue",
+      []
+    ],
+    [
+      "or76:OUT",
+      "or77:B",
+      "blue",
+      []
+    ],
+    [
+      "or47:OUT",
+      "and293:A",
+      "blue",
+      []
+    ],
+    [
+      "and277:OUT",
+      "and293:B",
+      "blue",
+      []
+    ],
+    [
+      "or55:OUT",
+      "and294:A",
+      "blue",
+      []
+    ],
+    [
+      "and278:OUT",
+      "and294:B",
+      "blue",
+      []
+    ],
+    [
+      "or63:OUT",
+      "and295:A",
+      "blue",
+      []
+    ],
+    [
+      "and279:OUT",
+      "and295:B",
+      "blue",
+      []
+    ],
+    [
+      "or68:OUT",
+      "and296:A",
+      "blue",
+      []
+    ],
+    [
+      "and280:OUT",
+      "and296:B",
+      "blue",
+      []
+    ],
+    [
+      "and293:OUT",
+      "or78:A",
+      "blue",
+      []
+    ],
+    [
+      "and294:OUT",
+      "or78:B",
+      "blue",
+      []
+    ],
+    [
+      "and295:OUT",
+      "or79:A",
+      "blue",
+      []
+    ],
+    [
+      "and296:OUT",
+      "or79:B",
+      "blue",
+      []
+    ],
+    [
+      "or78:OUT",
+      "or80:A",
+      "blue",
+      []
+    ],
+    [
+      "or79:OUT",
+      "or80:B",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "not10:IN",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "not11:IN",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "not12:IN",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "xor69:A",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "xor69:B",
+      "blue",
+      []
+    ],
+    [
+      "xor69:OUT",
+      "not13:IN",
+      "blue",
+      []
+    ],
+    [
+      "or80:OUT",
+      "or81:A",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "or81:B",
+      "blue",
+      []
+    ],
+    [
+      "or81:OUT",
+      "or82:A",
+      "blue",
+      []
+    ],
+    [
+      "not13:OUT",
+      "or82:B",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "xor70:A",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "xor70:B",
+      "blue",
+      []
+    ],
+    [
+      "xor70:OUT",
+      "not14:IN",
+      "blue",
+      []
+    ],
+    [
+      "not12:OUT",
+      "or83:A",
+      "blue",
+      []
+    ],
+    [
+      "not14:OUT",
+      "or83:B",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "or84:A",
+      "blue",
+      []
+    ],
+    [
+      "not11:OUT",
+      "or84:B",
+      "blue",
+      []
+    ],
+    [
+      "or84:OUT",
+      "or85:A",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "or85:B",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "and297:A",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "and297:B",
+      "blue",
+      []
+    ],
+    [
+      "and297:OUT",
+      "not15:IN",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "and298:A",
+      "blue",
+      []
+    ],
+    [
+      "not15:OUT",
+      "and298:B",
+      "blue",
+      []
+    ],
+    [
+      "or80:OUT",
+      "or86:A",
+      "blue",
+      []
+    ],
+    [
+      "and298:OUT",
+      "or86:B",
+      "blue",
+      []
+    ],
+    [
+      "not11:OUT",
+      "and299:A",
+      "blue",
+      []
+    ],
+    [
+      "not13:OUT",
+      "and299:B",
+      "blue",
+      []
+    ],
+    [
+      "or86:OUT",
+      "or87:A",
+      "blue",
+      []
+    ],
+    [
+      "and299:OUT",
+      "or87:B",
+      "blue",
+      []
+    ],
+    [
+      "not12:OUT",
+      "or88:A",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "or88:B",
+      "blue",
+      []
+    ],
+    [
+      "not10:OUT",
+      "and300:A",
+      "blue",
+      []
+    ],
+    [
+      "or88:OUT",
+      "and300:B",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "and301:A",
+      "blue",
+      []
+    ],
+    [
+      "or71:OUT",
+      "and301:B",
+      "blue",
+      []
+    ],
+    [
+      "and301:OUT",
+      "not16:IN",
+      "blue",
+      []
+    ],
+    [
+      "not11:OUT",
+      "and302:A",
+      "blue",
+      []
+    ],
+    [
+      "not10:OUT",
+      "and302:B",
+      "blue",
+      []
+    ],
+    [
+      "or80:OUT",
+      "or89:A",
+      "blue",
+      []
+    ],
+    [
+      "and302:OUT",
+      "or89:B",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "and303:A",
+      "blue",
+      []
+    ],
+    [
+      "not16:OUT",
+      "and303:B",
+      "blue",
+      []
+    ],
+    [
+      "or89:OUT",
+      "or90:A",
+      "blue",
+      []
+    ],
+    [
+      "and303:OUT",
+      "or90:B",
+      "blue",
+      []
+    ],
+    [
+      "or77:OUT",
+      "xor71:A",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "xor71:B",
+      "blue",
+      []
+    ],
+    [
+      "or80:OUT",
+      "or91:A",
+      "blue",
+      []
+    ],
+    [
+      "xor71:OUT",
+      "or91:B",
+      "blue",
+      []
+    ],
+    [
+      "or74:OUT",
+      "and304:A",
+      "blue",
+      []
+    ],
+    [
+      "not10:OUT",
+      "and304:B",
+      "blue",
+      []
+    ],
+    [
+      "or91:OUT",
+      "or92:A",
+      "blue",
+      []
+    ],
+    [
+      "and304:OUT",
+      "or92:B",
+      "blue",
+      []
+    ],
+    [
+      "and230:OUT",
+      "not17:IN",
+      "blue",
+      []
+    ],
+    [
+      "and278:OUT",
+      "and305:A",
+      "blue",
+      []
+    ],
+    [
+      "not17:OUT",
+      "and305:B",
+      "blue",
+      []
+    ],
+    [
+      "flop86:Q",
+      "and306:A",
+      "red",
+      []
+    ],
+    [
+      "flop50:Q",
+      "and306:B",
+      "limegreen",
+      []
+    ],
+    [
+      "and305:OUT",
+      "or93:A",
+      "blue",
+      []
+    ],
+    [
+      "and306:OUT",
+      "or93:B",
+      "blue",
+      []
+    ],
+    [
+      "or82:OUT",
+      "ttout1:OUT0",
+      "blue",
+      []
+    ],
+    [
+      "or83:OUT",
+      "ttout1:OUT1",
+      "blue",
+      []
+    ],
+    [
+      "or85:OUT",
+      "ttout1:OUT2",
+      "blue",
+      []
+    ],
+    [
+      "or87:OUT",
+      "ttout1:OUT3",
+      "blue",
+      []
+    ],
+    [
+      "and300:OUT",
+      "ttout1:OUT4",
+      "blue",
+      []
+    ],
+    [
+      "or90:OUT",
+      "ttout1:OUT5",
+      "blue",
+      []
+    ],
+    [
+      "or92:OUT",
+      "ttout1:OUT6",
+      "blue",
+      []
+    ],
+    [
+      "or93:OUT",
+      "ttout1:OUT7",
+      "blue",
+      []
+    ]
   ],
   "dependencies": {}
 }
