@@ -3,7 +3,7 @@ project:
   title:        "Silicon Guitar Pedal"        # Project title
   author:       "Thomas McDonagh"      # Your name
   discord:      "dedicatedhippo"      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
-  description:  "Voiced I2S guitar pedal: comp, fuzz, distortion, tone+gate, phaser, tremolo; K1 sets the shared trem+phaser rate, K2..K4 RC knobs on uio" # One line description of what your project does
+  description:  "I2S guitar pedal: comp, soft-knee distortion, tone+gate, phaser, tremolo, PSRAM delay with freeze; four RC knobs on uio"  # One line description of what your project does
   language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
   clock_hz:     24576000       # Clock frequency in Hz (or 0 if not applicable)
 
@@ -20,39 +20,40 @@ project:
     - "tt_um_tmcdonagh_guitar_pedal.v"
     - "mult.v"
     - "knob_rc4.v"
+    - "psram_spi.v"
 
 # The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
 # This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
 pinout:
-  # Inputs
-  ui[0]: "I2S ADC data in"
-  ui[1]: "Enable: comp"
-  ui[2]: "Enable: fuzz"
-  ui[3]: "Enable: dist"
-  ui[4]: "Enable: phaser"
-  ui[5]: "Enable: trem"
-  ui[6]: "Delay enable switch + PSRAM MISO, shared (Rev B; delay not implemented yet)"
-  ui[7]: "Fuzz octave switch (debounced)"
+  # Inputs (DIP switches only: every switch state is electrically safe)
+  ui[0]: "Enable: comp"
+  ui[1]: "Enable: dist"
+  ui[2]: "Enable: phaser"
+  ui[3]: "Enable: trem"
+  ui[4]: "Enable: delay (PSRAM)"
+  ui[5]: "Delay freeze"
+  ui[6]: "Unused"
+  ui[7]: "Unused"
 
   # Outputs
-  uo[0]: "SPI SCK (PSRAM SCLK + 595 SRCLK)"
-  uo[1]: "PSRAM CE# (idle high)"
-  uo[2]: "SPI MOSI (PSRAM SI + 595 SER)"
-  uo[3]: "595 latch RCLK (idle low)"
-  uo[4]: "Reserved (driven 0)"
+  uo[0]: "PSRAM SPI SCK"
+  uo[1]: "PSRAM CE# (RAM A, Pmod CS1)"
+  uo[2]: "PSRAM SPI MOSI (SI)"
+  uo[3]: "I2S DAC data out"
+  uo[4]: "I2S LRCLK/WS (master, 48 kHz)"
   uo[5]: "Reserved (driven 0)"
-  uo[6]: "Reserved (driven 0)"
+  uo[6]: "Flash CS0 hold (driven 1: keeps the QSPI Pmod flash deselected)"
   uo[7]: "dp = clip LED (peak hold ~43 ms)"
 
   # Bidirectional pins
   uio[0]: "MCLK (24.576 MHz output)"
-  uio[1]: "I2S DAC data out"
+  uio[1]: "I2S ADC data in"
   uio[2]: "Knob K1 trem + phaser rate (RC pot, tie to GND if unused)"
   uio[3]: "Knob K2 post-dirt tone (RC pot, tie to GND if unused)"
   uio[4]: "Knob K3 dist drive (RC pot, tie to GND if unused)"
   uio[5]: "Knob K4 delay time (RC pot, tie to GND if unused)"
   uio[6]: "I2S BCLK (master, 3.072 MHz)"
-  uio[7]: "I2S LRCLK/WS (master, 48 kHz)"
+  uio[7]: "PSRAM SPI MISO (SO)"
 
 # Do not change!
 yaml_version: 6
