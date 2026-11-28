@@ -1,0 +1,59 @@
+# Tiny Tapeout project information
+project:
+  title:        "Scheme-78: the 1978 MIT SIMPLE Lisp processor"      # Project title
+  author:       "Stanislav Sedov"      # Your name
+  discord:      ""      # Your discord username, for communication and automatically assigning you a Tapeout role (optional)
+  description:  "The SIMPLE Lisp evaluator of MIT AI Memo 514; the demoboard's RP2350 holds the 256-word memory"      # One line description of what your project does
+  language:     "Verilog" # other examples include SystemVerilog, Amaranth, VHDL, etc
+  clock_hz:     0       # Clock frequency in Hz (or 0 if not applicable)
+
+  # How many tiles your design occupies? A single tile is about 167x108 uM.
+  tiles: "1x1"          # Valid values: 1x1, 1x2, 2x2, 3x2, 4x2, 6x2 or 8x2
+
+  # Your top module name must start with "tt_um_". Make it unique by including your github username:
+  top_module:  "tt_um_stass_scheme78"
+
+  # List your project's source files here.
+  # Source files must be in ./src and you must list each source file separately, one per line.
+  # Don't forget to also update `PROJECT_SOURCES` in test/Makefile.
+  source_files:
+    - "tt_um_scheme78.v"
+    - "scheme78_core.v"
+    - "s78_eval_decode.v"
+    - "s78_gc_decode.v"
+
+# The pinout of your project. Leave unused pins blank. DO NOT delete or add any pins.
+# This section is for the datasheet/website. Use descriptive names (e.g., RX, TX, MOSI, SCL, SEG_A, etc.).
+pinout:
+  # Inputs
+  ui[0]: "IN[0]"
+  ui[1]: "IN[1]"
+  ui[2]: "IN[2]"
+  ui[3]: "IN[3]"
+  ui[4]: "IN[4]"
+  ui[5]: "IN[5]"
+  ui[6]: "IN[6]"
+  ui[7]: "IN[7]"
+
+  # Outputs
+  uo[0]: "S[0]/GS[0]"
+  uo[1]: "S[1]/GS[1]"
+  uo[2]: "S[2]/GS[2]"
+  uo[3]: "S[3]/GS[3]"
+  uo[4]: "S[4]/GS[4]"
+  uo[5]: "S[5]/ES[0]"
+  uo[6]: "S[6]/ES[1]"
+  uo[7]: "S[7]/ES[2]"
+
+  # Bidirectional pins
+  uio[0]: "IN[8]"
+  uio[1]: "IN[9]"
+  uio[2]: "IN[10]"
+  uio[3]: "S[8]/ES[3]"
+  uio[4]: "S[9]/ES[4]"
+  uio[5]: "S[10]/ES[5]"
+  uio[6]: "ADR"
+  uio[7]: "WRITE"
+
+# Do not change!
+yaml_version: 6
